@@ -79,11 +79,10 @@ def display_results(result):
 def display_financial_data(data):
     """Display financial data in a structured format"""
     try:
+        # Display metadata (using P&L metadata as they should be the same)
         if "Profit and Loss" in data:
-            pl_data = data["Profit and Loss"]
-            metadata = pl_data.get("metadata", {})
+            metadata = data["Profit and Loss"].get("metadata", {})
             
-            # Display metadata
             st.subheader("Statement Information")
             col1, col2, col3 = st.columns(3)
             with col1:
@@ -93,62 +92,110 @@ def display_financial_data(data):
             with col3:
                 st.metric("Unit", metadata.get("unit_symbol", "N/A"))
 
-            # Create DataFrame for Profit & Loss
-            pl_rows = []
-            years = sorted([year for year in pl_data.keys() if year.isdigit()])
+            # Create tabs for different statement types
+            statement_tabs = st.tabs(["Profit & Loss", "Balance Sheet"])
             
-            # Get all unique line items
-            line_items = set()
-            for year in years:
-                line_items.update(item["name"] for item in pl_data[year]["profit_and_loss"])
-                if "other_comprehensive_income" in pl_data[year]:
-                    line_items.update(item["name"] for item in pl_data[year]["other_comprehensive_income"])
-            
-            # Create rows for DataFrame
-            for item_name in line_items:
-                row = {"Line Item": item_name}
+            with statement_tabs[0]:
+                pl_data = data["Profit and Loss"]
+                years = sorted([year for year in pl_data.keys() if year.isdigit()])
+                
+                # Create rows for P&L DataFrame
+                pl_rows = []
                 for year in years:
-                    # Check in profit_and_loss
-                    value = next((item["value"] for item in pl_data[year]["profit_and_loss"] 
-                                if item["name"] == item_name), None)
-                    # If not found, check in other_comprehensive_income
-                    if value is None and "other_comprehensive_income" in pl_data[year]:
-                        value = next((item["value"] for item in pl_data[year]["other_comprehensive_income"] 
-                                    if item["name"] == item_name), None)
-                    row[year] = value
-                pl_rows.append(row)
+                    for item in pl_data[year]["profit_and_loss"]:
+                        # Find or create row
+                        row = next(
+                            (r for r in pl_rows if r["Line Item"] == item["name"]),
+                            {"Line Item": item["name"], **{y: None for y in years}}
+                        )
+                        row[year] = item["value"]
+                        if row not in pl_rows:
+                            pl_rows.append(row)
+                
+                # Create and display P&L DataFrame
+                pl_df = pd.DataFrame(pl_rows)
+                st.subheader("Profit & Loss Statement")
+                display_styled_dataframe(pl_df, years)
             
-            # Add total comprehensive income
-            pl_rows.append({
-                "Line Item": "Total comprehensive income",
-                **{year: pl_data[year].get("total_comprehensive_income") for year in years}
-            })
-            
-            # Create and display DataFrame
-            df = pd.DataFrame(pl_rows)
-            
-            # Format the DataFrame
-            st.subheader("Profit & Loss Statement")
-            
-            # Style the DataFrame
-            def style_negative_red(val):
-                if isinstance(val, (int, float)) and val < 0:
-                    return 'color: red'
-                return ''
-            
-            styled_df = df.style\
-                .format({col: '{:,.0f}' for col in years})\
-                .applymap(style_negative_red, subset=years)\
-                .set_properties(**{
-                    'text-align': 'left',
-                    'font-family': 'monospace',
-                    'white-space': 'pre'
-                })
-            
-            st.dataframe(styled_df, use_container_width=True)
-            
+            with statement_tabs[1]:
+                if "Balance Sheet" in data:
+                    bs_data = data["Balance Sheet"]
+                    years = sorted([year for year in bs_data.keys() if year.isdigit()])
+                    
+                    # Create rows for Balance Sheet DataFrame
+                    bs_rows = []
+                    
+                    # Define sections and their order
+                    sections = [
+                        ("Fixed Assets", "fixed_assets"),
+                        ("Current Assets", "current_assets"),
+                        ("Current Liabilities", "current_liabilities"),
+                        ("Net Current Assets", "net_current_assets"),
+                        ("Total Assets Less Current Liabilities", "total_assets_less_current_liabilities"),
+                        ("Long Term Liabilities", "long_term_liabilities"),
+                        ("Capital and Reserves", "capital_and_reserves")
+                    ]
+                    
+                    for section_title, section_key in sections:
+                        # Add section header
+                        bs_rows.append({
+                            "Line Item": f"--- {section_title} ---",
+                            **{year: None for year in years}
+                        })
+                        
+                        for year in years:
+                            section_data = bs_data[year]["balance_sheet"][section_key]
+                            
+                            # Handle both list and dict formats
+                            if isinstance(section_data, list):
+                                items = section_data
+                            else:
+                                items = [section_data]
+                            
+                            for item in items:
+                                row = next(
+                                    (r for r in bs_rows if r["Line Item"] == item["name"]),
+                                    {"Line Item": item["name"], **{y: None for y in years}}
+                                )
+                                row[year] = item["value"]
+                                if row not in bs_rows:
+                                    bs_rows.append(row)
+                    
+                    # Create and display Balance Sheet DataFrame
+                    bs_df = pd.DataFrame(bs_rows)
+                    st.subheader("Balance Sheet")
+                    display_styled_dataframe(bs_df, years)
+                else:
+                    st.info("No Balance Sheet data available")
+                    
     except Exception as e:
         st.error(f"Error displaying financial data: {str(e)}")
+        # Add debug information
+        st.error(f"Debug info: {type(e).__name__} at line {e.__traceback__.tb_lineno}")
+
+def display_styled_dataframe(df: pd.DataFrame, years: list):
+    """Helper function to apply consistent styling to financial tables"""
+    def style_negative_red(val):
+        if isinstance(val, (int, float)) and val < 0:
+            return 'color: red'
+        return ''
+    
+    def style_section_header(val):
+        if isinstance(val, str) and val.startswith('---'):
+            return 'font-weight: bold; background-color: #f0f2f6'
+        return ''
+    
+    styled_df = df.style\
+        .format({col: '{:,.1f}' for col in years})\
+        .applymap(style_negative_red, subset=years)\
+        .applymap(style_section_header, subset=['Line Item'])\
+        .set_properties(**{
+            'text-align': 'left',
+            'font-family': 'monospace',
+            'white-space': 'pre'
+        })
+    
+    st.dataframe(styled_df, use_container_width=True)
 
 def display_validation_results(data):
     """Display validation checks and results"""
