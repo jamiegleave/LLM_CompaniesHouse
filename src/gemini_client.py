@@ -24,29 +24,25 @@ class GeminiClient:
         genai.configure(api_key=api_key)
         self.model = genai.GenerativeModel(model_name=GEMINI_CONFIG["model"])
 
-    def analyze_document(self, image_paths: List[str]) -> RecognitionResult:
+    def analyze_document(self, file_obj, mime_type: str) -> RecognitionResult:
         """Analyze financial statements using Gemini Vision API"""
         try:
-            if not image_paths:
-                logger.error("No images provided")
+            if not file_obj:
+                logger.error("No file provided")
                 return RecognitionResult(
                     success=False,
-                    error=f"{ErrorCodes.RECOGNITION_FAILED}: No images provided"
+                    error=f"{ErrorCodes.RECOGNITION_FAILED}: No file provided"
                 )
 
             logger.info("\n=== Document Analysis ===")
-            logger.info(f"Total pages: {len(image_paths)}")
-
-            # Upload all images to Gemini
-            uploaded_files = []
+            
+            # Upload file to Gemini
             try:
-                for i, image_path in enumerate(image_paths):
-                    file = genai.upload_file(image_path)
-                    uploaded_files.append(file)
-                    logger.info(f"Uploaded page {i+1}")
+                file = genai.upload_file(file_obj, mime_type=mime_type)
+                logger.info(f"Uploaded file: {file.name}")
 
                 # Add the system prompt
-                system_prompt = """Analyze these financial statement pages and extract all data into structured JSON.
+                system_prompt = """Analyze this financial statement and extract all data into structured JSON.
 
 Key Requirements:
 1. Structure:
@@ -79,9 +75,9 @@ Key Requirements:
 
 Respond ONLY with the JSON object."""
 
-                # Make a single API call with all files
+                # Make API call
                 response = self.model.generate_content(
-                    [system_prompt] + uploaded_files,
+                    [system_prompt, file],
                     generation_config={
                         "temperature": 0.1,
                         "candidate_count": 1,
@@ -89,6 +85,7 @@ Respond ONLY with the JSON object."""
                     }
                 )
 
+                # Process response
                 if not response or not response.text:
                     logger.error("Empty response from API")
                     return RecognitionResult(
@@ -121,8 +118,8 @@ Respond ONLY with the JSON object."""
                     )
 
             finally:
-                # Clean up uploaded files
-                for file in uploaded_files:
+                # Clean up uploaded file
+                if 'file' in locals():
                     try:
                         genai.delete_file(file.name)
                         logger.info(f"Deleted uploaded file: {file.name}")

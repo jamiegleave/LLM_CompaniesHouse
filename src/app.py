@@ -1,12 +1,14 @@
 import streamlit as st
-from .document_uploader import DocumentUploader
 from .gemini_client import GeminiClient
 from .config import SUPPORTED_FORMATS, MAX_FILE_SIZE_MB
 import pandas as pd
 import json
 import tempfile
 import os
-from pdf2image import convert_from_bytes
+import logging
+
+# Configure logging
+logger = logging.getLogger(__name__)
 
 def main():
     st.title("FinState Analyzer")
@@ -233,41 +235,19 @@ def check_numerical_consistency(data):
 def process_uploaded_file(uploaded_file, gemini_client):
     """Process the uploaded file and return the recognition result"""
     try:
-        # Create a temporary directory for this upload
-        with tempfile.TemporaryDirectory() as temp_dir:
-            # If PDF, convert to images first
-            if uploaded_file.name.lower().endswith('.pdf'):
-                with st.spinner("Converting PDF to images..."):
-                    pdf_bytes = uploaded_file.read()
-                    images = convert_from_bytes(
-                        pdf_bytes,
-                        fmt='jpeg',
-                        grayscale=False,
-                        size=(2048, None),
-                        use_cropbox=True
-                    )
-                    
-                    # Save images to temporary files
-                    temp_files = []
-                    for i, img in enumerate(images):
-                        if img.mode != 'RGB':
-                            img = img.convert('RGB')
-                        temp_path = os.path.join(temp_dir, f'page_{i+1}.jpg')
-                        img.save(temp_path, 'JPEG', quality=95)
-                        temp_files.append(temp_path)
-                        st.info(f"Converted page {i+1}")
-            else:
-                # For image files, save directly
-                temp_path = os.path.join(temp_dir, uploaded_file.name)
-                with open(temp_path, 'wb') as f:
-                    f.write(uploaded_file.read())
-                temp_files = [temp_path]
+        # Get the mime type based on file extension
+        mime_type = {
+            'pdf': 'application/pdf',
+            'jpg': 'image/jpeg',
+            'jpeg': 'image/jpeg',
+            'png': 'image/png'
+        }.get(uploaded_file.name.lower().split('.')[-1], 'application/octet-stream')
 
-            # Analyze with Gemini
-            with st.spinner("Analyzing financial statements..."):
-                recognition_result = gemini_client.analyze_document(temp_files)
-                
-            return recognition_result
+        # Upload directly using the file-like object
+        with st.spinner("Analyzing financial statements..."):
+            recognition_result = gemini_client.analyze_document(uploaded_file, mime_type)
+            
+        return recognition_result
 
     except Exception as e:
         st.error(f"Error processing {uploaded_file.name}: {str(e)}")
