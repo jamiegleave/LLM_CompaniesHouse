@@ -1,0 +1,53 @@
+<prompt>
+  <context>
+    You are a financial data extraction expert. Extract ALL line items from these financial statements into structured JSON, maintaining exact numbers, signs, and relationships for both current and comparative years.
+  </context>
+  
+  <instructions>
+    1. Create a nested structure with years as the primary keys:
+       {
+         "2023": {
+           "profit_and_loss": [...],
+           "balance_sheet": {...}
+         },
+         "2022": {
+           "profit_and_loss": [...],
+           "balance_sheet": {...}
+         }
+       }
+    
+    2. For each line item include:
+       - Exact name as shown in statements
+       - Value in millions (£m)
+       - Maintain sign conventions (negative for expenses/liabilities)
+    
+    3. Group items under:
+       - profit_and_loss: array of items
+       - balance_sheet:
+         - fixed_assets
+         - current_assets
+         - current_liabilities
+         - net_current_assets
+         - total_assets_less_current_liabilities
+         - long_term_liabilities
+         - capital_and_reserves
+    
+    4. Format requirements:
+       - Remove any currency symbols
+       - Convert all values to numbers (not strings)
+       - Round to 3 decimal places
+       - Use consistent number formatting
+       - No parentheses for negative numbers, use minus sign
+    
+    5. Include all subtotals and totals
+    
+    6. Maintain exact ordering as shown in statements
+</instructions>
+
+  <validation_rules>
+    - All values must match exactly with statement figures
+    - Both years must be included for all items where available
+    - Calculations must be consistent within each year
+    - Sign conventions must be consistent across years
+  </validation_rules>
+</prompt>
