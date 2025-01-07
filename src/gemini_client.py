@@ -1,14 +1,11 @@
 from dataclasses import dataclass
-from typing import Optional, Dict, List
+from typing import Optional, Dict
 import google.generativeai as genai
-import tempfile
-import os
 import json
 import logging
-from .config import GEMINI_CONFIG, ErrorCodes, ERROR_MESSAGES
+from .config import GEMINI_CONFIG, ErrorCodes
 
 # Configure logging
-logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
 
 @dataclass

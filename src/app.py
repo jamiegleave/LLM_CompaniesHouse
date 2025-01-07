@@ -2,9 +2,6 @@ import streamlit as st
 from .gemini_client import GeminiClient
 from .config import SUPPORTED_FORMATS, MAX_FILE_SIZE_MB
 import pandas as pd
-import json
-import tempfile
-import os
 import logging
 
 # Configure logging
@@ -40,158 +37,136 @@ def main():
     if uploaded_files:
         for uploaded_file in uploaded_files:
             st.subheader(f"Processing: {uploaded_file.name}")
-            
-            with st.spinner("Processing document..."):
-                # Process file and analyze with Gemini
-                recognition_result = process_uploaded_file(uploaded_file, gemini_client)
-                
-                if recognition_result and recognition_result.success:
-                    display_results(recognition_result)
-                else:
-                    st.error(f"Analysis failed: {recognition_result.error if recognition_result else 'Unknown error'}")
+            process_and_display_results(uploaded_file, gemini_client)
+
+def process_and_display_results(uploaded_file, gemini_client):
+    """Process file and display results"""
+    with st.spinner("Processing document..."):
+        recognition_result = process_uploaded_file(uploaded_file, gemini_client)
+        
+        if recognition_result and recognition_result.success:
+            display_results(recognition_result)
+        else:
+            st.error(f"Analysis failed: {recognition_result.error if recognition_result else 'Unknown error'}")
+
+def process_uploaded_file(uploaded_file, gemini_client):
+    """Process the uploaded file and return the recognition result"""
+    try:
+        mime_type = {
+            'pdf': 'application/pdf',
+            'jpg': 'image/jpeg',
+            'jpeg': 'image/jpeg',
+            'png': 'image/png'
+        }.get(uploaded_file.name.lower().split('.')[-1], 'application/octet-stream')
+
+        return gemini_client.analyze_document(uploaded_file, mime_type)
+
+    except Exception as e:
+        logger.error(f"Error processing {uploaded_file.name}: {str(e)}")
+        return None
 
 def display_results(result):
     """Display the analysis results in a structured format"""
-    
-    # Display statement type and confidence
+    # Display metadata
     col1, col2 = st.columns(2)
     with col1:
         st.metric("Statement Type", result.statement_type)
     with col2:
         st.metric("Confidence Score", f"{result.confidence:.2%}")
 
-    # Display extracted data in tabs
     if result.extracted_data:
         tabs = st.tabs(["Financial Data", "Raw JSON", "Validation"])
         
         with tabs[0]:
             display_financial_data(result.extracted_data)
-        
         with tabs[1]:
             st.json(result.extracted_data)
-        
         with tabs[2]:
             display_validation_results(result.extracted_data)
 
 def display_financial_data(data):
     """Display financial data in a structured format"""
     try:
-        if "Profit and Loss" in data:
-            pl_data = data["Profit and Loss"]
-            metadata = pl_data.get("metadata", {})
-            
-            # Display metadata
-            st.subheader("Statement Information")
-            col1, col2, col3 = st.columns(3)
-            with col1:
-                st.metric("Currency", metadata.get("currency", "N/A"))
-            with col2:
-                st.metric("Scale", metadata.get("scale", "N/A"))
-            with col3:
-                st.metric("Unit", metadata.get("unit_symbol", "N/A"))
+        if "statements" not in data:
+            st.error("No statements found in data")
+            return
 
-            # Create tabs for different statement types
-            statement_tabs = st.tabs(["Profit & Loss", "Balance Sheet"])
-            
-            with statement_tabs[0]:
-                # Profit & Loss Table (unchanged)
-                years = sorted([year for year in pl_data.keys() if year.isdigit()])
-                pl_rows = []
-                for year in years:
-                    for item in pl_data[year]["profit_and_loss"]:
-                        row = next(
-                            (r for r in pl_rows if r["Line Item"] == item["name"]),
-                            {"Line Item": item["name"], **{y: None for y in years}}
-                        )
-                        row[year] = item["value"]
-                        if row not in pl_rows:
-                            pl_rows.append(row)
-                
-                pl_df = pd.DataFrame(pl_rows)
-                st.subheader("Profit & Loss Statement")
-                display_styled_dataframe(pl_df, years)
-            
-            with statement_tabs[1]:
-                if "Balance Sheet" in data:
-                    bs_data = data["Balance Sheet"]
-                    years = sorted([year for year in bs_data.keys() if year.isdigit()])
-                    
-                    # Create rows for Balance Sheet DataFrame
-                    bs_rows = []
-                    
-                    # Define sections and their order
-                    sections = [
-                        ("Fixed Assets", "fixed_assets"),
-                        ("Current Assets", "current_assets"),
-                        ("Current Liabilities", "current_liabilities"),
-                        ("Net Current Assets", "net_current_assets"),
-                        ("Total Assets Less Current Liabilities", "total_assets_less_current_liabilities"),
-                        ("Long Term Liabilities", "long_term_liabilities"),
-                        ("Capital and Reserves", "capital_and_reserves")
-                    ]
-                    
-                    for section_title, section_key in sections:
-                        # Add section header
-                        bs_rows.append({
-                            "Line Item": f"--- {section_title} ---",
-                            **{year: None for year in years}
-                        })
-                        
-                        for year in years:
-                            if section_key in bs_data[year].get("balance_sheet", {}):
-                                section_data = bs_data[year]["balance_sheet"][section_key]
-                                
-                                # Handle different data types
-                                if isinstance(section_data, (int, float)):
-                                    # Handle direct value
-                                    bs_rows.append({
-                                        "Line Item": section_key.replace("_", " ").title(),
-                                        **{y: section_data if y == year else None for y in years}
-                                    })
-                                elif isinstance(section_data, dict):
-                                    # Handle single dictionary item
-                                    bs_rows.append({
-                                        "Line Item": section_data.get("name", section_key.replace("_", " ").title()),
-                                        **{y: section_data["value"] if y == year else None for y in years}
-                                    })
-                                elif isinstance(section_data, list):
-                                    # Handle list of items
-                                    for item in section_data:
-                                        row = next(
-                                            (r for r in bs_rows if r["Line Item"] == item["name"]),
-                                            {"Line Item": item["name"], **{y: None for y in years}}
-                                        )
-                                        row[year] = item["value"]
-                                        if row not in bs_rows:
-                                            bs_rows.append(row)
-                    
-                    # Create and display Balance Sheet DataFrame
-                    bs_df = pd.DataFrame(bs_rows)
-                    st.subheader("Balance Sheet")
-                    display_styled_dataframe(bs_df, years)
-                else:
-                    st.info("No Balance Sheet data available")
-                    
+        # Display metadata first
+        metadata = data.get("metadata", {})
+        display_metadata(metadata)
+        
+        # Create tabs for each statement type
+        statement_types = data["statements"].keys()
+        tabs = st.tabs([type.replace('_', ' ').title() for type in statement_types])
+        
+        # Display each statement in its own tab
+        for tab, statement_type in zip(tabs, statement_types):
+            with tab:
+                statement_data = data["statements"][statement_type]
+                display_statement_data(statement_type, statement_data)
+
     except Exception as e:
-        st.error(f"Error displaying financial data: {str(e)}")
-        st.error(f"Debug info: {type(e).__name__} at line {e.__traceback__.tb_lineno}")
+        logger.error(f"Error displaying financial data: {str(e)}")
+        st.error(f"Error displaying data: {str(e)}")
+
+def display_statement_data(statement_type: str, data: dict):
+    """Display statement data in a consistent format"""
+    try:
+        # Get years and create DataFrame structure
+        years = sorted([year for year in data.keys() if year.isdigit()])
+        if not years:
+            st.warning("No yearly data found")
+            return
+
+        # Convert nested dictionary to flat format
+        rows = []
+        for key, value in flatten_dict(data[years[0]]).items():
+            row = {"Line Item": key}
+            for year in years:
+                year_data = flatten_dict(data[year])
+                row[year] = year_data.get(key)
+            rows.append(row)
+
+        # Create and display DataFrame
+        df = pd.DataFrame(rows)
+        display_styled_dataframe(df, years)
+
+    except Exception as e:
+        st.error(f"Error displaying {statement_type}: {str(e)}")
+
+def flatten_dict(d: dict, parent_key: str = '', sep: str = ' → ') -> dict:
+    """Flatten nested dictionary with custom separator"""
+    items = []
+    for k, v in d.items():
+        new_key = f"{parent_key}{sep}{k}" if parent_key else k
+        if isinstance(v, dict):
+            items.extend(flatten_dict(v, new_key, sep=sep).items())
+        else:
+            items.append((new_key, v))
+    return dict(items)
 
 def display_styled_dataframe(df: pd.DataFrame, years: list):
-    """Helper function to apply consistent styling to financial tables"""
-    def style_negative_red(val):
-        if isinstance(val, (int, float)) and val < 0:
-            return 'color: red'
-        return ''
-    
-    def style_section_header(val):
-        if isinstance(val, str) and val.startswith('---'):
-            return 'font-weight: bold; background-color: #f0f2f6'
-        return ''
-    
+    """Apply consistent styling to financial tables"""
+    # Format numbers, handling None values
+    def format_value(x):
+        if pd.isna(x):
+            return ''
+        try:
+            return '{:,.1f}'.format(float(x))
+        except (ValueError, TypeError):
+            return str(x)
+
+    # Style negative numbers in red
+    def style_negative(x):
+        try:
+            return 'color: red' if float(x) < 0 else ''
+        except (ValueError, TypeError):
+            return ''
+
+    # Apply styling
     styled_df = df.style\
-        .format({col: '{:,.1f}' for col in years})\
-        .applymap(style_negative_red, subset=years)\
-        .applymap(style_section_header, subset=['Line Item'])\
+        .format(format_value, subset=years)\
+        .map(style_negative, subset=years)\
         .set_properties(**{
             'text-align': 'left',
             'font-family': 'monospace',
@@ -200,15 +175,26 @@ def display_styled_dataframe(df: pd.DataFrame, years: list):
     
     st.dataframe(styled_df, use_container_width=True)
 
+def display_metadata(metadata: dict):
+    """Display statement metadata"""
+    if metadata:
+        st.subheader("Statement Information")
+        cols = st.columns(3)
+        with cols[0]:
+            st.metric("Currency", metadata.get("currency", "N/A"))
+        with cols[1]:
+            st.metric("Scale", metadata.get("scale", "N/A"))
+        with cols[2]:
+            st.metric("Unit", metadata.get("unit_symbol", "N/A"))
+
 def display_validation_results(data):
     """Display validation checks and results"""
     st.subheader("Validation Checks")
     
-    # Example validation checks
     validations = [
-        ("Required Fields Present", check_required_fields(data)),
-        ("Numerical Consistency", check_numerical_consistency(data)),
-        ("Year-over-Year Data", "year_over_year" in data)
+        ("Statement Structure", "statements" in data),
+        ("Metadata Present", "metadata" in data),
+        ("Multi-year Data", len([k for k in data.get("statements", {}).get("profit_and_loss", {}) if k.isdigit()]) > 1)
     ]
     
     for check_name, check_result in validations:
@@ -216,42 +202,6 @@ def display_validation_results(data):
             st.success(f"✓ {check_name}")
         else:
             st.warning(f"⚠ {check_name}")
-
-def check_required_fields(data):
-    """Check if all required fields are present"""
-    required_fields = ["metrics", "statement_type"]
-    return all(field in data for field in required_fields)
-
-def check_numerical_consistency(data):
-    """Basic check for numerical consistency"""
-    try:
-        if "metrics" in data:
-            # Add specific checks based on statement type
-            return True
-        return False
-    except:
-        return False
-
-def process_uploaded_file(uploaded_file, gemini_client):
-    """Process the uploaded file and return the recognition result"""
-    try:
-        # Get the mime type based on file extension
-        mime_type = {
-            'pdf': 'application/pdf',
-            'jpg': 'image/jpeg',
-            'jpeg': 'image/jpeg',
-            'png': 'image/png'
-        }.get(uploaded_file.name.lower().split('.')[-1], 'application/octet-stream')
-
-        # Upload directly using the file-like object
-        with st.spinner("Analyzing financial statements..."):
-            recognition_result = gemini_client.analyze_document(uploaded_file, mime_type)
-            
-        return recognition_result
-
-    except Exception as e:
-        st.error(f"Error processing {uploaded_file.name}: {str(e)}")
-        return None
 
 if __name__ == "__main__":
     main() 
