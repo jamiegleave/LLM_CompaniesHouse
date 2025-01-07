@@ -5,6 +5,7 @@ from pdf2image import convert_from_bytes
 from PIL import Image
 import streamlit as st
 import logging
+from .config import GEMINI_CONFIG
 
 logger = logging.getLogger(__name__)
 
@@ -60,13 +61,14 @@ class DocumentUploader:
             )
 
     def _convert_to_image_bytes(self, pdf_bytes: bytes, filename: str) -> List[bytes]:
+        """Convert PDF pages to optimized JPEG bytes"""
         try:
             # Convert all pages
             images = convert_from_bytes(
                 pdf_bytes,
                 fmt='jpeg',
                 grayscale=False,
-                size=(1500, None),
+                size=(2048, None),
                 use_cropbox=True
             )
             
@@ -75,7 +77,9 @@ class DocumentUploader:
             image_bytes_list = []
             for i, img in enumerate(images, 1):
                 img_byte_arr = io.BytesIO()
-                img.save(img_byte_arr, format='JPEG')
+                if img.mode != 'RGB':
+                    img = img.convert('RGB')
+                img.save(img_byte_arr, format='JPEG', quality=95)
                 image_bytes_list.append(img_byte_arr.getvalue())
                 logger.info(f"Converted page {i}")
             
@@ -83,7 +87,7 @@ class DocumentUploader:
             
         except Exception as e:
             logger.error(f"PDF conversion failed: {str(e)}")
-            return [] 
+            return []
 
     def _process_image_file(self, image_bytes: bytes) -> List[bytes]:
         """Handle direct image file processing"""
@@ -91,13 +95,23 @@ class DocumentUploader:
             # Open the image using PIL
             image = Image.open(io.BytesIO(image_bytes))
             
-            # Convert to RGB if necessary (in case of PNG with transparency)
-            if image.mode in ('RGBA', 'P'):
+            # Convert to RGB if necessary
+            if image.mode not in ('RGB', 'L'):
                 image = image.convert('RGB')
+            
+            # Resize if image is too large or too small
+            max_size = 3072
+            min_size = 768
+            
+            if max(image.size) > max_size or min(image.size) < min_size:
+                # Calculate new size maintaining aspect ratio
+                ratio = min(max_size / max(image.size), min_size / min(image.size))
+                new_size = tuple(int(dim * ratio) for dim in image.size)
+                image = image.resize(new_size, Image.Resampling.LANCZOS)
             
             # Convert to JPEG bytes
             img_byte_arr = io.BytesIO()
-            image.save(img_byte_arr, format='JPEG')
+            image.save(img_byte_arr, format='JPEG', quality=95)
             
             return [img_byte_arr.getvalue()]
             

@@ -1,29 +1,31 @@
 import streamlit as st
 from .document_uploader import DocumentUploader
-from .openrouter_client import OpenRouterClient
+from .gemini_client import GeminiClient
 from .config import SUPPORTED_FORMATS, MAX_FILE_SIZE_MB
 import pandas as pd
 import json
+import tempfile
+import os
+from pdf2image import convert_from_bytes
 
 def main():
     st.title("FinState Analyzer")
     
     # Add API key configuration in sidebar
     api_key = st.sidebar.text_input(
-        "OpenRouter API Key",
+        "Google API Key",
         type="password",
-        help="Enter your OpenRouter API key"
+        help="Enter your Google API key"
     )
     
     if not api_key:
-        st.warning("Please enter your OpenRouter API key to enable document recognition.")
+        st.warning("Please enter your Google API key to enable document recognition.")
         return
 
     st.sidebar.header("Document Upload")
 
-    # Initialize clients
-    uploader = DocumentUploader(api_key=api_key)
-    router_client = OpenRouterClient(api_key=api_key)
+    # Initialize client
+    gemini_client = GeminiClient(api_key=api_key)
 
     # File upload section
     uploaded_files = st.sidebar.file_uploader(
@@ -37,21 +39,14 @@ def main():
         for uploaded_file in uploaded_files:
             st.subheader(f"Processing: {uploaded_file.name}")
             
-            with st.spinner("Converting document to images..."):
-                # First, convert document to images
-                upload_result = process_uploaded_file(uploaded_file, uploader)
+            with st.spinner("Processing document..."):
+                # Process file and analyze with Gemini
+                recognition_result = process_uploaded_file(uploaded_file, gemini_client)
                 
-                if not upload_result or not upload_result.success:
-                    continue
-
-            with st.spinner("Analyzing financial statements..."):
-                # Then analyze with OpenRouter using all pages
-                recognition_result = router_client.analyze_document(upload_result.image_bytes_list)
-                
-                if recognition_result.success:
+                if recognition_result and recognition_result.success:
                     display_results(recognition_result)
                 else:
-                    st.error(f"Analysis failed: {recognition_result.error}")
+                    st.error(f"Analysis failed: {recognition_result.error if recognition_result else 'Unknown error'}")
 
 def display_results(result):
     """Display the analysis results in a structured format"""
@@ -235,18 +230,45 @@ def check_numerical_consistency(data):
     except:
         return False
 
-def process_uploaded_file(uploaded_file, uploader):
-    """Process the uploaded file and return the result"""
+def process_uploaded_file(uploaded_file, gemini_client):
+    """Process the uploaded file and return the recognition result"""
     try:
-        # First, convert document to images
-        upload_result = uploader.recognize_document(uploaded_file)
-        
-        if not upload_result or not upload_result.success:
-            st.error(f"Error processing {uploaded_file.name}: {upload_result.error if upload_result else 'Unknown error'}")
-            return None
-            
-        return upload_result
-        
+        # Create a temporary directory for this upload
+        with tempfile.TemporaryDirectory() as temp_dir:
+            # If PDF, convert to images first
+            if uploaded_file.name.lower().endswith('.pdf'):
+                with st.spinner("Converting PDF to images..."):
+                    pdf_bytes = uploaded_file.read()
+                    images = convert_from_bytes(
+                        pdf_bytes,
+                        fmt='jpeg',
+                        grayscale=False,
+                        size=(2048, None),
+                        use_cropbox=True
+                    )
+                    
+                    # Save images to temporary files
+                    temp_files = []
+                    for i, img in enumerate(images):
+                        if img.mode != 'RGB':
+                            img = img.convert('RGB')
+                        temp_path = os.path.join(temp_dir, f'page_{i+1}.jpg')
+                        img.save(temp_path, 'JPEG', quality=95)
+                        temp_files.append(temp_path)
+                        st.info(f"Converted page {i+1}")
+            else:
+                # For image files, save directly
+                temp_path = os.path.join(temp_dir, uploaded_file.name)
+                with open(temp_path, 'wb') as f:
+                    f.write(uploaded_file.read())
+                temp_files = [temp_path]
+
+            # Analyze with Gemini
+            with st.spinner("Analyzing financial statements..."):
+                recognition_result = gemini_client.analyze_document(temp_files)
+                
+            return recognition_result
+
     except Exception as e:
         st.error(f"Error processing {uploaded_file.name}: {str(e)}")
         return None
