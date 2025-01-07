@@ -79,10 +79,11 @@ def display_results(result):
 def display_financial_data(data):
     """Display financial data in a structured format"""
     try:
-        # Display metadata (using P&L metadata as they should be the same)
         if "Profit and Loss" in data:
-            metadata = data["Profit and Loss"].get("metadata", {})
+            pl_data = data["Profit and Loss"]
+            metadata = pl_data.get("metadata", {})
             
+            # Display metadata
             st.subheader("Statement Information")
             col1, col2, col3 = st.columns(3)
             with col1:
@@ -96,14 +97,11 @@ def display_financial_data(data):
             statement_tabs = st.tabs(["Profit & Loss", "Balance Sheet"])
             
             with statement_tabs[0]:
-                pl_data = data["Profit and Loss"]
+                # Profit & Loss Table (unchanged)
                 years = sorted([year for year in pl_data.keys() if year.isdigit()])
-                
-                # Create rows for P&L DataFrame
                 pl_rows = []
                 for year in years:
                     for item in pl_data[year]["profit_and_loss"]:
-                        # Find or create row
                         row = next(
                             (r for r in pl_rows if r["Line Item"] == item["name"]),
                             {"Line Item": item["name"], **{y: None for y in years}}
@@ -112,7 +110,6 @@ def display_financial_data(data):
                         if row not in pl_rows:
                             pl_rows.append(row)
                 
-                # Create and display P&L DataFrame
                 pl_df = pd.DataFrame(pl_rows)
                 st.subheader("Profit & Loss Statement")
                 display_styled_dataframe(pl_df, years)
@@ -144,22 +141,32 @@ def display_financial_data(data):
                         })
                         
                         for year in years:
-                            section_data = bs_data[year]["balance_sheet"][section_key]
-                            
-                            # Handle both list and dict formats
-                            if isinstance(section_data, list):
-                                items = section_data
-                            else:
-                                items = [section_data]
-                            
-                            for item in items:
-                                row = next(
-                                    (r for r in bs_rows if r["Line Item"] == item["name"]),
-                                    {"Line Item": item["name"], **{y: None for y in years}}
-                                )
-                                row[year] = item["value"]
-                                if row not in bs_rows:
-                                    bs_rows.append(row)
+                            if section_key in bs_data[year].get("balance_sheet", {}):
+                                section_data = bs_data[year]["balance_sheet"][section_key]
+                                
+                                # Handle different data types
+                                if isinstance(section_data, (int, float)):
+                                    # Handle direct value
+                                    bs_rows.append({
+                                        "Line Item": section_key.replace("_", " ").title(),
+                                        **{y: section_data if y == year else None for y in years}
+                                    })
+                                elif isinstance(section_data, dict):
+                                    # Handle single dictionary item
+                                    bs_rows.append({
+                                        "Line Item": section_data.get("name", section_key.replace("_", " ").title()),
+                                        **{y: section_data["value"] if y == year else None for y in years}
+                                    })
+                                elif isinstance(section_data, list):
+                                    # Handle list of items
+                                    for item in section_data:
+                                        row = next(
+                                            (r for r in bs_rows if r["Line Item"] == item["name"]),
+                                            {"Line Item": item["name"], **{y: None for y in years}}
+                                        )
+                                        row[year] = item["value"]
+                                        if row not in bs_rows:
+                                            bs_rows.append(row)
                     
                     # Create and display Balance Sheet DataFrame
                     bs_df = pd.DataFrame(bs_rows)
@@ -170,7 +177,6 @@ def display_financial_data(data):
                     
     except Exception as e:
         st.error(f"Error displaying financial data: {str(e)}")
-        # Add debug information
         st.error(f"Debug info: {type(e).__name__} at line {e.__traceback__.tb_lineno}")
 
 def display_styled_dataframe(df: pd.DataFrame, years: list):
