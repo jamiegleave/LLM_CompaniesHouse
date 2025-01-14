@@ -52,60 +52,48 @@
     },
     "balance_sheet": {
       "1993": {
-        "Fixed Assets": {
-          "Intangible Assets": "18.2",
-          "Tangible Assets": "1,516.5",
-          "Investments": "0.0",
-          "Total Fixed Assets": "1,534.7"
-        },
-        "Current Assets": {
-          "Stocks": "288.1",
-          "Debtors Falling Due Within One Year": "268.9",
-          "Debtors Falling Due After More Than One Year": "207.4",
-          "Cash At Bank And In Hand": "3.5",
-          "Total Current Assets": "767.9"
-        },
+        "Fixed Assets - Intangible Assets": "18.2",
+        "Fixed Assets - Tangible Assets": "1,516.5",
+        "Fixed Assets - Investments": "0.0",
+        "Total Fixed Assets": "1,534.7",
+        "Current Assets - Stocks": "288.1",
+        "Current Assets - Debtors Falling Due Within One Year": "268.9",
+        "Current Assets - Debtors Falling Due After More Than One Year": "207.4",
+        "Current Assets - Cash At Bank And In Hand": "3.5",
+        "Total Current Assets": "767.9",
         "Creditors Falling Due Within One Year": "(694.4)",
         "Net Current Assets": "73.5",
         "Total Assets Less Current Liabilities": "1,608.2",
         "Creditors Falling Due After More Than One Year": "664.5",
         "Provisions For Liabilities And Charges": "6.3",
         "Minority Interests": "3.4",
-        "Capital And Reserves": {
-          "Called Up Share Capital": "228.4",
-          "Revaluation Reserve": "264.0",
-          "Profit And Loss Account": "441.6",
-          "Total Capital And Reserves": "934.0"
-        },
-        "Total": "1,679.8"
+        "Capital And Reserves - Called Up Share Capital": "228.4",
+        "Capital And Reserves - Revaluation Reserve": "264.0",
+        "Capital And Reserves - Profit And Loss Account": "441.6",
+        "Total Capital And Reserves": "934.0",
+        "Total Assets": "1,608.2"
       },
       "1992": {
-        "Fixed Assets": {
-          "Intangible Assets": "20.0",
-          "Tangible Assets": "1,556.8",
-          "Investments": "0.0",
-          "Total Fixed Assets": "1,576.8"
-        },
-        "Current Assets": {
-          "Stocks": "305.0",
-          "Debtors Falling Due Within One Year": "291.6",
-          "Debtors Falling Due After More Than One Year": "212.5",
-          "Cash At Bank And In Hand": "17.5",
-          "Total Current Assets": "826.6"
-        },
+        "Fixed Assets - Intangible Assets": "20.0",
+        "Fixed Assets - Tangible Assets": "1,556.8",
+        "Fixed Assets - Investments": "43.2",
+        "Total Fixed Assets": "1,576.8",
+        "Current Assets - Stocks": "305.0",
+        "Current Assets - Debtors Falling Due Within One Year": "291.6",
+        "Current Assets - Debtors Falling Due After More Than One Year": "212.5",
+        "Current Assets - Cash At Bank And In Hand": "17.5",
+        "Total Current Assets": "826.6",
         "Creditors Falling Due Within One Year": "(723.6)",
         "Net Current Assets": "103.0",
         "Total Assets Less Current Liabilities": "1,679.8",
         "Creditors Falling Due After More Than One Year": "742.6",
         "Provisions For Liabilities And Charges": "6.1",
         "Minority Interests": "3.2",
-        "Capital And Reserves": {
-          "Called Up Share Capital": "228.4",
-          "Revaluation Reserve": "329.0",
-          "Profit And Loss Account": "370.5",
-          "Total Capital And Reserves": "927.9"
-        },
-        "Total": "1,671.9"
+        "Capital And Reserves - Called Up Share Capital": "228.4",
+        "Capital And Reserves - Revaluation Reserve": "329.0",
+        "Capital And Reserves - Profit And Loss Account": "370.5",
+        "Total Capital And Reserves": "927.9",
+        "Total Assets": "1,679.8"
       }
     }
   }

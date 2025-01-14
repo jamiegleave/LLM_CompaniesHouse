@@ -2,7 +2,7 @@
 {
   "metadata": {
     "currency": "GBP",
-    "scale": "millions",
+    "scale": "thousands",
     "unit_symbol": "£m"
   },
   "statements": {
@@ -46,14 +46,14 @@
     },
     "balance_sheet": {
       "2005": {
-        "IntangibleAssets": "4.8",
-        "TangibleAssets": "1,395.0",
-        "Investments": "9.7",
+        "FixedAssetsIntangibleAssets": "4.8",
+        "FixedAssetsTangibleAssets": "1,395.0",
+        "FixedAssetsInvestments": "9.7",
         "TotalFixedAssets": "1,409.5",
-        "Stocks": "425.4",
-        "DebtorsFallingDueWithinOneYear": "938.2",
-        "DebtorsFallingDueAfterMoreThanOneYear": "47.0",
-        "CashAtBankAndInHand": "2.6",
+        "CurrentAssetsStocks": "425.4",
+        "CurrentAssetsDebtorsFallingDueWithinOneYear": "938.2",
+        "CurrentAssetsDebtorsFallingDueAfterMoreThanOneYear": "47.0",
+        "CurrentAssetsCashAtBankAndInHand": "2.6",
         "TotalCurrentAssets": "1,413.2",
         "CreditorsAmountsFallingDueWithinOneYear": "(1,885.5)",
         "NetCurrentLiabilities": "(472.3)",
@@ -62,17 +62,22 @@
         "ProvisionsForLiabilitiesAndCharges": "(110.8)",
         "NetAssetsExcludingPensionLiability": "806.7",
         "PensionLiability": "(425.3)",
-        "NetAssetsIncludingPensionLiability": "381.4"
+        "NetAssetsIncludingPensionLiability": "381.4",
+        "CalledUpShareCapital": "228.4",
+        "ProfitAndLossReserve": "(231.6)",
+        "RevaluationReserve": "381.3",
+        "CapitalReserve": "3.3",
+        "TotalShareholdersFunds": "381.4"
       },
       "2004": {
-        "IntangibleAssets": "5.4",
-        "TangibleAssets": "1,441.7",
-        "Investments": "9.7",
+        "FixedAssetsIntangibleAssets": "5.4",
+        "FixedAssetsTangibleAssets": "1,441.7",
+        "FixedAssetsInvestments": "9.7",
         "TotalFixedAssets": "1,456.8",
-        "Stocks": "336.7",
-        "DebtorsFallingDueWithinOneYear": "641.8",
-        "DebtorsFallingDueAfterMoreThanOneYear": "39.2",
-        "CashAtBankAndInHand": "1.2",
+        "CurrentAssetsStocks": "336.7",
+        "CurrentAssetsDebtorsFallingDueWithinOneYear": "641.8",
+        "CurrentAssetsDebtorsFallingDueAfterMoreThanOneYear": "39.2",
+        "CurrentAssetsCashAtBankAndInHand": "1.2",
         "TotalCurrentAssets": "1,018.9",
         "CreditorsAmountsFallingDueWithinOneYear": "(1,595.8)",
         "NetCurrentLiabilities": "(576.9)",
@@ -81,7 +86,12 @@
         "ProvisionsForLiabilitiesAndCharges": "(116.5)",
         "NetAssetsExcludingPensionLiability": "740.3",
         "PensionLiability": "(599.8)",
-        "NetAssetsIncludingPensionLiability": "140.5"
+        "NetAssetsIncludingPensionLiability": "140.5",
+        "CalledUpShareCapital": "228.4",
+        "ProfitAndLossReserve": "(492.9)",
+        "RevaluationReserve": "401.7",
+        "CapitalReserve": "3.3",
+        "TotalShareholdersFunds": "140.5"
       }
     }
   }

@@ -25,7 +25,8 @@
         "ProfitOnOrdinaryActivitiesAfterTaxation": "26.6",
         "MinorityInterest": "2.6",
         "ProfitAttributableToShareholders": "24.0",
-        "AmountsTransferredFromAddedToReserves": "4.0"
+        "AmountsTransferredFromAddedToReserves": "4.0",
+        "DividendsPaid": "28.0"
       },
       "1991": {
         "GrossTurnover": "5,042.7",
@@ -45,7 +46,8 @@
         "ProfitOnOrdinaryActivitiesAfterTaxation": "29.5",
         "MinorityInterest": "(3.5)",
         "ProfitAttributableToShareholders": "26.0",
-        "AmountsTransferredFromAddedToReserves": "(16.0)"
+        "AmountsTransferredFromAddedToReserves": "(16.0)",
+        "DividendsPaid": "10.0"
       }
     },
     "balance_sheet": {

@@ -232,11 +232,26 @@ CRITICAL RULES:
                     extracted_data={}
                 )
 
-            # Format the prompt for this statement type
-            prompt = {
-                "role": "user",
-                "parts": [{
-                    "text": f"""Consolidate these {statement_type} statements into a single JSON object.
+            # Chunk the statements into groups of 5 years
+            consolidated_chunks = {}
+            chunk_size = 5
+            years = sorted(list({year for stmt in statement_data for year in stmt.keys()}))
+            
+            for i in range(0, len(years), chunk_size):
+                chunk_years = years[i:i + chunk_size]
+                chunk_data = []
+                
+                # Create subset of data for each chunk
+                for stmt in statement_data:
+                    chunk_stmt = {year: stmt[year] for year in chunk_years if year in stmt}
+                    if chunk_stmt:
+                        chunk_data.append(chunk_stmt)
+
+                # Format the prompt for this chunk
+                prompt = {
+                    "role": "user",
+                    "parts": [{
+                        "text": f"""Consolidate these {statement_type} statements for years {chunk_years[0]}-{chunk_years[-1]} into a single JSON object.
 
 Rules for combining line items:
 1. Normalize names by:
@@ -248,58 +263,43 @@ Rules for combining line items:
 4. Preserve all unique line items
 
 Input statements:
-{json.dumps(statement_data, indent=2)}"""
-                }]
-            }
-
-            # Make API call
-            response = consolidation_model.generate_content(
-                prompt,
-                generation_config={
-                    "temperature": 0.1,
-                    "candidate_count": 1,
-                    "max_output_tokens": 8192
+{json.dumps(chunk_data, indent=2)}"""
+                    }]
                 }
+
+                # Process chunk
+                response = consolidation_model.generate_content(
+                    prompt,
+                    generation_config={
+                        "temperature": 0.1,
+                        "candidate_count": 1,
+                        "max_output_tokens": 8192
+                    }
+                )
+
+                if not response or not response.text:
+                    raise ValueError(f"Empty response from API for {statement_type} chunk {chunk_years}")
+
+                # Clean and parse the response
+                cleaned_response = response.text.strip()
+                cleaned_response = cleaned_response.replace('```json', '').replace('```', '')
+                start = cleaned_response.find('{')
+                end = cleaned_response.rfind('}') + 1
+                
+                if start >= 0 and end > 0:
+                    cleaned_response = cleaned_response[start:end]
+                    chunk_result = json.loads(cleaned_response)
+                    consolidated_chunks.update(chunk_result)
+                else:
+                    raise ValueError(f"No valid JSON found in response for {statement_type} chunk {chunk_years}")
+
+                logger.info(f"[SUCCESS] Processed chunk {chunk_years[0]}-{chunk_years[-1]} for {statement_type}")
+
+            return RecognitionResult(
+                success=True,
+                statement_type=statement_type,
+                extracted_data=consolidated_chunks
             )
-
-            if not response or not response.text:
-                raise ValueError(f"Empty response from API for {statement_type}")
-
-            # Add debug logging for the raw response
-            debug_dir = 'debug'
-            os.makedirs(debug_dir, exist_ok=True)
-            debug_file = os.path.join(debug_dir, f"consolidation_{statement_type}_response.txt")
-            with open(debug_file, 'w', encoding='utf-8') as f:
-                f.write(response.text)
-            logger.info(f"[DEBUG] Raw consolidation response saved to: {debug_file}")
-
-            # Clean and parse the response
-            cleaned_response = response.text.strip()
-            cleaned_response = cleaned_response.replace('```json', '').replace('```', '')
-            start = cleaned_response.find('{')
-            end = cleaned_response.rfind('}') + 1
-            
-            if start >= 0 and end > 0:
-                cleaned_response = cleaned_response[start:end]
-                try:
-                    consolidated_data = json.loads(cleaned_response)
-                    logger.info(f"[SUCCESS] Successfully consolidated {statement_type}")
-                    return RecognitionResult(
-                        success=True,
-                        statement_type=statement_type,
-                        extracted_data=consolidated_data
-                    )
-                except json.JSONDecodeError as e:
-                    logger.error(f"[ERROR] Invalid JSON in consolidation response. See: {debug_file}")
-                    logger.error(f"Error details: {str(e)}")
-                    logger.error("\nFirst 500 characters of cleaned response:")
-                    logger.error(f"{cleaned_response[:500]}...")
-                    return RecognitionResult(
-                        success=False,
-                        error=f"{ErrorCodes.CONSOLIDATION_FAILED}: Invalid JSON in consolidation response for {statement_type}. Debug file: {debug_file}"
-                    )
-            else:
-                raise ValueError(f"No valid JSON found in response for {statement_type}")
 
         except Exception as e:
             logger.error(f"Failed to consolidate {statement_type}: {str(e)}")

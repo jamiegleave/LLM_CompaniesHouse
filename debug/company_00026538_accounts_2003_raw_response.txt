@@ -55,19 +55,19 @@
         "Debtors falling due after more than one year": "88.4",
         "Cash at bank and in hand": "35.1",
         "Total Current Assets": "996.4",
-        "Creditors Amounts Falling Due Within One Year": "(679.6)",
+        "CreditorsAmounts Falling Due Within One Year": "(679.6)",
         "Net Current Assets": "316.8",
         "Total Assets Less Current Liabilities": "1,587.8",
-        "Creditors Amounts Falling Due After More Than One Year": "(727.2)",
+        "CreditorsAmounts Falling Due After More Than One Year": "(727.2)",
         "Provisions For Liabilities And Charges": "(121.0)",
         "Net Assets": "739.6",
         "Called up share capital": "573.4",
         "Revaluation reserve": "186.0",
         "Capital reserve": "3.3",
         "Profit and loss account": "(23.1)",
-        "Total Shareholder's Funds": "739.6",
+        "Total ShareholdersFunds": "739.6",
         "Non equity interests": "394.6",
-        "Total Shareholder's Funds": "739.6"
+        "Total ShareholdersFunds": "739.6"
       },
       "2002": {
         "Intangible assets": "7.3",
@@ -79,19 +79,19 @@
         "Debtors falling due after more than one year": "119.9",
         "Cash at bank and in hand": "30.2",
         "Total Current Assets": "1,035.5",
-        "Creditors Amounts Falling Due Within One Year": "(752.6)",
+        "CreditorsAmounts Falling Due Within One Year": "(752.6)",
         "Net Current Assets": "282.9",
         "Total Assets Less Current Liabilities": "1,589.0",
-        "Creditors Amounts Falling Due After More Than One Year": "(727.9)",
+        "CreditorsAmounts Falling Due After More Than One Year": "(727.9)",
         "Provisions For Liabilities And Charges": "(133.3)",
         "Net Assets": "727.8",
         "Called up share capital": "573.4",
         "Revaluation reserve": "186.0",
         "Capital reserve": "3.3",
         "Profit and loss account": "(34.9)",
-        "Total Shareholder's Funds": "727.8",
+        "Total ShareholdersFunds": "727.8",
         "Non equity interests": "382.8",
-        "Total Shareholder's Funds": "727.8"
+        "Total ShareholdersFunds": "727.8"
       }
     }
   }
