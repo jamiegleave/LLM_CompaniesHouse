@@ -38,7 +38,7 @@
         "IncomeFromOtherFixedAssetInvestments": "3",
         "InterestReceivableAndSimilarIncome": "3",
         "InterestPayableAndSimilarCharges": "(3)",
-        "OtherFinanceChargeIncome": "(10)",
+        "OtherFinanceChargeIncome": "(3)",
         "ProfitOnOrdinaryActivitiesBeforeTaxation": "0",
         "TaxOnProfitOnOrdinaryActivities": "0",
         "ProfitForTheFinancialYear": "0"

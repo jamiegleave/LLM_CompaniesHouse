@@ -337,18 +337,27 @@ Rules:
 1. Output a valid JSON mapping where:
    - Keys are the original line items
    - Values are the standardized names
-2. Standardized names should:
-   - Use proper financial terminology
-   - Be clear and consistent
+
+2. Standardize common variations:
+   - "Profit/Loss" → "Profit" (e.g., "Operating Profit/Loss" → "Operating Profit")
+   - "Gross Profit/Loss" → "Gross Profit"
+   - Remove "For The Financial Year" suffix
+   - Remove "On Ordinary Activities" where redundant
+   - Merge variations of same concept (e.g., "Turnover" and "Net Turnover")
+   - Standardize "Creditors" vs "Accounts Payable"
+   - Standardize "Debtors" vs "Accounts Receivable"
+
+3. Format rules:
    - Capitalize first letter of each word
-   - Use spaces between words
-   - Group similar items (e.g., different types of revenue)
-3. Preserve important distinctions in the data
-4. Handle variations like:
-   - Different capitalizations
-   - Underscores vs spaces
-   - Arrows (→) in names
-   - Similar items with slight naming differences
+   - Use spaces between words (not underscores)
+   - Remove redundant words
+   - Keep important distinctions (e.g., between different types of assets)
+
+4. Handle special cases:
+   - Preserve timing distinctions (e.g., "Within One Year" vs "After More Than One Year")
+   - Keep important prefixes (e.g., "Net" vs "Gross")
+   - Maintain asset/liability distinctions
+   - Keep pension-related distinctions
 
 Output format:
 {{

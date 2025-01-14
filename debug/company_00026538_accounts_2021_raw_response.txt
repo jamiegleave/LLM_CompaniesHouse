@@ -36,8 +36,8 @@
         "AdministrativeExpenses": "(85)",
         "OtherOperatingIncome": "11",
         "OperatingProfitLoss": "(403)",
-        "IncomeFromFixedAssetsInvestments": "23",
-        "InterestReceivableAndSimilarIncome": "2",
+        "IncomeFromFixedAssetsInvestments": "3",
+        "InterestReceivableAndSimilarIncome": "23",
         "InterestPayableAndSimilarExpenses": "(1)",
         "OtherFinanceIncomeExpenses": "(1)",
         "ProfitLossBeforeTax": "(379)",
@@ -68,9 +68,8 @@
         "OtherProvisions": "(125)",
         "PensionLiability": "(327)",
         "CalledUpShareCapital": "1,353",
-        "OtherReserves": "3",
-        "ProfitAndLossAccount": "928",
-        "NetAssets": "2,284"
+        "OtherReserves": "928",
+        "ProfitAndLossAccount": "2,284"
       },
       "2020": {
         "IntangibleFixedAssets": "958",
@@ -89,9 +88,8 @@
         "OtherProvisions": "(128)",
         "PensionLiability": "(325)",
         "CalledUpShareCapital": "1,103",
-        "OtherReserves": "3",
-        "ProfitAndLossAccount": "677",
-        "NetAssets": "1,779"
+        "OtherReserves": "673",
+        "ProfitAndLossAccount": "1,779"
       }
     }
   }
