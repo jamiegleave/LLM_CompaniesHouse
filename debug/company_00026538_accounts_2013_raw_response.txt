@@ -1,0 +1,93 @@
+```json
+{
+  "metadata": {
+    "currency": "GBP",
+    "scale": "millions",
+    "unit_symbol": "£m"
+  },
+  "statements": {
+    "profit_and_loss": {
+      "2013": {
+        "Turnover": "10,106",
+        "CostOfSales": "(9,890)",
+        "GrossProfit": "216",
+        "DistributionCosts": "(221)",
+        "AdministrativeExpenses": "(33)",
+        "OperatingLossProfit": "(38)",
+        "ExceptionalItemsNetProfitLossOnSaleOfTangibleFixedAssets": "55",
+        "ProfitOnDisposalOfSubsidiary": "0",
+        "LossProfitOnOrdinaryActivitiesBeforeInterest": "(24)",
+        "IncomeFromOtherFixedAssetInvestments": "3",
+        "InterestReceivableAndSimilarIncome": "7",
+        "InterestPayableAndSimilarCharges": "(2)",
+        "OtherFinanceChargeIncome": "(16)",
+        "ProfitOnOrdinaryActivitiesBeforeTaxation": "239",
+        "TaxOnProfitOnOrdinaryActivities": "(56)",
+        "ProfitForTheFinancialYear": "183"
+      },
+      "2012": {
+        "Turnover": "10,857",
+        "CostOfSales": "(10,417)",
+        "GrossProfit": "440",
+        "DistributionCosts": "(226)",
+        "AdministrativeExpenses": "(17)",
+        "OperatingLossProfit": "197",
+        "ExceptionalItemsNetProfitLossOnSaleOfTangibleFixedAssets": "0",
+        "ProfitOnDisposalOfSubsidiary": "0",
+        "LossProfitOnOrdinaryActivitiesBeforeInterest": "252",
+        "IncomeFromOtherFixedAssetInvestments": "3",
+        "InterestReceivableAndSimilarIncome": "3",
+        "InterestPayableAndSimilarCharges": "(3)",
+        "OtherFinanceChargeIncome": "(3)",
+        "ProfitOnOrdinaryActivitiesBeforeTaxation": "0",
+        "TaxOnProfitOnOrdinaryActivities": "0",
+        "ProfitForTheFinancialYear": "0"
+      }
+    },
+    "balance_sheet": {
+      "2013": {
+        "FixedAssetsIntangibleAssets": "1,294",
+        "FixedAssetsTangibleAssets": "1,296",
+        "Investments": "1,296",
+        "CurrentAssetsStocks": "917",
+        "CurrentAssetsDebtors": "754",
+        "CreditorsAmountsFallingDueWithinOneYear": "(1,248)",
+        "NetCurrentAssets": "423",
+        "TotalAssetsLessCurrentLiabilities": "1,719",
+        "CreditorsAmountsFallingDueAfterMoreThanOneYear": "(115)",
+        "ProvisionsForLiabilitiesDeferredTax": "(45)",
+        "ProvisionsForLiabilitiesOtherProvisions": "(7)",
+        "NetAssetsExcludingPensionSchemeLiabilities": "1,552",
+        "DefinedBenefitPensionSchemeLiability": "(206)",
+        "NetAssetsIncludingPensionSchemeLiabilities": "1,346",
+        "CapitalAndReservesCalledUpShareCapital": "573",
+        "RevaluationReserve": "364",
+        "CapitalReserves": "3",
+        "ProfitAndLossAccount": "406",
+        "ShareholdersFunds": "1,346"
+      },
+      "2012": {
+        "FixedAssetsIntangibleAssets": "1",
+        "FixedAssetsTangibleAssets": "1,357",
+        "Investments": "1,358",
+        "CurrentAssetsStocks": "844",
+        "CurrentAssetsDebtors": "1,024",
+        "CreditorsAmountsFallingDueWithinOneYear": "(1,304)",
+        "NetCurrentAssets": "564",
+        "TotalAssetsLessCurrentLiabilities": "1,922",
+        "CreditorsAmountsFallingDueAfterMoreThanOneYear": "(317)",
+        "ProvisionsForLiabilitiesDeferredTax": "(60)",
+        "ProvisionsForLiabilitiesOtherProvisions": "(10)",
+        "NetAssetsExcludingPensionSchemeLiabilities": "1,535",
+        "DefinedBenefitPensionSchemeLiability": "(330)",
+        "NetAssetsIncludingPensionSchemeLiabilities": "1,205",
+        "CapitalAndReservesCalledUpShareCapital": "573",
+        "RevaluationReserve": "362",
+        "CapitalReserves": "3",
+        "ProfitAndLossAccount": "267",
+        "ShareholdersFunds": "1,205"
+      }
+    }
+  }
+}
+```

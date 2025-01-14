@@ -23,10 +23,10 @@
         "Profit before tax": "328",
         "Tax on profit": "(73)",
         "Profit for the financial year": "255",
+        "Other comprehensive income for the year": "58",
         "Actuarial gains on defined benefit pension scheme": "70",
         "Pension surplus not recognised": "5",
         "Movement of deferred tax relating to pension deficit": "(17)",
-        "Other comprehensive income for the year": "58",
         "Total comprehensive income for the financial year": "313"
       },
       "2022": {
@@ -45,10 +45,10 @@
         "Profit before tax": "864",
         "Tax on profit": "(196)",
         "Profit for the financial year": "668",
-        "Actuarial gains on defined benefit pension scheme": "54",
-        "Pension surplus not recognised": "2",
-        "Movement of deferred tax relating to pension deficit": "(14)",
         "Other comprehensive income for the year": "42",
+        "Actuarial gains on defined benefit pension scheme": null,
+        "Pension surplus not recognised": null,
+        "Movement of deferred tax relating to pension deficit": null,
         "Total comprehensive income for the financial year": "710"
       }
     },
@@ -89,21 +89,21 @@
         },
         "Current assets": {
           "Inventories": "970",
-          "Debtors: Amounts falling due after more than one year": "15",
+          "Debtors: Amounts falling due after more than one year": null,
           "Debtors: Amounts falling due within one year": "2,376",
           "Pension asset": "545",
           "Creditors: Amounts falling due within one year": "(1,684)",
           "Net current assets": "2,222"
         },
         "Total assets less current liabilities": "3,606",
-        "Creditors: Amounts falling due after more than one year": "(112)",
-        "Provisions for liabilities": "(125)",
+        "Creditors: Amounts falling due after more than one year": null,
+        "Provisions for liabilities": null,
         "Deferred tax": null,
-        "Other provisions": "(204)",
+        "Other provisions": null,
         "Pension liability": null,
         "Net assets": "3,175",
         "Capital and reserves": {
-          "Called up share capital": "1,533",
+          "Called up share capital": null,
           "Other reserves": null,
           "Profit and loss account": null,
           "Total equity": "3,175"

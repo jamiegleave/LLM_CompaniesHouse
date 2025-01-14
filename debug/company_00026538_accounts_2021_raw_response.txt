@@ -23,9 +23,9 @@
         "TaxOnProfitLoss": "(35)",
         "ProfitLossForTheFinancialYear": "116",
         "OtherComprehensiveIncomeForTheYear": "168",
-        "ActuarialGainsOnDefinedBenefitPensionScheme": "368",
+        "ActuarialGainsOnDefinedBenefitPensionScheme": "168",
         "MovementOfDeferredTaxRelatingToPensionDeficit": "(29)",
-        "OtherComprehensiveIncomeForTheYear": "301",
+        "OtherComprehensiveIncomeForTheYear": "139",
         "TotalComprehensiveIncomeExpenseForTheYear": "255"
       },
       "2020": {

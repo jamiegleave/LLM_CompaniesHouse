@@ -265,20 +265,39 @@ Input statements:
             if not response or not response.text:
                 raise ValueError(f"Empty response from API for {statement_type}")
 
+            # Add debug logging for the raw response
+            debug_dir = 'debug'
+            os.makedirs(debug_dir, exist_ok=True)
+            debug_file = os.path.join(debug_dir, f"consolidation_{statement_type}_response.txt")
+            with open(debug_file, 'w', encoding='utf-8') as f:
+                f.write(response.text)
+            logger.info(f"[DEBUG] Raw consolidation response saved to: {debug_file}")
+
             # Clean and parse the response
             cleaned_response = response.text.strip()
             cleaned_response = cleaned_response.replace('```json', '').replace('```', '')
             start = cleaned_response.find('{')
             end = cleaned_response.rfind('}') + 1
+            
             if start >= 0 and end > 0:
                 cleaned_response = cleaned_response[start:end]
-                consolidated_data = json.loads(cleaned_response)
-                logger.info(f"[SUCCESS] Successfully consolidated {statement_type}")
-                return RecognitionResult(
-                    success=True,
-                    statement_type=statement_type,
-                    extracted_data=consolidated_data
-                )
+                try:
+                    consolidated_data = json.loads(cleaned_response)
+                    logger.info(f"[SUCCESS] Successfully consolidated {statement_type}")
+                    return RecognitionResult(
+                        success=True,
+                        statement_type=statement_type,
+                        extracted_data=consolidated_data
+                    )
+                except json.JSONDecodeError as e:
+                    logger.error(f"[ERROR] Invalid JSON in consolidation response. See: {debug_file}")
+                    logger.error(f"Error details: {str(e)}")
+                    logger.error("\nFirst 500 characters of cleaned response:")
+                    logger.error(f"{cleaned_response[:500]}...")
+                    return RecognitionResult(
+                        success=False,
+                        error=f"{ErrorCodes.CONSOLIDATION_FAILED}: Invalid JSON in consolidation response for {statement_type}. Debug file: {debug_file}"
+                    )
             else:
                 raise ValueError(f"No valid JSON found in response for {statement_type}")
 

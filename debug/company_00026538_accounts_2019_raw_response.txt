@@ -1,0 +1,97 @@
+```json
+{
+  "metadata": {
+    "currency": "GBP",
+    "scale": "millions",
+    "unit_symbol": "£m"
+  },
+  "statements": {
+    "profit_and_loss": {
+      "2019": {
+        "Turnover": "7,468",
+        "CostOfSales": "(7,097)",
+        "GrossProfit": "371",
+        "DistributionCosts": "(148)",
+        "AdministrativeExpenses": "(141)",
+        "OtherOperatingIncome": "2",
+        "OperatingProfitLoss": "142",
+        "IncomeFromFixedAssetInvestments": "3",
+        "InterestReceivableAndSimilarIncome": "2",
+        "InterestPayableAndSimilarExpenses": "(1)",
+        "OtherFinanceIncome": "3",
+        "ProfitLossBeforeTax": "149",
+        "TaxOnProfitLoss": "(26)",
+        "ProfitLossForTheFinancialYear": "123",
+        "OtherComprehensiveIncomeForTheYear": "(85)",
+        "ActuarialLossesGainsOnDefinedBenefitPensionScheme": "(19)",
+        "MovementOfDeferredTaxRelatingToPensionDeficitSurplus": "(1)",
+        "OtherComprehensiveExpenseIncomeForTheYear": "(66)",
+        "TotalComprehensiveIncomeExpenseForTheYear": "57"
+      },
+      "2018": {
+        "Turnover": "7,831",
+        "CostOfSales": "(7,753)",
+        "GrossProfit": "78",
+        "DistributionCosts": "(85)",
+        "AdministrativeExpenses": "(59)",
+        "OtherOperatingIncome": "2",
+        "OperatingProfitLoss": "(120)",
+        "IncomeFromFixedAssetInvestments": "2",
+        "InterestReceivableAndSimilarIncome": "1",
+        "InterestPayableAndSimilarExpenses": "(1)",
+        "OtherFinanceIncome": "5",
+        "ProfitLossBeforeTax": "(113)",
+        "TaxOnProfitLoss": "37",
+        "ProfitLossForTheFinancialYear": "(76)",
+        "OtherComprehensiveIncomeForTheYear": "9",
+        "ActuarialLossesGainsOnDefinedBenefitPensionScheme": null,
+        "MovementOfDeferredTaxRelatingToPensionDeficitSurplus": null,
+        "OtherComprehensiveExpenseIncomeForTheYear": "8",
+        "TotalComprehensiveIncomeExpenseForTheYear": "(68)"
+      }
+    },
+    "balance_sheet": {
+      "2019": {
+        "FixedAssetsIntangibleFixedAssets": "4",
+        "FixedAssetsTangibleFixedAssets": "812",
+        "FixedAssetInvestments": "331",
+        "CurrentAssetsInventories": "801",
+        "DebtorsAmountsFallingDueAfterMoreThanOneYear": "20",
+        "DebtorsAmountsFallingDueWithinOneYear": "1,306",
+        "PensionAsset": "238",
+        "CreditorsAmountsFallingDueWithinOneYear": "(1,341)",
+        "NetCurrentAssets": "1,024",
+        "TotalAssetsLessCurrentLiabilities": "2,171",
+        "CreditorsAmountsFallingDueAfterMoreThanOneYear": "(100)",
+        "DeferredTax": "(12)",
+        "OtherProvisions": "(25)",
+        "PensionLiability": "(251)",
+        "NetAssets": "1,783",
+        "CapitalAndReservesCalledUpShareCapital": "1,103",
+        "OtherReserves": "3",
+        "ProfitAndLossAccount": "677"
+      },
+      "2018": {
+        "FixedAssetsIntangibleFixedAssets": "4",
+        "FixedAssetsTangibleFixedAssets": "666",
+        "FixedAssetInvestments": "332",
+        "CurrentAssetsInventories": "722",
+        "DebtorsAmountsFallingDueAfterMoreThanOneYear": "20",
+        "DebtorsAmountsFallingDueWithinOneYear": "1,164",
+        "PensionAsset": "337",
+        "CreditorsAmountsFallingDueWithinOneYear": "(1,320)",
+        "NetCurrentAssets": "923",
+        "TotalAssetsLessCurrentLiabilities": "1,943",
+        "CreditorsAmountsFallingDueAfterMoreThanOneYear": "(100)",
+        "DeferredTax": "(47)",
+        "OtherProvisions": "(27)",
+        "PensionLiability": "(193)",
+        "NetAssets": "1,576",
+        "CapitalAndReservesCalledUpShareCapital": "953",
+        "OtherReserves": "3",
+        "ProfitAndLossAccount": "620"
+      }
+    }
+  }
+}
+```
