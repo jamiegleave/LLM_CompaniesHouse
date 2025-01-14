@@ -11532,3 +11532,705 @@ First 500 characters of cleaned response:
 2025-01-14 15:14:48,285 - INFO - [SUCCESS] Processed chunk 2005-2009 for balance_sheet
 2025-01-14 15:14:57,983 - INFO - [SUCCESS] Processed chunk 2010-2014 for balance_sheet
 2025-01-14 15:15:08,927 - INFO - [SUCCESS] Processed chunk 2015-2019 for balance_sheet
+2025-01-14 22:35:46,551 - INFO - Starting FinState Analyzer
+2025-01-14 22:35:57,357 - INFO - Starting FinState Analyzer
+2025-01-14 22:36:12,635 - INFO - Starting FinState Analyzer
+2025-01-14 22:36:12,643 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 22:36:12,644 - INFO - 
+==================================================
+2025-01-14 22:36:12,644 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 22:36:12,644 - INFO - ==================================================
+2025-01-14 22:36:16,540 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 22:36:30,158 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 22:36:30,158 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 22:36:30,159 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 22:36:30,751 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 22:36:30,753 - INFO - Processing file: company_00026538_accounts_1992.pdf with mime type: application/pdf
+2025-01-14 22:36:30,753 - INFO - 
+==================================================
+2025-01-14 22:36:30,753 - INFO - Processing: company_00026538_accounts_1992.pdf
+2025-01-14 22:36:30,753 - INFO - ==================================================
+2025-01-14 22:36:32,537 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 22:36:41,077 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1992_raw_response.txt
+2025-01-14 22:36:41,077 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 22:36:41,077 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 22:36:41,686 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 22:36:41,688 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-14 22:36:41,688 - INFO - 
+==================================================
+2025-01-14 22:36:41,688 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-14 22:36:41,689 - INFO - ==================================================
+2025-01-14 22:36:43,465 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 22:36:53,415 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1993_raw_response.txt
+2025-01-14 22:36:53,415 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 22:36:53,415 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-14 22:36:53,835 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 22:36:53,836 - INFO - Processing file: company_00026538_accounts_2001.pdf with mime type: application/pdf
+2025-01-14 22:36:53,837 - INFO - 
+==================================================
+2025-01-14 22:36:53,837 - INFO - Processing: company_00026538_accounts_2001.pdf
+2025-01-14 22:36:53,837 - INFO - ==================================================
+2025-01-14 22:36:55,463 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 22:37:06,480 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2001_raw_response.txt
+2025-01-14 22:37:06,480 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 22:37:06,480 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-14 22:37:06,928 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 22:37:06,929 - INFO - Processing file: company_00026538_accounts_2003.pdf with mime type: application/pdf
+2025-01-14 22:37:06,930 - INFO - 
+==================================================
+2025-01-14 22:37:06,930 - INFO - Processing: company_00026538_accounts_2003.pdf
+2025-01-14 22:37:06,930 - INFO - ==================================================
+2025-01-14 22:37:08,720 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 22:37:17,567 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2003_raw_response.txt
+2025-01-14 22:37:17,567 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 22:37:17,567 - INFO - [SUCCESS] Added to consolidation queue (Total: 5)
+2025-01-14 22:37:18,170 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 22:37:18,171 - INFO - Processing file: company_00026538_accounts_2005.pdf with mime type: application/pdf
+2025-01-14 22:37:18,171 - INFO - 
+==================================================
+2025-01-14 22:37:18,172 - INFO - Processing: company_00026538_accounts_2005.pdf
+2025-01-14 22:37:18,172 - INFO - ==================================================
+2025-01-14 22:37:20,056 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 22:37:29,602 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2005_raw_response.txt
+2025-01-14 22:37:29,602 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 22:37:29,602 - INFO - [SUCCESS] Added to consolidation queue (Total: 6)
+2025-01-14 22:37:30,121 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 22:37:30,121 - INFO - Processing file: company_00026538_accounts_2007.pdf with mime type: application/pdf
+2025-01-14 22:37:30,122 - INFO - 
+==================================================
+2025-01-14 22:37:30,122 - INFO - Processing: company_00026538_accounts_2007.pdf
+2025-01-14 22:37:30,122 - INFO - ==================================================
+2025-01-14 22:37:31,905 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 22:37:45,566 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2007_raw_response.txt
+2025-01-14 22:37:45,567 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 22:37:45,567 - INFO - [SUCCESS] Added to consolidation queue (Total: 7)
+2025-01-14 22:37:46,165 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 22:37:46,166 - INFO - Processing file: company_00026538_accounts_2009.pdf with mime type: application/pdf
+2025-01-14 22:37:46,167 - INFO - 
+==================================================
+2025-01-14 22:37:46,167 - INFO - Processing: company_00026538_accounts_2009.pdf
+2025-01-14 22:37:46,167 - INFO - ==================================================
+2025-01-14 22:37:48,000 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 22:37:57,432 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2009_raw_response.txt
+2025-01-14 22:37:57,432 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 22:37:57,433 - INFO - [SUCCESS] Added to consolidation queue (Total: 8)
+2025-01-14 22:37:58,095 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 22:37:58,096 - INFO - Processing file: company_00026538_accounts_2011.pdf with mime type: application/pdf
+2025-01-14 22:37:58,097 - INFO - 
+==================================================
+2025-01-14 22:37:58,097 - INFO - Processing: company_00026538_accounts_2011.pdf
+2025-01-14 22:37:58,097 - INFO - ==================================================
+2025-01-14 22:37:59,984 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 22:38:08,476 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2011_raw_response.txt
+2025-01-14 22:38:08,476 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 22:38:08,476 - INFO - [SUCCESS] Added to consolidation queue (Total: 9)
+2025-01-14 22:38:08,885 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 22:38:08,886 - INFO - Processing file: company_00026538_accounts_2013.pdf with mime type: application/pdf
+2025-01-14 22:38:08,886 - INFO - 
+==================================================
+2025-01-14 22:38:08,886 - INFO - Processing: company_00026538_accounts_2013.pdf
+2025-01-14 22:38:08,886 - INFO - ==================================================
+2025-01-14 22:38:10,949 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 22:38:20,212 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2013_raw_response.txt
+2025-01-14 22:38:20,212 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 22:38:20,213 - INFO - [SUCCESS] Added to consolidation queue (Total: 10)
+2025-01-14 22:38:20,839 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 22:38:20,840 - INFO - Processing file: company_00026538_accounts_2015.pdf with mime type: application/pdf
+2025-01-14 22:38:20,840 - INFO - 
+==================================================
+2025-01-14 22:38:20,841 - INFO - Processing: company_00026538_accounts_2015.pdf
+2025-01-14 22:38:20,841 - INFO - ==================================================
+2025-01-14 22:38:22,801 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 22:38:32,554 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2015_raw_response.txt
+2025-01-14 22:38:32,554 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 22:38:32,554 - INFO - [SUCCESS] Added to consolidation queue (Total: 11)
+2025-01-14 22:38:33,106 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 22:38:33,108 - INFO - Processing file: company_00026538_accounts_2017.pdf with mime type: application/pdf
+2025-01-14 22:38:33,108 - INFO - 
+==================================================
+2025-01-14 22:38:33,108 - INFO - Processing: company_00026538_accounts_2017.pdf
+2025-01-14 22:38:33,108 - INFO - ==================================================
+2025-01-14 22:38:35,321 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 22:38:47,393 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2017_raw_response.txt
+2025-01-14 22:38:47,394 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 22:38:47,394 - INFO - [SUCCESS] Added to consolidation queue (Total: 12)
+2025-01-14 22:38:47,820 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 22:38:47,821 - INFO - Processing file: company_00026538_accounts_2019.pdf with mime type: application/pdf
+2025-01-14 22:38:47,822 - INFO - 
+==================================================
+2025-01-14 22:38:47,822 - INFO - Processing: company_00026538_accounts_2019.pdf
+2025-01-14 22:38:47,822 - INFO - ==================================================
+2025-01-14 22:38:50,194 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 22:39:05,498 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2019_raw_response.txt
+2025-01-14 22:39:05,499 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 22:39:05,499 - INFO - [SUCCESS] Added to consolidation queue (Total: 13)
+2025-01-14 22:39:06,161 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 22:39:06,162 - INFO - Processing file: company_00026538_accounts_2021.pdf with mime type: application/pdf
+2025-01-14 22:39:06,162 - INFO - 
+==================================================
+2025-01-14 22:39:06,162 - INFO - Processing: company_00026538_accounts_2021.pdf
+2025-01-14 22:39:06,162 - INFO - ==================================================
+2025-01-14 22:39:08,500 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 22:39:25,661 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2021_raw_response.txt
+2025-01-14 22:39:25,662 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 22:39:25,662 - INFO - [SUCCESS] Added to consolidation queue (Total: 14)
+2025-01-14 22:39:26,447 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 22:39:26,448 - INFO - Processing file: company_00026538_accounts_2023.pdf with mime type: application/pdf
+2025-01-14 22:39:26,448 - INFO - 
+==================================================
+2025-01-14 22:39:26,449 - INFO - Processing: company_00026538_accounts_2023.pdf
+2025-01-14 22:39:26,449 - INFO - ==================================================
+2025-01-14 22:39:28,869 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 22:39:43,797 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2023_raw_response.txt
+2025-01-14 22:39:43,797 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 22:39:43,797 - INFO - [SUCCESS] Added to consolidation queue (Total: 15)
+2025-01-14 22:39:44,212 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 22:39:59,331 - INFO - [SUCCESS] Created standardized mapping for 136 profit_and_loss line items
+2025-01-14 22:40:09,261 - INFO - [SUCCESS] Processed chunk 1989-1993 for profit_and_loss
+2025-01-14 22:40:18,440 - INFO - [SUCCESS] Processed chunk 2000-2004 for profit_and_loss
+2025-01-14 22:40:27,075 - INFO - [SUCCESS] Processed chunk 2005-2009 for profit_and_loss
+2025-01-14 22:40:35,162 - INFO - [SUCCESS] Processed chunk 2010-2014 for profit_and_loss
+2025-01-14 22:40:43,913 - INFO - [SUCCESS] Processed chunk 2015-2019 for profit_and_loss
+2025-01-14 22:40:51,454 - INFO - [SUCCESS] Processed chunk 2020-2023 for profit_and_loss
+2025-01-14 22:41:09,620 - INFO - [SUCCESS] Created standardized mapping for 152 balance_sheet line items
+2025-01-14 22:41:24,311 - INFO - [SUCCESS] Processed chunk 1989-1993 for balance_sheet
+2025-01-14 22:41:36,353 - INFO - [SUCCESS] Processed chunk 2000-2004 for balance_sheet
+2025-01-14 22:41:48,457 - INFO - [SUCCESS] Processed chunk 2005-2009 for balance_sheet
+2025-01-14 22:41:58,190 - INFO - [SUCCESS] Processed chunk 2010-2014 for balance_sheet
+2025-01-14 22:42:07,929 - INFO - [SUCCESS] Processed chunk 2015-2019 for balance_sheet
+2025-01-14 22:42:16,943 - INFO - [SUCCESS] Processed chunk 2020-2023 for balance_sheet
+2025-01-14 22:44:43,870 - INFO - Starting FinState Analyzer
+2025-01-14 22:44:43,881 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 22:44:43,881 - INFO - 
+==================================================
+2025-01-14 22:44:43,882 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 22:44:43,883 - INFO - ==================================================
+2025-01-14 22:44:47,494 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 22:45:01,133 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 22:45:01,137 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 22:45:01,137 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 22:45:01,540 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:00:14,176 - INFO - Starting FinState Analyzer
+2025-01-14 23:06:22,774 - INFO - Starting FinState Analyzer
+2025-01-14 23:07:04,984 - INFO - Starting FinState Analyzer
+2025-01-14 23:09:25,044 - INFO - Starting FinState Analyzer
+2025-01-14 23:12:03,847 - INFO - Starting FinState Analyzer
+2025-01-14 23:13:45,233 - INFO - Starting FinState Analyzer
+2025-01-14 23:14:12,943 - INFO - Starting FinState Analyzer
+2025-01-14 23:14:12,950 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 23:14:12,951 - INFO - 
+==================================================
+2025-01-14 23:14:12,951 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 23:14:12,952 - INFO - ==================================================
+2025-01-14 23:14:16,429 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:14:28,957 - ERROR - [ERROR] API call failed: cannot access local variable 'raw_response' where it is not associated with a value
+2025-01-14 23:14:29,504 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:14:29,504 - WARNING - Failed to process company_00026538_accounts_1990.pdf
+2025-01-14 23:14:29,505 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-14 23:14:29,506 - INFO - 
+==================================================
+2025-01-14 23:14:29,506 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-14 23:14:29,506 - INFO - ==================================================
+2025-01-14 23:14:31,554 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:14:41,466 - ERROR - [ERROR] API call failed: cannot access local variable 'raw_response' where it is not associated with a value
+2025-01-14 23:14:42,155 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:14:42,155 - WARNING - Failed to process company_00026538_accounts_1993.pdf
+2025-01-14 23:16:40,943 - INFO - Starting FinState Analyzer
+2025-01-14 23:16:40,949 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 23:16:40,950 - INFO - 
+==================================================
+2025-01-14 23:16:40,951 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 23:16:40,951 - INFO - ==================================================
+2025-01-14 23:16:44,601 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:16:57,707 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:16:57,708 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 23:16:58,314 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:16:58,315 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-14 23:16:58,316 - INFO - 
+==================================================
+2025-01-14 23:16:58,316 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-14 23:16:58,316 - INFO - ==================================================
+2025-01-14 23:17:00,095 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:17:09,296 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:17:09,298 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 23:17:12,507 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:17:15,482 - INFO - [SUCCESS] Created standardized mapping for 25 profit_and_loss line items
+2025-01-14 23:17:23,175 - INFO - [SUCCESS] Processed chunk 1989-1993 for profit_and_loss
+2025-01-14 23:17:28,411 - INFO - [SUCCESS] Created standardized mapping for 41 balance_sheet line items
+2025-01-14 23:17:38,549 - INFO - [SUCCESS] Processed chunk 1989-1993 for balance_sheet
+2025-01-14 23:21:24,378 - INFO - Starting FinState Analyzer
+2025-01-14 23:21:24,388 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 23:21:24,388 - INFO - 
+==================================================
+2025-01-14 23:21:24,389 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 23:21:24,389 - INFO - ==================================================
+2025-01-14 23:21:28,339 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:21:41,499 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:21:41,500 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 23:21:42,548 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:21:42,554 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-14 23:21:42,554 - INFO - 
+==================================================
+2025-01-14 23:21:42,555 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-14 23:21:42,555 - INFO - ==================================================
+2025-01-14 23:21:44,272 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:21:53,786 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:21:53,786 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 23:21:54,228 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:21:57,250 - INFO - [SUCCESS] Created standardized mapping for 25 profit_and_loss line items
+2025-01-14 23:22:05,007 - INFO - [SUCCESS] Processed chunk 1989-1993 for profit_and_loss
+2025-01-14 23:22:09,108 - INFO - [SUCCESS] Created standardized mapping for 33 balance_sheet line items
+2025-01-14 23:22:18,803 - INFO - [SUCCESS] Processed chunk 1989-1993 for balance_sheet
+2025-01-14 23:23:17,343 - INFO - Starting FinState Analyzer
+2025-01-14 23:23:17,346 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 23:23:17,347 - INFO - 
+==================================================
+2025-01-14 23:23:17,347 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 23:23:17,347 - INFO - ==================================================
+2025-01-14 23:23:20,846 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:23:33,321 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:23:33,323 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 23:23:33,868 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:23:33,872 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-14 23:23:33,873 - INFO - 
+==================================================
+2025-01-14 23:23:33,875 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-14 23:23:33,876 - INFO - ==================================================
+2025-01-14 23:23:35,600 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:23:44,182 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:23:44,183 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 23:23:44,600 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:23:47,536 - INFO - [SUCCESS] Created standardized mapping for 25 profit_and_loss line items
+2025-01-14 23:23:55,218 - INFO - [SUCCESS] Processed chunk 1989-1993 for profit_and_loss
+2025-01-14 23:23:59,557 - INFO - [SUCCESS] Created standardized mapping for 33 balance_sheet line items
+2025-01-14 23:24:10,095 - INFO - [SUCCESS] Processed chunk 1989-1993 for balance_sheet
+2025-01-14 23:24:12,118 - INFO - Starting FinState Analyzer
+2025-01-14 23:24:12,122 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 23:24:12,122 - INFO - 
+==================================================
+2025-01-14 23:24:12,122 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 23:24:12,123 - INFO - ==================================================
+2025-01-14 23:24:15,719 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:24:28,802 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:24:28,803 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 23:24:29,409 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:24:29,410 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-14 23:24:29,411 - INFO - 
+==================================================
+2025-01-14 23:24:29,411 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-14 23:24:29,411 - INFO - ==================================================
+2025-01-14 23:24:31,403 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:24:41,041 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:24:41,042 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 23:24:41,637 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:24:44,616 - INFO - [SUCCESS] Created standardized mapping for 25 profit_and_loss line items
+2025-01-14 23:24:52,350 - INFO - [SUCCESS] Processed chunk 1989-1993 for profit_and_loss
+2025-01-14 23:24:56,604 - INFO - [SUCCESS] Created standardized mapping for 33 balance_sheet line items
+2025-01-14 23:25:06,990 - INFO - [SUCCESS] Processed chunk 1989-1993 for balance_sheet
+2025-01-14 23:25:35,248 - INFO - Starting FinState Analyzer
+2025-01-14 23:25:40,484 - INFO - Starting FinState Analyzer
+2025-01-14 23:25:40,487 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 23:25:40,488 - INFO - 
+==================================================
+2025-01-14 23:25:40,488 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 23:25:40,488 - INFO - ==================================================
+2025-01-14 23:25:44,311 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:25:56,717 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:25:56,718 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 23:25:57,361 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:25:57,362 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-14 23:25:57,362 - INFO - 
+==================================================
+2025-01-14 23:25:57,362 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-14 23:25:57,362 - INFO - ==================================================
+2025-01-14 23:25:58,804 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:26:10,181 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:26:10,181 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 23:26:10,848 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:26:13,745 - INFO - [SUCCESS] Created standardized mapping for 25 profit_and_loss line items
+2025-01-14 23:26:21,505 - INFO - [SUCCESS] Processed chunk 1989-1993 for profit_and_loss
+2025-01-14 23:26:26,690 - INFO - [SUCCESS] Created standardized mapping for 41 balance_sheet line items
+2025-01-14 23:26:36,881 - INFO - [SUCCESS] Processed chunk 1989-1993 for balance_sheet
+2025-01-14 23:27:47,685 - INFO - Starting FinState Analyzer
+2025-01-14 23:27:47,689 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 23:27:47,690 - INFO - 
+==================================================
+2025-01-14 23:27:47,690 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 23:27:47,691 - INFO - ==================================================
+2025-01-14 23:27:51,382 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:28:03,653 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:28:03,654 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 23:28:04,334 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:28:04,336 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-14 23:28:04,337 - INFO - 
+==================================================
+2025-01-14 23:28:04,338 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-14 23:28:04,338 - INFO - ==================================================
+2025-01-14 23:28:06,305 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:28:15,796 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:28:15,797 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 23:28:16,252 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:28:19,196 - INFO - [SUCCESS] Created standardized mapping for 25 profit_and_loss line items
+2025-01-14 23:28:26,958 - INFO - [SUCCESS] Processed chunk 1989-1993 for profit_and_loss
+2025-01-14 23:28:32,050 - INFO - [SUCCESS] Created standardized mapping for 41 balance_sheet line items
+2025-01-14 23:28:42,206 - INFO - [SUCCESS] Processed chunk 1989-1993 for balance_sheet
+2025-01-14 23:31:56,509 - INFO - Starting FinState Analyzer
+2025-01-14 23:31:56,513 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 23:31:56,514 - INFO - 
+==================================================
+2025-01-14 23:31:56,514 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 23:31:56,514 - INFO - ==================================================
+2025-01-14 23:31:59,993 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:32:11,650 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:32:11,650 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 23:32:16,550 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:32:16,551 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-14 23:32:16,552 - INFO - 
+==================================================
+2025-01-14 23:32:16,552 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-14 23:32:16,553 - INFO - ==================================================
+2025-01-14 23:32:17,830 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:32:27,341 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:32:27,341 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 23:32:36,286 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:32:38,972 - INFO - [SUCCESS] Created standardized mapping for 23 profit_and_loss line items
+2025-01-14 23:32:46,713 - INFO - [SUCCESS] Processed chunk 1989-1993 for profit_and_loss
+2025-01-14 23:32:50,751 - INFO - [SUCCESS] Created standardized mapping for 32 balance_sheet line items
+2025-01-14 23:32:59,517 - INFO - [SUCCESS] Processed chunk 1989-1993 for balance_sheet
+2025-01-14 23:33:02,115 - INFO - Starting FinState Analyzer
+2025-01-14 23:33:06,202 - INFO - Starting FinState Analyzer
+2025-01-14 23:33:27,029 - INFO - Starting FinState Analyzer
+2025-01-14 23:33:39,072 - INFO - Starting FinState Analyzer
+2025-01-14 23:33:39,075 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 23:33:39,076 - INFO - 
+==================================================
+2025-01-14 23:33:39,076 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 23:33:39,076 - INFO - ==================================================
+2025-01-14 23:33:39,390 - INFO - Starting FinState Analyzer
+2025-01-14 23:33:42,463 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:33:46,385 - INFO - Starting FinState Analyzer
+2025-01-14 23:33:46,389 - INFO - Processing file: company_00026538_accounts_2020.pdf with mime type: application/pdf
+2025-01-14 23:33:46,390 - INFO - 
+==================================================
+2025-01-14 23:33:46,390 - INFO - Processing: company_00026538_accounts_2020.pdf
+2025-01-14 23:33:46,390 - INFO - ==================================================
+2025-01-14 23:33:50,382 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:33:55,166 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:33:55,167 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 23:33:55,530 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:34:02,967 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:34:02,967 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 23:34:03,416 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:34:03,417 - INFO - Processing file: company_00026538_accounts_2021.pdf with mime type: application/pdf
+2025-01-14 23:34:03,417 - INFO - 
+==================================================
+2025-01-14 23:34:03,418 - INFO - Processing: company_00026538_accounts_2021.pdf
+2025-01-14 23:34:03,418 - INFO - ==================================================
+2025-01-14 23:34:05,457 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:34:16,899 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:34:16,900 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 23:34:17,374 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:34:17,375 - INFO - Processing file: company_00026538_accounts_2022.pdf with mime type: application/pdf
+2025-01-14 23:34:17,375 - INFO - 
+==================================================
+2025-01-14 23:34:17,375 - INFO - Processing: company_00026538_accounts_2022.pdf
+2025-01-14 23:34:17,375 - INFO - ==================================================
+2025-01-14 23:34:19,156 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:34:33,514 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:34:33,514 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-14 23:34:34,114 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:34:34,115 - INFO - Processing file: company_00026538_accounts_2023.pdf with mime type: application/pdf
+2025-01-14 23:34:34,115 - INFO - 
+==================================================
+2025-01-14 23:34:34,115 - INFO - Processing: company_00026538_accounts_2023.pdf
+2025-01-14 23:34:34,115 - INFO - ==================================================
+2025-01-14 23:34:36,435 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:34:52,497 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:34:52,497 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-14 23:34:53,031 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:34:58,270 - INFO - [SUCCESS] Created standardized mapping for 47 profit_and_loss line items
+2025-01-14 23:35:07,645 - INFO - [SUCCESS] Processed chunk 2019-2023 for profit_and_loss
+2025-01-14 23:35:12,242 - INFO - [SUCCESS] Created standardized mapping for 40 balance_sheet line items
+2025-01-14 23:35:22,867 - INFO - [SUCCESS] Processed chunk 2019-2023 for balance_sheet
+2025-01-14 23:36:12,668 - INFO - Starting FinState Analyzer
+2025-01-14 23:36:12,672 - INFO - Processing file: company_00026538_accounts_2020.pdf with mime type: application/pdf
+2025-01-14 23:36:12,673 - INFO - 
+==================================================
+2025-01-14 23:36:12,673 - INFO - Processing: company_00026538_accounts_2020.pdf
+2025-01-14 23:36:12,673 - INFO - ==================================================
+2025-01-14 23:36:12,898 - INFO - Starting FinState Analyzer
+2025-01-14 23:36:12,901 - INFO - Processing file: company_00026538_accounts_2020.pdf with mime type: application/pdf
+2025-01-14 23:36:12,902 - INFO - 
+==================================================
+2025-01-14 23:36:12,902 - INFO - Processing: company_00026538_accounts_2020.pdf
+2025-01-14 23:36:12,902 - INFO - ==================================================
+2025-01-14 23:36:13,027 - INFO - Starting FinState Analyzer
+2025-01-14 23:36:13,031 - INFO - Processing file: company_00026538_accounts_2020.pdf with mime type: application/pdf
+2025-01-14 23:36:13,031 - INFO - 
+==================================================
+2025-01-14 23:36:13,032 - INFO - Processing: company_00026538_accounts_2020.pdf
+2025-01-14 23:36:13,033 - INFO - ==================================================
+2025-01-14 23:36:13,213 - INFO - Starting FinState Analyzer
+2025-01-14 23:36:15,179 - INFO - Starting FinState Analyzer
+2025-01-14 23:36:17,431 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:36:18,448 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:36:18,450 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:36:23,101 - INFO - Starting FinState Analyzer
+2025-01-14 23:36:23,112 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 23:36:23,112 - INFO - 
+==================================================
+2025-01-14 23:36:23,112 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 23:36:23,112 - INFO - ==================================================
+2025-01-14 23:36:26,994 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:36:31,163 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:36:31,163 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 23:36:31,984 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:36:33,279 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:36:33,279 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 23:36:35,733 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:36:35,733 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 23:36:36,081 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:36:36,155 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:36:40,548 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:36:40,548 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 23:36:41,215 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:36:41,216 - INFO - Processing file: company_00026538_accounts_1992.pdf with mime type: application/pdf
+2025-01-14 23:36:41,216 - INFO - 
+==================================================
+2025-01-14 23:36:41,216 - INFO - Processing: company_00026538_accounts_1992.pdf
+2025-01-14 23:36:41,216 - INFO - ==================================================
+2025-01-14 23:36:42,705 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:36:52,711 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:36:52,711 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 23:36:53,115 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:36:53,116 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-14 23:36:53,116 - INFO - 
+==================================================
+2025-01-14 23:36:53,116 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-14 23:36:53,116 - INFO - ==================================================
+2025-01-14 23:36:55,089 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:37:04,693 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:37:04,693 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-14 23:37:05,361 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:37:05,362 - INFO - Processing file: company_00026538_accounts_2001.pdf with mime type: application/pdf
+2025-01-14 23:37:05,362 - INFO - 
+==================================================
+2025-01-14 23:37:05,362 - INFO - Processing: company_00026538_accounts_2001.pdf
+2025-01-14 23:37:05,362 - INFO - ==================================================
+2025-01-14 23:37:06,728 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:37:18,262 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:37:18,263 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-14 23:37:18,714 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:37:18,715 - INFO - Processing file: company_00026538_accounts_2002.pdf with mime type: application/pdf
+2025-01-14 23:37:18,716 - INFO - 
+==================================================
+2025-01-14 23:37:18,716 - INFO - Processing: company_00026538_accounts_2002.pdf
+2025-01-14 23:37:18,716 - INFO - ==================================================
+2025-01-14 23:37:20,445 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:37:33,929 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:37:33,929 - INFO - [SUCCESS] Added to consolidation queue (Total: 5)
+2025-01-14 23:37:34,610 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:37:34,611 - INFO - Processing file: company_00026538_accounts_2003.pdf with mime type: application/pdf
+2025-01-14 23:37:34,611 - INFO - 
+==================================================
+2025-01-14 23:37:34,611 - INFO - Processing: company_00026538_accounts_2003.pdf
+2025-01-14 23:37:34,611 - INFO - ==================================================
+2025-01-14 23:37:36,016 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:37:44,595 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:37:44,595 - INFO - [SUCCESS] Added to consolidation queue (Total: 6)
+2025-01-14 23:37:45,024 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:37:45,025 - INFO - Processing file: company_00026538_accounts_2004.pdf with mime type: application/pdf
+2025-01-14 23:37:45,025 - INFO - 
+==================================================
+2025-01-14 23:37:45,026 - INFO - Processing: company_00026538_accounts_2004.pdf
+2025-01-14 23:37:45,026 - INFO - ==================================================
+2025-01-14 23:37:46,368 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:37:55,503 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:37:55,503 - INFO - [SUCCESS] Added to consolidation queue (Total: 7)
+2025-01-14 23:37:55,877 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:37:55,877 - INFO - Processing file: company_00026538_accounts_2005.pdf with mime type: application/pdf
+2025-01-14 23:37:55,878 - INFO - 
+==================================================
+2025-01-14 23:37:55,878 - INFO - Processing: company_00026538_accounts_2005.pdf
+2025-01-14 23:37:55,878 - INFO - ==================================================
+2025-01-14 23:37:57,560 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:38:09,635 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:38:09,635 - INFO - [SUCCESS] Added to consolidation queue (Total: 8)
+2025-01-14 23:38:10,189 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:38:10,190 - INFO - Processing file: company_00026538_accounts_2006.pdf with mime type: application/pdf
+2025-01-14 23:38:10,191 - INFO - 
+==================================================
+2025-01-14 23:38:10,191 - INFO - Processing: company_00026538_accounts_2006.pdf
+2025-01-14 23:38:10,191 - INFO - ==================================================
+2025-01-14 23:38:11,864 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:38:21,185 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:38:21,185 - INFO - [SUCCESS] Added to consolidation queue (Total: 9)
+2025-01-14 23:38:21,629 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:38:21,630 - INFO - Processing file: company_00026538_accounts_2007.pdf with mime type: application/pdf
+2025-01-14 23:38:21,630 - INFO - 
+==================================================
+2025-01-14 23:38:21,631 - INFO - Processing: company_00026538_accounts_2007.pdf
+2025-01-14 23:38:21,631 - INFO - ==================================================
+2025-01-14 23:38:22,872 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:38:34,341 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:38:34,341 - INFO - [SUCCESS] Added to consolidation queue (Total: 10)
+2025-01-14 23:38:34,948 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:38:34,949 - INFO - Processing file: company_00026538_accounts_2008.pdf with mime type: application/pdf
+2025-01-14 23:38:34,949 - INFO - 
+==================================================
+2025-01-14 23:38:34,949 - INFO - Processing: company_00026538_accounts_2008.pdf
+2025-01-14 23:38:34,949 - INFO - ==================================================
+2025-01-14 23:38:36,470 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:38:49,420 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:38:49,420 - INFO - [SUCCESS] Added to consolidation queue (Total: 11)
+2025-01-14 23:38:49,979 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:38:49,980 - INFO - Processing file: company_00026538_accounts_2009.pdf with mime type: application/pdf
+2025-01-14 23:38:49,980 - INFO - 
+==================================================
+2025-01-14 23:38:49,981 - INFO - Processing: company_00026538_accounts_2009.pdf
+2025-01-14 23:38:49,981 - INFO - ==================================================
+2025-01-14 23:38:51,455 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:38:59,958 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:38:59,959 - INFO - [SUCCESS] Added to consolidation queue (Total: 12)
+2025-01-14 23:39:00,569 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:39:00,570 - INFO - Processing file: company_00026538_accounts_2010.pdf with mime type: application/pdf
+2025-01-14 23:39:00,571 - INFO - 
+==================================================
+2025-01-14 23:39:00,571 - INFO - Processing: company_00026538_accounts_2010.pdf
+2025-01-14 23:39:00,571 - INFO - ==================================================
+2025-01-14 23:39:01,735 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:39:14,462 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:39:14,463 - INFO - [SUCCESS] Added to consolidation queue (Total: 13)
+2025-01-14 23:39:14,872 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:39:14,873 - INFO - Processing file: company_00026538_accounts_2011.pdf with mime type: application/pdf
+2025-01-14 23:39:14,873 - INFO - 
+==================================================
+2025-01-14 23:39:14,873 - INFO - Processing: company_00026538_accounts_2011.pdf
+2025-01-14 23:39:14,874 - INFO - ==================================================
+2025-01-14 23:39:16,351 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:39:24,183 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:39:24,187 - INFO - [SUCCESS] Added to consolidation queue (Total: 14)
+2025-01-14 23:39:24,777 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:39:24,778 - INFO - Processing file: company_00026538_accounts_2012.pdf with mime type: application/pdf
+2025-01-14 23:39:24,778 - INFO - 
+==================================================
+2025-01-14 23:39:24,779 - INFO - Processing: company_00026538_accounts_2012.pdf
+2025-01-14 23:39:24,779 - INFO - ==================================================
+2025-01-14 23:39:26,479 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:39:38,001 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:39:38,001 - INFO - [SUCCESS] Added to consolidation queue (Total: 15)
+2025-01-14 23:39:38,510 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:39:38,511 - INFO - Processing file: company_00026538_accounts_2013.pdf with mime type: application/pdf
+2025-01-14 23:39:38,511 - INFO - 
+==================================================
+2025-01-14 23:39:38,511 - INFO - Processing: company_00026538_accounts_2013.pdf
+2025-01-14 23:39:38,512 - INFO - ==================================================
+2025-01-14 23:39:40,303 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:39:52,459 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:39:52,466 - INFO - [SUCCESS] Added to consolidation queue (Total: 16)
+2025-01-14 23:39:52,961 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:39:52,962 - INFO - Processing file: company_00026538_accounts_2014.pdf with mime type: application/pdf
+2025-01-14 23:39:52,962 - INFO - 
+==================================================
+2025-01-14 23:39:52,962 - INFO - Processing: company_00026538_accounts_2014.pdf
+2025-01-14 23:39:52,962 - INFO - ==================================================
+2025-01-14 23:39:54,759 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:40:04,382 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:40:04,382 - INFO - [SUCCESS] Added to consolidation queue (Total: 17)
+2025-01-14 23:40:04,822 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:40:04,824 - INFO - Processing file: company_00026538_accounts_2015.pdf with mime type: application/pdf
+2025-01-14 23:40:04,825 - INFO - 
+==================================================
+2025-01-14 23:40:04,825 - INFO - Processing: company_00026538_accounts_2015.pdf
+2025-01-14 23:40:04,826 - INFO - ==================================================
+2025-01-14 23:40:06,773 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:40:16,213 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:40:16,213 - INFO - [SUCCESS] Added to consolidation queue (Total: 18)
+2025-01-14 23:40:16,622 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:40:16,625 - INFO - Processing file: company_00026538_accounts_2016.pdf with mime type: application/pdf
+2025-01-14 23:40:16,625 - INFO - 
+==================================================
+2025-01-14 23:40:16,626 - INFO - Processing: company_00026538_accounts_2016.pdf
+2025-01-14 23:40:16,626 - INFO - ==================================================
+2025-01-14 23:40:18,476 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:40:31,137 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:40:31,137 - INFO - [SUCCESS] Added to consolidation queue (Total: 19)
+2025-01-14 23:40:31,744 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:40:31,745 - INFO - Processing file: company_00026538_accounts_2017.pdf with mime type: application/pdf
+2025-01-14 23:40:31,746 - INFO - 
+==================================================
+2025-01-14 23:40:31,746 - INFO - Processing: company_00026538_accounts_2017.pdf
+2025-01-14 23:40:31,746 - INFO - ==================================================
+2025-01-14 23:40:33,658 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:40:45,608 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:40:45,608 - INFO - [SUCCESS] Added to consolidation queue (Total: 20)
+2025-01-14 23:40:46,269 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:40:46,270 - INFO - Processing file: company_00026538_accounts_2018.pdf with mime type: application/pdf
+2025-01-14 23:40:46,271 - INFO - 
+==================================================
+2025-01-14 23:40:46,271 - INFO - Processing: company_00026538_accounts_2018.pdf
+2025-01-14 23:40:46,271 - INFO - ==================================================
+2025-01-14 23:40:48,234 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:41:00,114 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:41:00,114 - INFO - [SUCCESS] Added to consolidation queue (Total: 21)
+2025-01-14 23:41:00,724 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:41:00,725 - INFO - Processing file: company_00026538_accounts_2019.pdf with mime type: application/pdf
+2025-01-14 23:41:00,725 - INFO - 
+==================================================
+2025-01-14 23:41:00,725 - INFO - Processing: company_00026538_accounts_2019.pdf
+2025-01-14 23:41:00,727 - INFO - ==================================================
+2025-01-14 23:41:02,948 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:41:16,871 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:41:16,872 - INFO - [SUCCESS] Added to consolidation queue (Total: 22)
+2025-01-14 23:41:17,317 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:41:17,318 - INFO - Processing file: company_00026538_accounts_2020.pdf with mime type: application/pdf
+2025-01-14 23:41:17,319 - INFO - 
+==================================================
+2025-01-14 23:41:17,319 - INFO - Processing: company_00026538_accounts_2020.pdf
+2025-01-14 23:41:17,320 - INFO - ==================================================
+2025-01-14 23:41:19,231 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:41:30,390 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:41:30,391 - INFO - [SUCCESS] Added to consolidation queue (Total: 23)
+2025-01-14 23:41:30,823 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:41:30,825 - INFO - Processing file: company_00026538_accounts_2021.pdf with mime type: application/pdf
+2025-01-14 23:41:30,825 - INFO - 
+==================================================
+2025-01-14 23:41:30,825 - INFO - Processing: company_00026538_accounts_2021.pdf
+2025-01-14 23:41:30,825 - INFO - ==================================================
+2025-01-14 23:41:33,020 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:42:00,785 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:42:00,785 - INFO - [SUCCESS] Added to consolidation queue (Total: 24)
+2025-01-14 23:42:01,382 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:42:01,383 - INFO - Processing file: company_00026538_accounts_2022.pdf with mime type: application/pdf
+2025-01-14 23:42:01,383 - INFO - 
+==================================================
+2025-01-14 23:42:01,384 - INFO - Processing: company_00026538_accounts_2022.pdf
+2025-01-14 23:42:01,384 - INFO - ==================================================
+2025-01-14 23:42:03,601 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:42:17,109 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:42:17,110 - INFO - [SUCCESS] Added to consolidation queue (Total: 25)
+2025-01-14 23:42:17,530 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:42:17,531 - INFO - Processing file: company_00026538_accounts_2023.pdf with mime type: application/pdf
+2025-01-14 23:42:17,531 - INFO - 
+==================================================
+2025-01-14 23:42:17,531 - INFO - Processing: company_00026538_accounts_2023.pdf
+2025-01-14 23:42:17,532 - INFO - ==================================================
+2025-01-14 23:42:20,049 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 23:42:33,958 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 23:42:33,958 - INFO - [SUCCESS] Added to consolidation queue (Total: 26)
+2025-01-14 23:42:34,373 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 23:42:53,768 - INFO - [SUCCESS] Created standardized mapping for 173 profit_and_loss line items
+2025-01-14 23:43:03,827 - INFO - [SUCCESS] Processed chunk 1989-1993 for profit_and_loss
+2025-01-14 23:43:14,094 - INFO - [SUCCESS] Processed chunk 2000-2004 for profit_and_loss
+2025-01-14 23:43:23,369 - INFO - [SUCCESS] Processed chunk 2005-2009 for profit_and_loss
+2025-01-14 23:43:32,042 - INFO - [SUCCESS] Processed chunk 2010-2014 for profit_and_loss
+2025-01-14 23:43:43,553 - INFO - [SUCCESS] Processed chunk 2015-2019 for profit_and_loss
+2025-01-14 23:43:51,519 - INFO - [SUCCESS] Processed chunk 2020-2023 for profit_and_loss
+2025-01-14 23:44:11,787 - INFO - [SUCCESS] Created standardized mapping for 171 balance_sheet line items
+2025-01-14 23:44:26,425 - INFO - [SUCCESS] Processed chunk 1989-1993 for balance_sheet
+2025-01-14 23:44:47,180 - INFO - [SUCCESS] Processed chunk 2000-2004 for balance_sheet
+2025-01-14 23:45:00,779 - INFO - [SUCCESS] Processed chunk 2005-2009 for balance_sheet
+2025-01-14 23:45:12,026 - INFO - [SUCCESS] Processed chunk 2010-2014 for balance_sheet
+2025-01-14 23:45:26,261 - INFO - [SUCCESS] Processed chunk 2015-2019 for balance_sheet
+2025-01-14 23:45:34,564 - INFO - [SUCCESS] Processed chunk 2020-2023 for balance_sheet
+2025-01-14 23:47:03,147 - INFO - Starting FinState Analyzer

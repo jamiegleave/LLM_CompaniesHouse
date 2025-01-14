@@ -95,19 +95,10 @@ CRITICAL RULES:
                             error=f"{ErrorCodes.API_QUOTA_EXCEEDED}: No response from API - quota may be exceeded"
                         )
 
-                    # Save raw response for debugging
-                    raw_response = response.text.strip()
-                    debug_dir = 'debug'
-                    os.makedirs(debug_dir, exist_ok=True)
-                    
-                    debug_file = os.path.join(debug_dir, f"{file_obj.name.replace('.pdf', '')}_raw_response.txt")
-                    with open(debug_file, 'w', encoding='utf-8') as f:
-                        f.write(raw_response)
-                    logger.info(f"[DEBUG] Raw API response saved to: {debug_file}")
-
                     # Parse JSON response
                     try:
                         # Try to find JSON content if wrapped in markdown
+                        raw_response = response.text.strip()
                         if raw_response.startswith('```'):
                             start = raw_response.find('{')
                             end = raw_response.rfind('}') + 1
@@ -130,13 +121,13 @@ CRITICAL RULES:
                         )
 
                     except json.JSONDecodeError as e:
-                        logger.error(f"[ERROR] Invalid JSON from LLM. See: {debug_file}")
+                        logger.error(f"[ERROR] Invalid JSON from LLM")
                         logger.error(f"Error details: {str(e)}")
                         logger.error("\nFirst 500 characters of response:")
                         logger.error(f"{raw_response[:500]}...")
                         return RecognitionResult(
                             success=False,
-                            error=f"{ErrorCodes.RECOGNITION_FAILED}: Invalid JSON response. Debug file: {debug_file}"
+                            error=f"{ErrorCodes.RECOGNITION_FAILED}: Invalid JSON response"
                         )
 
                 except Exception as e:

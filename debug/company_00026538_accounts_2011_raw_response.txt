@@ -2,7 +2,7 @@
 {
   "metadata": {
     "currency": "GBP",
-    "scale": "thousands",
+    "scale": "millions",
     "unit_symbol": "£m"
   },
   "statements": {
@@ -12,7 +12,7 @@
         "CostOfSales": "(10,977)",
         "GrossProfit": "8,697",
         "DistributionCosts": "(263)",
-        "AdministrativeExpenses": "(9)",
+        "AdministrativeExpenses": "(299)",
         "OperatingProfit": "587",
         "ExceptionalItems": "61",
         "NetProfitOnSaleOfTangibleFixedAssets": "3",
@@ -29,7 +29,7 @@
         "Turnover": "8,697",
         "CostOfSales": "(8,110)",
         "GrossProfit": "587",
-        "DistributionCosts": "(299)",
+        "DistributionCosts": "(9)",
         "AdministrativeExpenses": "(22)",
         "OperatingProfit": "266",
         "ExceptionalItems": "3",
@@ -38,7 +38,7 @@
         "IncomeFromFixedAssetInvestments": "10",
         "InterestReceivableAndSimilarIncome": "5",
         "InterestPayableAndSimilarCharges": "(7)",
-        "OtherFinanceIncomeCharges": "(75)",
+        "OtherFinanceIncomeCharges": "(6)",
         "ProfitOnOrdinaryActivitiesBeforeTaxation": "271",
         "TaxOnProfitOnOrdinaryActivities": "(75)",
         "ProfitForTheFinancialYear": "196"
@@ -74,7 +74,7 @@
         "TotalAssetsLessCurrentLiabilities": "2,183",
         "CreditorsAmountsFallingDueAfterMoreThanOneYear": "(317)",
         "ProvisionsForLiabilitiesDeferredTax": "(8)",
-        "ProvisionsForLiabilitiesOtherProvisions": "(57)",
+        "ProvisionsForLiabilitiesOtherProvisions": "(4)",
         "NetAssetsExcludingPensionSchemeAssetsLiabilities": "1,809",
         "DefinedBenefitPensionSchemeLiability": "(336)",
         "NetAssetsIncludingPensionSchemeAssetsLiabilities": "1,473"

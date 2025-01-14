@@ -82,7 +82,7 @@
         "CreditorsAmountsFallingDueAfterMoreThanOneYear": "(119)",
         "ProvisionsForLiabilitiesDeferredTax": "(40)",
         "OtherProvisions": "(7)",
-        "PensionLiability": "(118)",
+        "PensionLiability": "(47)",
         "NetAssets": "899",
         "CapitalAndReserves": "573",
         "CalledUpShareCapital": "573",

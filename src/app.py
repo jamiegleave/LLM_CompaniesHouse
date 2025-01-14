@@ -5,6 +5,7 @@ import pandas as pd
 import logging
 import json
 import sys
+import os
 
 # Configure logging to output to both file and console
 logging.basicConfig(
@@ -24,11 +25,16 @@ def main():
     
     st.title("FinState Analyzer")
     
+    # Initialize session state for processed results
+    if 'processed_results' not in st.session_state:
+        st.session_state.processed_results = None
+    
     # Add API key configuration in sidebar
     api_key = st.sidebar.text_input(
         "Google API Key",
         type="password",
-        help="Enter your Google API key"
+        help="Enter your Google API key",
+        value=os.getenv('GEMINI_API_KEY','')
     )
     
     if not api_key:
@@ -46,63 +52,71 @@ def main():
     )
 
     if uploaded_files:
-        try:
-            # Process files
-            gemini_client = GeminiClient(api_key=api_key)
+        # Only process if we haven't already or if files changed
+        current_files = [f.name for f in uploaded_files]
+        if (st.session_state.processed_results is None or 
+            'last_processed_files' not in st.session_state or 
+            st.session_state.last_processed_files != current_files):
             
-            if len(uploaded_files) == 1:
-                # Single file - just analyze and display
-                with st.spinner(f"Processing {uploaded_files[0].name}..."):
-                    recognition_result = process_uploaded_file(uploaded_files[0], gemini_client)
-                    if recognition_result is None:
-                        st.error(f"Failed to process {uploaded_files[0].name}")
-                        return
-                    if recognition_result.success:
-                        display_consolidated_results(recognition_result.extracted_data)
-                    else:
-                        st.error(f"Analysis failed: {recognition_result.error}")
-            
-            else:
-                # Multiple files - process all and consolidate
-                processed_files = []
-                failed_files = []
+            try:
+                # Process files
+                gemini_client = GeminiClient(api_key=api_key)
                 
-                for idx, uploaded_file in enumerate(uploaded_files):
-                    with st.spinner(f"Processing: {uploaded_file.name}"):
-                        recognition_result = process_uploaded_file(uploaded_file, gemini_client)
-                        if recognition_result is None or not recognition_result.success:
-                            failed_files.append((uploaded_file.name, recognition_result.error if recognition_result else "Processing failed"))
-                            logger.warning(f"Failed to process {uploaded_file.name}")
-                            continue
-                        processed_files.append(uploaded_file.name)
-
-                if not processed_files:
-                    st.error("No files were successfully processed")
-                    return
-
-                # Consolidate results only for multiple files
-                with st.spinner("Consolidating statements..."):
-                    consolidated_result = gemini_client.consolidate_statements()
+                if len(uploaded_files) == 1:
+                    # Single file processing logic
+                    with st.spinner(f"Processing {uploaded_files[0].name}..."):
+                        recognition_result = process_uploaded_file(uploaded_files[0], gemini_client)
+                        if recognition_result is None:
+                            st.error(f"Failed to process {uploaded_files[0].name}")
+                            return
+                        if recognition_result.success:
+                            st.session_state.processed_results = recognition_result.extracted_data
+                            st.session_state.last_processed_files = current_files
+                        else:
+                            st.error(f"Analysis failed: {recognition_result.error}")
+                
+                else:
+                    # Multiple files processing logic
+                    processed_files = []
+                    failed_files = []
                     
-                    # Display processing summary
-                    if processed_files:
-                        st.success(f"Successfully processed: {', '.join(processed_files)}")
-                    
-                    if failed_files:
-                        st.warning("The following files had issues:")
-                        for file_name, error in failed_files:
-                            st.warning(f"- {file_name}: {error}")
-                    
-                    if consolidated_result.success:
-                        display_consolidated_results(consolidated_result.extracted_data)
-                    else:
-                        if hasattr(consolidated_result, 'problematic_indices'):
-                            st.warning("Some statements were excluded from consolidation due to formatting issues")
-                        st.error(f"Consolidation failed: {consolidated_result.error}")
+                    for idx, uploaded_file in enumerate(uploaded_files):
+                        with st.spinner(f"Processing: {uploaded_file.name}"):
+                            recognition_result = process_uploaded_file(uploaded_file, gemini_client)
+                            if recognition_result is None or not recognition_result.success:
+                                failed_files.append((uploaded_file.name, recognition_result.error if recognition_result else "Processing failed"))
+                                logger.warning(f"Failed to process {uploaded_file.name}")
+                                continue
+                            processed_files.append(uploaded_file.name)
 
-        except Exception as e:
-            logger.error(f"Error in main processing: {str(e)}")
-            st.error(f"Error processing files: {str(e)}")
+                    if not processed_files:
+                        st.error("No files were successfully processed")
+                        return
+
+                    # Consolidate results only for multiple files
+                    with st.spinner("Consolidating statements..."):
+                        consolidated_result = gemini_client.consolidate_statements()
+                        
+                        # Display processing summary
+                        if processed_files:
+                            st.success(f"Successfully processed: {', '.join(processed_files)}")
+                        
+                        if failed_files:
+                            st.warning("The following files had issues:")
+                            for file_name, error in failed_files:
+                                st.warning(f"- {file_name}: {error}")
+                        
+                        if consolidated_result.success:
+                            st.session_state.processed_results = consolidated_result.extracted_data
+                            st.session_state.last_processed_files = current_files
+                        
+            except Exception as e:
+                logger.error(f"Error in main processing: {str(e)}")
+                st.error(f"Error processing files: {str(e)}")
+        
+        # Display results if available
+        if st.session_state.processed_results:
+            display_consolidated_results(st.session_state.processed_results)
 
 def consolidate_data(consolidated_data: dict, new_data: dict):
     """Merge new statement data into consolidated data structure"""
@@ -156,24 +170,27 @@ def display_consolidated_results(data: dict):
             with col1:
                 st.json(data)  # Display formatted JSON
             with col2:
+                # Store JSON string in session state to avoid reprocessing
+                if 'json_data' not in st.session_state:
+                    st.session_state.json_data = json.dumps(data, indent=2)
+                
                 # Download button
-                json_str = json.dumps(data, indent=2)
                 st.download_button(
                     label="💾 Download JSON",
-                    data=json_str,
+                    data=st.session_state.json_data,
                     file_name="financial_statements.json",
                     mime="application/json",
                     help="Download the financial statements as a JSON file",
                     use_container_width=True
                 )
                 
-                # Copy to clipboard button (using JavaScript)
+                # Copy to clipboard button
                 st.button(
                     "📋 Copy JSON",
                     help="Copy the JSON to clipboard",
                     use_container_width=True,
                     on_click=lambda: st.write(
-                        f'<script>navigator.clipboard.writeText({json.dumps(json_str)})</script>',
+                        f'<script>navigator.clipboard.writeText({json.dumps(st.session_state.json_data)})</script>',
                         unsafe_allow_html=True
                     )
                 )

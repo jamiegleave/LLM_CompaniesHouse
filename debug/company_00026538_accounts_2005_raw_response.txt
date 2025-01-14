@@ -62,12 +62,7 @@
         "ProvisionsForLiabilitiesAndCharges": "(110.8)",
         "NetAssetsExcludingPensionLiability": "806.7",
         "PensionLiability": "(425.3)",
-        "NetAssetsIncludingPensionLiability": "381.4",
-        "CalledUpShareCapital": "228.4",
-        "ProfitAndLossReserve": "(231.6)",
-        "RevaluationReserve": "381.3",
-        "CapitalReserve": "3.3",
-        "TotalShareholdersFunds": "381.4"
+        "NetAssetsIncludingPensionLiability": "381.4"
       },
       "2004": {
         "FixedAssetsIntangibleAssets": "5.4",
@@ -86,12 +81,7 @@
         "ProvisionsForLiabilitiesAndCharges": "(116.5)",
         "NetAssetsExcludingPensionLiability": "740.3",
         "PensionLiability": "(599.8)",
-        "NetAssetsIncludingPensionLiability": "140.5",
-        "CalledUpShareCapital": "228.4",
-        "ProfitAndLossReserve": "(492.9)",
-        "RevaluationReserve": "401.7",
-        "CapitalReserve": "3.3",
-        "TotalShareholdersFunds": "140.5"
+        "NetAssetsIncludingPensionLiability": "140.5"
       }
     }
   }
