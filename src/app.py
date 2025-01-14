@@ -1,5 +1,5 @@
 import streamlit as st
-from .gemini_client import GeminiClient
+from .gemini_client import GeminiClient, RecognitionResult
 from .config import SUPPORTED_FORMATS, MAX_FILE_SIZE_MB
 import pandas as pd
 import logging

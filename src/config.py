@@ -33,7 +33,8 @@ ERROR_MESSAGES = {
 
 # Gemini Configuration
 GEMINI_CONFIG = {
-    "model": "gemini-1.5-flash-8b",  # Using latest pro model for best vision capabilities
+    "analysis_model": "gemini-1.5-flash-8b",  # For document analysis
+    "consolidation_model": "gemini-1.5-pro",   # For statement consolidation
     "timeout": 600,  # 10 minutes timeout for large documents
     "max_retries": 3,
     "image_mime_types": {  # Supported image MIME types

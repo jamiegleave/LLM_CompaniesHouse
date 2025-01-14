@@ -1,0 +1,91 @@
+```json
+{
+  "metadata": {
+    "currency": "GBP",
+    "scale": "millions",
+    "unit_symbol": "£m"
+  },
+  "statements": {
+    "profit_and_loss": {
+      "2009": {
+        "Turnover": "6,803.1",
+        "Cost_of_sales": "(6,199.1)",
+        "GROSS_PROFIT": "604.0",
+        "Distribution_costs": "(284.2)",
+        "Administrative_expenses": "(16.7)",
+        "OPERATING_PROFIT": "303.1",
+        "Income_from_shares_in_group_undertakings": "20",
+        "Income_from_fixed_asset_investments": "14",
+        "Profit/_(loss)_on_disposal_of_fixed_assets": "20",
+        "Interest_receivable_and_similar_income": "57",
+        "Interest_payable_and_similar_charges": "(106)",
+        "Other_finance_income_and_charges": "(0.4)",
+        "PROFIT_ON_ORDINARY_ACTIVITIES_BEFORE_TAXATION": "303.2",
+        "Taxation_on_profit_on_ordinary_activities": "(85.1)",
+        "PROFIT_FOR_THE_FINANCIAL_YEAR": "218.1"
+      },
+      "2008": {
+        "Turnover": "9,437.2",
+        "Cost_of_sales": "(9,025.5)",
+        "GROSS_PROFIT": "411.7",
+        "Distribution_costs": "(290.9)",
+        "Administrative_expenses": "(228)",
+        "OPERATING_PROFIT": "98.0",
+        "Income_from_shares_in_group_undertakings": "20",
+        "Income_from_fixed_asset_investments": "13",
+        "Profit/_(loss)_on_disposal_of_fixed_assets": "(17)",
+        "Interest_receivable_and_similar_income": "14.3",
+        "Interest_payable_and_similar_charges": "(353)",
+        "Other_finance_income_and_charges": "48.5",
+        "PROFIT_ON_ORDINARY_ACTIVITIES_BEFORE_TAXATION": "127.1",
+        "Taxation_on_profit_on_ordinary_activities": "(34.5)",
+        "PROFIT_FOR_THE_FINANCIAL_YEAR": "92.6"
+      }
+    },
+    "balance_sheet": {
+      "2009": {
+        "TOTAL_FIXED_ASSETS": "1,441.2",
+        "Stocks": "569.9",
+        "Debtors_Amounts_falling_due_within_one_year": "1,223.7",
+        "Debtors_Amounts_falling_due_after_more_than_one_year": "18.1",
+        "Cash_at_bank_and_in_hand": "55",
+        "TOTAL_CURRENT_ASSETS": "1,817.2",
+        "Creditors_Amounts_falling_due_within_one_year": "(1,230.9)",
+        "NET_CURRENT_ASSETS": "586.3",
+        "TOTAL_ASSETS_LESS_CURRENT_LIABILITIES": "2,027.5",
+        "Creditors_Amounts_falling_due_after_more_than_one_year": "(317.8)",
+        "Provisions_for_liabilities_and_charges": "(620)",
+        "NET_ASSETS_EXCLUDING_PENSION_LIABILITY": "1,647.7",
+        "Pension_liability": "(482.5)",
+        "NET_ASSETS_INCLUDING_PENSION_LIABILITY": "1,165.2",
+        "Called_up_share_capital": "573.4",
+        "Revaluation_reserve": "424.2",
+        "Capital_reserve": "33",
+        "Profit_and_loss_reserve": "164.3",
+        "TOTAL_SHAREHOLDER'S_FUNDS": "1,165.2"
+      },
+      "2008": {
+        "TOTAL_FIXED_ASSETS": "1,487.9",
+        "Stocks": "379.3",
+        "Debtors_Amounts_falling_due_within_one_year": "1,032.8",
+        "Debtors_Amounts_falling_due_after_more_than_one_year": "117",
+        "Cash_at_bank_and_in_hand": "50",
+        "TOTAL_CURRENT_ASSETS": "1,428.8",
+        "Creditors_Amounts_falling_due_within_one_year": "(1,085.9)",
+        "NET_CURRENT_ASSETS": "342.9",
+        "TOTAL_ASSETS_LESS_CURRENT_LIABILITIES": "1,830.8",
+        "Creditors_Amounts_falling_due_after_more_than_one_year": "(320.0)",
+        "Provisions_for_liabilities_and_charges": "(598)",
+        "NET_ASSETS_EXCLUDING_PENSION_LIABILITY": "1,451.0",
+        "Pension_liability": "(158.0)",
+        "NET_ASSETS_INCLUDING_PENSION_LIABILITY": "1,293.0",
+        "Called_up_share_capital": "573.4",
+        "Revaluation_reserve": "451.5",
+        "Capital_reserve": "33",
+        "Profit_and_loss_reserve": "264.8",
+        "TOTAL_SHAREHOLDER'S_FUNDS": "1,293.0"
+      }
+    }
+  }
+}
+```

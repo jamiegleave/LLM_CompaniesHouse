@@ -1,0 +1,99 @@
+```json
+{
+  "metadata": {
+    "currency": "GBP",
+    "scale": "millions",
+    "unit_symbol": "£m"
+  },
+  "statements": {
+    "profit_and_loss": {
+      "2008": {
+        "Turnover": "9437.2",
+        "CostOfSales": "(9071.2)",
+        "GrossProfit": "366.0",
+        "DistributionCosts": "(245.2)",
+        "AdministrativeExpenses": "(22.8)",
+        "OperatingProfit": "98.0",
+        "IncomeFromSharesInGroupUndertakings": "2.0",
+        "IncomeFromFixedAssetInvestments": "1.3",
+        "ProfitLossOnDisposalOfFixedAssets": "(1.7)",
+        "ProfitOnOrdinaryActivitiesBeforeInterestAndTaxation": "99.6",
+        "InterestReceivableAndSimilarIncome": "14.3",
+        "InterestPayableAndSimilarCharges": "(35.3)",
+        "OtherFinanceIncomeAndCharges": "48.5",
+        "ProfitOnOrdinaryActivitiesBeforeTaxation": "127.1",
+        "TaxationOnProfitOnOrdinaryActivities": "(34.5)",
+        "ProfitForTheFinancialYear": "92.6"
+      },
+      "2007": {
+        "Turnover": "7010.6",
+        "CostOfSales": "(6370.8)",
+        "GrossProfit": "639.8",
+        "DistributionCosts": "(241.5)",
+        "AdministrativeExpenses": "(14.5)",
+        "OperatingProfit": "383.8",
+        "IncomeFromSharesInGroupUndertakings": "3.1",
+        "IncomeFromFixedAssetInvestments": "2.0",
+        "ProfitLossOnDisposalOfFixedAssets": "1.5",
+        "ProfitOnOrdinaryActivitiesBeforeInterestAndTaxation": "390.4",
+        "InterestReceivableAndSimilarIncome": "30.7",
+        "InterestPayableAndSimilarCharges": "(28.1)",
+        "OtherFinanceIncomeAndCharges": "19.5",
+        "ProfitOnOrdinaryActivitiesBeforeTaxation": "412.5",
+        "TaxationOnProfitOnOrdinaryActivities": "(104.8)",
+        "ProfitForTheFinancialYear": "307.7"
+      }
+    },
+    "balance_sheet": {
+      "2008": {
+        "IntangibleAssets": "3.0",
+        "TangibleAssets": "1475.2",
+        "Investments": "9.7",
+        "TotalFixedAssets": "1487.9",
+        "Stocks": "379.3",
+        "DebtorsAmountsFallingDueWithinOneYear": "1032.8",
+        "DebtorsAmountsFallingDueAfterMoreThanOneYear": "11.7",
+        "CashAtBankAndInHand": "5.0",
+        "TotalCurrentAssets": "1428.8",
+        "CreditorsAmountsFallingDueWithinOneYear": "(1085.9)",
+        "NetCurrentAssets": "342.9",
+        "TotalAssetsLessCurrentLiabilities": "1830.8",
+        "CreditorsAmountsFallingDueAfterMoreThanOneYear": "(320.0)",
+        "ProvisionsForLiabilitiesAndCharges": "(59.8)",
+        "NetAssetsExcludingPensionAssetLiability": "1451.0",
+        "PensionAssetLiability": "(158.0)",
+        "NetAssetsIncludingPensionAssetLiability": "1293.0",
+        "CalledUpShareCapital": "573.4",
+        "RevaluationReserve": "451.5",
+        "CapitalReserve": "3.3",
+        "ProfitAndLossReserve": "264.8",
+        "TotalShareholdersFunds": "1293.0"
+      },
+      "2007": {
+        "IntangibleAssets": "3.4",
+        "TangibleAssets": "1476.9",
+        "Investments": "9.7",
+        "TotalFixedAssets": "1490.0",
+        "Stocks": "557.8",
+        "DebtorsAmountsFallingDueWithinOneYear": "793.9",
+        "DebtorsAmountsFallingDueAfterMoreThanOneYear": "16.7",
+        "CashAtBankAndInHand": "4.5",
+        "TotalCurrentAssets": "1372.9",
+        "CreditorsAmountsFallingDueWithinOneYear": "(1122.9)",
+        "NetCurrentAssets": "250.0",
+        "TotalAssetsLessCurrentLiabilities": "1740.0",
+        "CreditorsAmountsFallingDueAfterMoreThanOneYear": "(320.0)",
+        "ProvisionsForLiabilitiesAndCharges": "(79.6)",
+        "NetAssetsExcludingPensionAssetLiability": "1340.4",
+        "PensionAssetLiability": "62.8",
+        "NetAssetsIncludingPensionAssetLiability": "1403.2",
+        "CalledUpShareCapital": "573.4",
+        "RevaluationReserve": "463.0",
+        "CapitalReserve": "3.3",
+        "ProfitAndLossReserve": "363.5",
+        "TotalShareholdersFunds": "1403.2"
+      }
+    }
+  }
+}
+```

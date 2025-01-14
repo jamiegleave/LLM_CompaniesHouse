@@ -1,0 +1,115 @@
+```json
+{
+  "metadata": {
+    "currency": "GBP",
+    "scale": "millions",
+    "unit_symbol": "£m"
+  },
+  "statements": {
+    "profit_and_loss": {
+      "2023": {
+        "Turnover": "11.207",
+        "Cost of sales": "(10.801)",
+        "Gross profit": "406",
+        "Distribution costs": "(77)",
+        "Administrative expenses": "(77)",
+        "Other operating income": "1",
+        "Operating profit": "253",
+        "Income from fixed asset investments": "11",
+        "Impairment of fixed asset investments": "(107)",
+        "Interest receivable and similar income": "52",
+        "Interest payable and similar expenses": "(4)",
+        "Other finance income": "16",
+        "Profit before tax": "328",
+        "Tax on profit": "(73)",
+        "Profit for the financial year": "255",
+        "Actuarial gains on defined benefit pension scheme": "70",
+        "Pension surplus not recognised": "5",
+        "Movement of deferred tax relating to pension deficit": "(17)",
+        "Other comprehensive income for the year": "58",
+        "Total comprehensive income for the financial year": "313"
+      },
+      "2022": {
+        "Turnover": "13.688",
+        "Cost of sales": "(12.583)",
+        "Gross profit": "1105",
+        "Distribution costs": "(76)",
+        "Administrative expenses": "(87)",
+        "Other operating income": "2",
+        "Operating profit": "944",
+        "Income from fixed asset investments": null,
+        "Impairment of fixed asset investments": null,
+        "Interest receivable and similar income": null,
+        "Interest payable and similar expenses": "(1)",
+        "Other finance income": null,
+        "Profit before tax": "864",
+        "Tax on profit": "(196)",
+        "Profit for the financial year": "668",
+        "Actuarial gains on defined benefit pension scheme": "54",
+        "Pension surplus not recognised": "2",
+        "Movement of deferred tax relating to pension deficit": "(14)",
+        "Other comprehensive income for the year": "42",
+        "Total comprehensive income for the financial year": "710"
+      }
+    },
+    "balance_sheet": {
+      "2023": {
+        "Fixed assets": {
+          "Intangible fixed assets": "51",
+          "Tangible fixed assets": "1,775",
+          "Fixed asset investments": "224"
+        },
+        "Current assets": {
+          "Inventories": "922",
+          "Debtors: Amounts falling due after more than one year": "30",
+          "Debtors: Amounts falling due within one year": "1,961",
+          "Pension asset": "626",
+          "Creditors: Amounts falling due within one year": "(1,709)",
+          "Net current assets": "1,830"
+        },
+        "Total assets less current liabilities": "3,498",
+        "Creditors: Amounts falling due after more than one year": "(101)",
+        "Provisions for liabilities": "(176)",
+        "Deferred tax": null,
+        "Other provisions": "(233)",
+        "Pension liability": null,
+        "Net assets": "2,988",
+        "Capital and reserves": {
+          "Called up share capital": "1,533",
+          "Other reserves": null,
+          "Profit and loss account": null,
+          "Total equity": "2,988"
+        }
+      },
+      "2022": {
+        "Fixed assets": {
+          "Intangible fixed assets": null,
+          "Tangible fixed assets": null,
+          "Fixed asset investments": null
+        },
+        "Current assets": {
+          "Inventories": "970",
+          "Debtors: Amounts falling due after more than one year": "15",
+          "Debtors: Amounts falling due within one year": "2,376",
+          "Pension asset": "545",
+          "Creditors: Amounts falling due within one year": "(1,684)",
+          "Net current assets": "2,222"
+        },
+        "Total assets less current liabilities": "3,606",
+        "Creditors: Amounts falling due after more than one year": "(112)",
+        "Provisions for liabilities": "(125)",
+        "Deferred tax": null,
+        "Other provisions": "(204)",
+        "Pension liability": null,
+        "Net assets": "3,175",
+        "Capital and reserves": {
+          "Called up share capital": "1,533",
+          "Other reserves": null,
+          "Profit and loss account": null,
+          "Total equity": "3,175"
+        }
+      }
+    }
+  }
+}
+```

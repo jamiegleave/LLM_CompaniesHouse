@@ -1,0 +1,101 @@
+```json
+{
+  "metadata": {
+    "currency": "GBP",
+    "scale": "millions",
+    "unit_symbol": "£m"
+  },
+  "statements": {
+    "profit_and_loss": {
+      "1993": {
+        "Gross Turnover - Continuing Operations": "5,186.6",
+        "Excise Duties And Vat": "(2,870.1)",
+        "Net Turnover": "2,316.5",
+        "Cost Of Sales": "(1,776.5)",
+        "Gross Profit": "540.0",
+        "Distribution Costs": "(341.9)",
+        "Administrative Expenses": "(34.9)",
+        "Operating Profit - Continuing Operations": "163.2",
+        "Income From Shares In Group Undertakings": "0.0",
+        "Amounts Written Off Fixed Asset Investments": "0.0",
+        "Interest Receivable": "5.9",
+        "Interest Payable": "(63.6)",
+        "Profit On Ordinary Activities Before Taxation": "105.5",
+        "Taxation On Profit On Ordinary Activities": "(22.7)",
+        "Profit On Ordinary Activities After Taxation": "82.8",
+        "Minority Interests": "(2.7)",
+        "Profit Attributable To Shareholders": "80.1",
+        "Amounts (Added To)/Transferred From Reserves": "(70.1)",
+        "Dividends Paid": "10.0"
+      },
+      "1992": {
+        "Gross Turnover - Continuing Operations": "5,054.0",
+        "Excise Duties And Vat": "(2,647.5)",
+        "Net Turnover": "2,406.5",
+        "Cost Of Sales": "(1,908.1)",
+        "Gross Profit": "498.4",
+        "Distribution Costs": "(344.9)",
+        "Administrative Expenses": "(38.0)",
+        "Operating Profit - Continuing Operations": "115.5",
+        "Income From Shares In Group Undertakings": "0.0",
+        "Amounts Written Off Fixed Asset Investments": "0.0",
+        "Interest Receivable": "17.2",
+        "Interest Payable": "(100.1)",
+        "Profit On Ordinary Activities Before Taxation": "32.6",
+        "Taxation On Profit On Ordinary Activities": "(6.0)",
+        "Profit On Ordinary Activities After Taxation": "26.6",
+        "Minority Interests": "(2.6)",
+        "Profit Attributable To Shareholders": "24.0",
+        "Amounts (Added To)/Transferred From Reserves": "4.0",
+        "Dividends Paid": "28.0"
+      }
+    },
+    "balance_sheet": {
+      "1993": {
+        "Fixed Assets - Intangible Assets": "18.2",
+        "Fixed Assets - Tangible Assets": "1,516.5",
+        "Fixed Assets - Investments": "0.0",
+        "Total Fixed Assets": "1,534.7",
+        "Current Assets - Stocks": "288.1",
+        "Current Assets - Debtors Falling Due Within One Year": "268.9",
+        "Current Assets - Debtors Falling Due After More Than One Year": "207.4",
+        "Current Assets - Cash At Bank And In Hand": "3.5",
+        "Total Current Assets": "767.9",
+        "Creditors Falling Due Within One Year": "(694.4)",
+        "Net Current Assets": "73.5",
+        "Total Assets Less Current Liabilities": "1,608.2",
+        "Creditors Falling Due After More Than One Year": "664.5",
+        "Provisions For Liabilities And Charges": "6.3",
+        "Minority Interests": "3.4",
+        "Capital And Reserves - Called Up Share Capital": "228.4",
+        "Capital And Reserves - Revaluation Reserve": "264.0",
+        "Capital And Reserves - Profit And Loss Account": "441.6",
+        "Total Capital And Reserves": "934.0",
+        "Total Assets": "1,608.2"
+      },
+      "1992": {
+        "Fixed Assets - Intangible Assets": "20.0",
+        "Fixed Assets - Tangible Assets": "1,556.8",
+        "Fixed Assets - Investments": "43.2",
+        "Total Fixed Assets": "1,576.8",
+        "Current Assets - Stocks": "305.0",
+        "Current Assets - Debtors Falling Due Within One Year": "291.6",
+        "Current Assets - Debtors Falling Due After More Than One Year": "212.5",
+        "Current Assets - Cash At Bank And In Hand": "17.5",
+        "Total Current Assets": "826.6",
+        "Creditors Falling Due Within One Year": "(723.6)",
+        "Net Current Assets": "103.0",
+        "Total Assets Less Current Liabilities": "1,679.8",
+        "Creditors Falling Due After More Than One Year": "742.6",
+        "Provisions For Liabilities And Charges": "6.1",
+        "Minority Interests": "3.2",
+        "Capital And Reserves - Called Up Share Capital": "228.4",
+        "Capital And Reserves - Revaluation Reserve": "329.0",
+        "Capital And Reserves - Profit And Loss Account": "370.5",
+        "Total Capital And Reserves": "927.9",
+        "Total Assets": "1,679.8"
+      }
+    }
+  }
+}
+```

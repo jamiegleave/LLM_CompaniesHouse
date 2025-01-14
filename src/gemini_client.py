@@ -20,7 +20,6 @@ class RecognitionResult:
 class GeminiClient:
     def __init__(self, api_key: str):
         genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel(model_name=GEMINI_CONFIG["model"])
         self.extracted_jsons = []
 
     def analyze_document(self, file_obj, mime_type: str) -> RecognitionResult:
@@ -33,6 +32,7 @@ class GeminiClient:
                     error=f"{ErrorCodes.RECOGNITION_FAILED}: No file provided"
                 )
 
+            analysis_model = genai.GenerativeModel(model_name=GEMINI_CONFIG["analysis_model"])
             logger.info(f"\n{'='*50}")
             logger.info(f"Processing: {file_obj.name}")
             logger.info(f"{'='*50}")
@@ -48,9 +48,9 @@ class GeminiClient:
 STRUCTURE:
 {
     "metadata": {
-        "currency": "GBP",
-        "scale": "millions",
-        "unit_symbol": "£m"
+        "currency": "DETECT FROM DOCUMENT (e.g. GBP, USD, EUR, etc.)",
+        "scale": "DETECT FROM DOCUMENT (e.g., millions, thousands, billions)",
+        "unit_symbol": "DETECT FROM DOCUMENT (e.g., $m, £k, €B)"
     },
     "statements": {
         "profit_and_loss": {
@@ -68,17 +68,18 @@ CRITICAL RULES:
 1. Extract ALL visible financial data from the document
 2. Group data by statement type, then by year
 3. Use decimal numbers (e.g., 50.0 not 50)
-4. Use spaces in names, not underscores
+4. Use spaces in line item names, not underscores
 5. Use negative numbers for liabilities/creditors
-6. Follow ONLY this nesting hierarchy:
+6. Capitalize the first letter of each word in line item names
+7. Follow ONLY this nesting hierarchy:
    metadata -> flat key/values
    statements -> profit_and_loss/balance_sheet -> years -> flat key/values
-7. No other nested objects allowed
-8. Output valid JSON only"""
+8. No other nested objects allowed
+9. Output valid JSON only"""
 
                 # Make API call
                 try:
-                    response = self.model.generate_content(
+                    response = analysis_model.generate_content(
                         [system_prompt, file],
                         generation_config={
                             "temperature": 0.1,
@@ -179,36 +180,81 @@ CRITICAL RULES:
                     error=f"{ErrorCodes.CONSOLIDATION_FAILED}: No statements to consolidate"
                 )
 
-            consolidation_prompt = """You are a financial data consolidator. Your task is to combine ALL provided statements into a single JSON.
+            # First consolidate profit and loss statements
+            profit_loss_result = self._consolidate_statement_type("profit_and_loss")
+            if not profit_loss_result.success:
+                return profit_loss_result
 
-INPUT STATEMENTS:
-{}
+            # Then consolidate balance sheet statements
+            balance_sheet_result = self._consolidate_statement_type("balance_sheet")
+            if not balance_sheet_result.success:
+                return balance_sheet_result
 
-CRITICAL RULES:
-1. PRESERVE ALL YEARS from input statements - do not create or remove any years
-2. Use ONLY data from the input statements - never generate example data
-3. Include ALL years found in ANY input statement
-4. Format numbers consistently:
-   - Convert strings to numbers
-   - Remove commas
-   - Convert parentheses to negatives
-5. Use spaces in names, not underscores
-6. Flatten any nested structures
-7. Follow only this hierarchy:
-   metadata -> flat key/values
-   statements -> profit_and_loss/balance_sheet -> years -> flat key/values
+            # Combine the results
+            consolidated_data = {
+                "metadata": self.extracted_jsons[0]["metadata"],  # Use metadata from first statement
+                "statements": {
+                    "profit_and_loss": profit_loss_result.extracted_data,
+                    "balance_sheet": balance_sheet_result.extracted_data
+                }
+            }
 
-EXAMPLE: If inputs contain 2018, 2019, 2020, and 2021 data, the output must include ALL those years with their actual values."""
+            return RecognitionResult(
+                success=True,
+                statement_type="Consolidated",
+                confidence=1.0,
+                extracted_data=consolidated_data
+            )
 
-            # Convert input JSONs to formatted string
-            input_data = "\n\n".join(f"Statement {i+1}:\n{json.dumps(json_obj, indent=2)}" 
-                                   for i, json_obj in enumerate(self.extracted_jsons))
+        except Exception as e:
+            logger.error(f"Consolidation failed: {str(e)}")
+            return RecognitionResult(
+                success=False,
+                error=f"{ErrorCodes.CONSOLIDATION_FAILED}: {str(e)}"
+            )
+
+    def _consolidate_statement_type(self, statement_type: str) -> RecognitionResult:
+        """Consolidate a specific type of statement (profit_and_loss or balance_sheet)"""
+        try:
+            consolidation_model = genai.GenerativeModel(GEMINI_CONFIG["consolidation_model"])
             
-            # Format the complete prompt with input data
-            complete_prompt = consolidation_prompt.format(input_data)
+            # Extract all data for this statement type
+            statement_data = []
+            for json_obj in self.extracted_jsons:
+                if statement_type in json_obj.get("statements", {}):
+                    statement_data.append(json_obj["statements"][statement_type])
 
-            response = self.model.generate_content(
-                complete_prompt,
+            if not statement_data:
+                logger.info(f"No {statement_type} statements to consolidate")
+                return RecognitionResult(
+                    success=True,
+                    statement_type=statement_type,
+                    extracted_data={}
+                )
+
+            # Format the prompt for this statement type
+            prompt = {
+                "role": "user",
+                "parts": [{
+                    "text": f"""Consolidate these {statement_type} statements into a single JSON object.
+
+Rules for combining line items:
+1. Normalize names by:
+   - Removing underscores, arrows (→), and spaces
+   - Ignoring case differences
+   - Example: "Fixed_Assets → Intangible_assets" = "FixedAssetsIntangibleAssets"
+2. When multiple items match after normalization, combine their values
+3. Use the most common name format from the input data
+4. Preserve all unique line items
+
+Input statements:
+{json.dumps(statement_data, indent=2)}"""
+                }]
+            }
+
+            # Make API call
+            response = consolidation_model.generate_content(
+                prompt,
                 generation_config={
                     "temperature": 0.1,
                     "candidate_count": 1,
@@ -217,89 +263,28 @@ EXAMPLE: If inputs contain 2018, 2019, 2020, and 2021 data, the output must incl
             )
 
             if not response or not response.text:
-                raise ValueError("Empty response from API")
+                raise ValueError(f"Empty response from API for {statement_type}")
 
-            # Save raw response to file
-            try:
-                with open('debug/raw_response.txt', 'w', encoding='utf-8') as f:
-                    f.write(response.text)
-                logger.info("[DEBUG] Saved raw response to debug/raw_response.txt")
-            except Exception as e:
-                logger.error(f"[WARNING] Could not save raw response: {str(e)}")
-
-            # Parse consolidated JSON
-            try:
-                content = response.text.strip()
-                logger.debug(f"Raw content length: {len(content)} characters")
-                
-                # Find the first { and last } to extract just the JSON object
-                start_idx = content.find('{')
-                end_idx = content.rfind('}') + 1
-                
-                if start_idx == -1 or end_idx == 0:
-                    raise ValueError("No JSON object found in response")
-                
-                content = content[start_idx:end_idx]
-                
-                # Validate JSON structure (count braces)
-                open_braces = content.count('{')
-                close_braces = content.count('}')
-                
-                if open_braces != close_braces:
-                    logger.warning(f"Mismatched braces: {open_braces} opening vs {close_braces} closing")
-                    # Find the last balanced position
-                    count = 0
-                    last_balanced_pos = 0
-                    for i, char in enumerate(content):
-                        if char == '{':
-                            count += 1
-                        elif char == '}':
-                            count -= 1
-                        if count == 0:
-                            last_balanced_pos = i + 1
-                    content = content[:last_balanced_pos]
-                
-                logger.debug(f"Cleaned content length: {len(content)} characters")
-                
-                # Save cleaned content to file
-                try:
-                    with open('debug/cleaned_response.json', 'w', encoding='utf-8') as f:
-                        f.write(content)
-                    logger.info("[DEBUG] Saved cleaned response to debug/cleaned_response.json")
-                except Exception as e:
-                    logger.error(f"[WARNING] Could not save cleaned response: {str(e)}")
-                
-                # Validate JSON before parsing
-                try:
-                    consolidated_data = json.loads(content)
-                    logger.info("[SUCCESS] Successfully parsed consolidated JSON")
-                    return RecognitionResult(
-                        success=True,
-                        statement_type="Consolidated",
-                        confidence=1.0,
-                        extracted_data=consolidated_data
-                    )
-                except json.JSONDecodeError as e:
-                    logger.error(f"[ERROR] JSON validation failed: {str(e)}")
-                    raise
-
-            except json.JSONDecodeError as e:
-                logger.error("\n=== JSON Parsing Error ===")
-                logger.error(f"Error type: {type(e).__name__}")
-                logger.error(f"Error message: {str(e)}")
-                logger.error(f"Error position: {e.pos}")
-                logger.error("\nContent snippet around error:")
-                start = max(0, e.pos - 50)
-                end = min(len(content), e.pos + 50)
-                logger.error(f"...{content[start:e.pos]} >>> ERROR HERE <<< {content[e.pos:end]}...")
+            # Clean and parse the response
+            cleaned_response = response.text.strip()
+            cleaned_response = cleaned_response.replace('```json', '').replace('```', '')
+            start = cleaned_response.find('{')
+            end = cleaned_response.rfind('}') + 1
+            if start >= 0 and end > 0:
+                cleaned_response = cleaned_response[start:end]
+                consolidated_data = json.loads(cleaned_response)
+                logger.info(f"[SUCCESS] Successfully consolidated {statement_type}")
                 return RecognitionResult(
-                    success=False,
-                    error=f"{ErrorCodes.INVALID_JSON}: Failed to parse consolidated JSON: {str(e)}"
+                    success=True,
+                    statement_type=statement_type,
+                    extracted_data=consolidated_data
                 )
+            else:
+                raise ValueError(f"No valid JSON found in response for {statement_type}")
 
         except Exception as e:
-            logger.error(f"Consolidation failed: {str(e)}")
+            logger.error(f"Failed to consolidate {statement_type}: {str(e)}")
             return RecognitionResult(
                 success=False,
-                error=f"{ErrorCodes.CONSOLIDATION_FAILED}: {str(e)}"
+                error=f"{ErrorCodes.CONSOLIDATION_FAILED}: Failed to consolidate {statement_type}: {str(e)}"
             ) 

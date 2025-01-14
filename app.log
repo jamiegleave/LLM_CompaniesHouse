@@ -8519,3 +8519,1917 @@ First 500 characters of response:
 2025-01-10 00:35:53,613 - INFO - [DEBUG] Saved raw response to debug/raw_response.txt
 2025-01-10 00:35:53,614 - INFO - [DEBUG] Saved cleaned response to debug/cleaned_response.json
 2025-01-10 00:35:53,614 - INFO - [SUCCESS] Successfully parsed consolidated JSON
+2025-01-10 00:37:14,012 - INFO - Starting FinState Analyzer
+2025-01-10 00:37:14,015 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-10 00:37:14,016 - INFO - 
+==================================================
+2025-01-10 00:37:14,016 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-10 00:37:14,016 - INFO - ==================================================
+2025-01-10 00:37:17,467 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:37:24,880 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-10 00:37:24,881 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:37:24,881 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-10 00:37:25,317 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:37:25,318 - INFO - Processing file: company_00026538_accounts_1992.pdf with mime type: application/pdf
+2025-01-10 00:37:25,318 - INFO - 
+==================================================
+2025-01-10 00:37:25,318 - INFO - Processing: company_00026538_accounts_1992.pdf
+2025-01-10 00:37:25,319 - INFO - ==================================================
+2025-01-10 00:37:27,031 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:37:36,439 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1992_raw_response.txt
+2025-01-10 00:37:36,441 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:37:36,441 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-10 00:37:37,026 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:37:37,027 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-10 00:37:37,028 - INFO - 
+==================================================
+2025-01-10 00:37:37,028 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-10 00:37:37,028 - INFO - ==================================================
+2025-01-10 00:37:38,934 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:37:47,335 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1993_raw_response.txt
+2025-01-10 00:37:47,336 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:37:47,336 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-10 00:37:48,155 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:37:48,158 - INFO - Processing file: company_00026538_accounts_2001.pdf with mime type: application/pdf
+2025-01-10 00:37:48,158 - INFO - 
+==================================================
+2025-01-10 00:37:48,159 - INFO - Processing: company_00026538_accounts_2001.pdf
+2025-01-10 00:37:48,160 - INFO - ==================================================
+2025-01-10 00:37:49,813 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:38:01,445 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2001_raw_response.txt
+2025-01-10 00:38:01,447 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:38:01,449 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-10 00:38:02,031 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:38:19,315 - INFO - [DEBUG] Saved raw response to debug/raw_response.txt
+2025-01-10 00:38:19,318 - INFO - [DEBUG] Saved cleaned response to debug/cleaned_response.json
+2025-01-10 00:38:19,320 - INFO - [SUCCESS] Successfully parsed consolidated JSON
+2025-01-10 00:42:21,312 - INFO - Starting FinState Analyzer
+2025-01-10 00:42:21,317 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-10 00:42:21,317 - INFO - 
+==================================================
+2025-01-10 00:42:21,318 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-10 00:42:21,318 - INFO - ==================================================
+2025-01-10 00:42:25,330 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:42:35,996 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-10 00:42:35,997 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:42:35,997 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-10 00:42:36,742 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:42:36,743 - INFO - Processing file: company_00026538_accounts_1992.pdf with mime type: application/pdf
+2025-01-10 00:42:36,743 - INFO - 
+==================================================
+2025-01-10 00:42:36,744 - INFO - Processing: company_00026538_accounts_1992.pdf
+2025-01-10 00:42:36,744 - INFO - ==================================================
+2025-01-10 00:42:38,392 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:42:49,238 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1992_raw_response.txt
+2025-01-10 00:42:49,238 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:42:49,238 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-10 00:42:49,702 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:42:49,703 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-10 00:42:49,704 - INFO - 
+==================================================
+2025-01-10 00:42:49,704 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-10 00:42:49,704 - INFO - ==================================================
+2025-01-10 00:42:51,559 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:42:59,803 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1993_raw_response.txt
+2025-01-10 00:42:59,804 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:42:59,804 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-10 00:43:00,346 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:43:00,348 - INFO - Processing file: company_00026538_accounts_2001.pdf with mime type: application/pdf
+2025-01-10 00:43:00,348 - INFO - 
+==================================================
+2025-01-10 00:43:00,348 - INFO - Processing: company_00026538_accounts_2001.pdf
+2025-01-10 00:43:00,348 - INFO - ==================================================
+2025-01-10 00:43:01,910 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:43:10,451 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2001_raw_response.txt
+2025-01-10 00:43:10,451 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:43:10,451 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-10 00:43:10,905 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:43:41,559 - INFO - [DEBUG] Saved raw response to debug/raw_response.txt
+2025-01-10 00:43:41,560 - INFO - [DEBUG] Saved cleaned response to debug/cleaned_response.json
+2025-01-10 00:43:41,560 - INFO - [SUCCESS] Successfully parsed consolidated JSON
+2025-01-10 00:43:55,179 - INFO - Starting FinState Analyzer
+2025-01-10 00:43:55,182 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-10 00:43:55,183 - INFO - 
+==================================================
+2025-01-10 00:43:55,183 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-10 00:43:55,183 - INFO - ==================================================
+2025-01-10 00:43:58,977 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:44:09,139 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-10 00:44:09,139 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:44:09,139 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-10 00:44:09,787 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:44:09,788 - INFO - Processing file: company_00026538_accounts_1992.pdf with mime type: application/pdf
+2025-01-10 00:44:09,789 - INFO - 
+==================================================
+2025-01-10 00:44:09,789 - INFO - Processing: company_00026538_accounts_1992.pdf
+2025-01-10 00:44:09,789 - INFO - ==================================================
+2025-01-10 00:44:11,483 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:44:20,771 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1992_raw_response.txt
+2025-01-10 00:44:20,772 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:44:20,772 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-10 00:44:21,226 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:44:21,227 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-10 00:44:21,227 - INFO - 
+==================================================
+2025-01-10 00:44:21,227 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-10 00:44:21,227 - INFO - ==================================================
+2025-01-10 00:44:23,083 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:44:31,253 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1993_raw_response.txt
+2025-01-10 00:44:31,253 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:44:31,254 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-10 00:44:31,870 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:44:31,871 - INFO - Processing file: company_00026538_accounts_2001.pdf with mime type: application/pdf
+2025-01-10 00:44:31,872 - INFO - 
+==================================================
+2025-01-10 00:44:31,872 - INFO - Processing: company_00026538_accounts_2001.pdf
+2025-01-10 00:44:31,872 - INFO - ==================================================
+2025-01-10 00:44:33,440 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:44:47,636 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2001_raw_response.txt
+2025-01-10 00:44:47,636 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:44:47,636 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-10 00:44:48,262 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:45:08,433 - INFO - [DEBUG] Saved raw response to debug/raw_response.txt
+2025-01-10 00:45:08,434 - INFO - [DEBUG] Saved cleaned response to debug/cleaned_response.json
+2025-01-10 00:45:08,434 - INFO - [SUCCESS] Successfully parsed consolidated JSON
+2025-01-10 00:46:35,715 - INFO - Starting FinState Analyzer
+2025-01-10 00:46:35,718 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-10 00:46:35,718 - INFO - 
+==================================================
+2025-01-10 00:46:35,718 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-10 00:46:35,719 - INFO - ==================================================
+2025-01-10 00:46:39,235 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:46:49,913 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-10 00:46:49,913 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:46:49,913 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-10 00:46:50,491 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:46:50,492 - INFO - Processing file: company_00026538_accounts_1992.pdf with mime type: application/pdf
+2025-01-10 00:46:50,492 - INFO - 
+==================================================
+2025-01-10 00:46:50,492 - INFO - Processing: company_00026538_accounts_1992.pdf
+2025-01-10 00:46:50,492 - INFO - ==================================================
+2025-01-10 00:46:52,151 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:47:04,262 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1992_raw_response.txt
+2025-01-10 00:47:04,262 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:47:04,263 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-10 00:47:04,944 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:47:04,945 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-10 00:47:04,946 - INFO - 
+==================================================
+2025-01-10 00:47:04,948 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-10 00:47:04,948 - INFO - ==================================================
+2025-01-10 00:47:06,947 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:47:15,247 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1993_raw_response.txt
+2025-01-10 00:47:15,248 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:47:15,248 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-10 00:47:16,397 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:47:16,398 - INFO - Processing file: company_00026538_accounts_2001.pdf with mime type: application/pdf
+2025-01-10 00:47:16,398 - INFO - 
+==================================================
+2025-01-10 00:47:16,398 - INFO - Processing: company_00026538_accounts_2001.pdf
+2025-01-10 00:47:16,398 - INFO - ==================================================
+2025-01-10 00:47:18,550 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:47:30,043 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2001_raw_response.txt
+2025-01-10 00:47:30,044 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:47:30,044 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-10 00:47:30,459 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:47:59,157 - INFO - [DEBUG] Saved raw response to debug/raw_response.txt
+2025-01-10 00:47:59,159 - INFO - [DEBUG] Saved cleaned response to debug/cleaned_response.json
+2025-01-10 00:47:59,159 - INFO - [SUCCESS] Successfully parsed consolidated JSON
+2025-01-10 00:48:46,183 - INFO - Starting FinState Analyzer
+2025-01-10 00:48:46,186 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-10 00:48:46,186 - INFO - 
+==================================================
+2025-01-10 00:48:46,186 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-10 00:48:46,187 - INFO - ==================================================
+2025-01-10 00:48:49,957 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:49:00,362 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-10 00:49:00,363 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:49:00,363 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-10 00:49:00,922 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:49:00,924 - INFO - Processing file: company_00026538_accounts_1992.pdf with mime type: application/pdf
+2025-01-10 00:49:00,925 - INFO - 
+==================================================
+2025-01-10 00:49:00,925 - INFO - Processing: company_00026538_accounts_1992.pdf
+2025-01-10 00:49:00,926 - INFO - ==================================================
+2025-01-10 00:49:02,653 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:49:11,245 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1992_raw_response.txt
+2025-01-10 00:49:11,246 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:49:11,246 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-10 00:49:11,805 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:49:11,806 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-10 00:49:11,806 - INFO - 
+==================================================
+2025-01-10 00:49:11,807 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-10 00:49:11,807 - INFO - ==================================================
+2025-01-10 00:49:14,124 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:49:22,373 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1993_raw_response.txt
+2025-01-10 00:49:22,373 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:49:22,374 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-10 00:49:22,892 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:49:22,910 - INFO - Processing file: company_00026538_accounts_2001.pdf with mime type: application/pdf
+2025-01-10 00:49:22,911 - INFO - 
+==================================================
+2025-01-10 00:49:22,911 - INFO - Processing: company_00026538_accounts_2001.pdf
+2025-01-10 00:49:22,911 - INFO - ==================================================
+2025-01-10 00:49:24,907 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:49:37,287 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2001_raw_response.txt
+2025-01-10 00:49:37,288 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:49:37,288 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-10 00:49:37,940 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:50:06,869 - INFO - [DEBUG] Saved raw response to debug/raw_response.txt
+2025-01-10 00:50:06,870 - INFO - [DEBUG] Saved cleaned response to debug/cleaned_response.json
+2025-01-10 00:50:06,870 - INFO - [SUCCESS] Successfully parsed consolidated JSON
+2025-01-10 00:50:33,278 - INFO - Starting FinState Analyzer
+2025-01-10 00:50:33,283 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-10 00:50:33,284 - INFO - 
+==================================================
+2025-01-10 00:50:33,284 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-10 00:50:33,284 - INFO - ==================================================
+2025-01-10 00:50:37,629 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:50:48,169 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-10 00:50:48,170 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:50:48,170 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-10 00:50:48,756 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:50:48,757 - INFO - Processing file: company_00026538_accounts_1992.pdf with mime type: application/pdf
+2025-01-10 00:50:48,757 - INFO - 
+==================================================
+2025-01-10 00:50:48,757 - INFO - Processing: company_00026538_accounts_1992.pdf
+2025-01-10 00:50:48,758 - INFO - ==================================================
+2025-01-10 00:50:50,445 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:51:00,555 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1992_raw_response.txt
+2025-01-10 00:51:00,556 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:51:00,556 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-10 00:51:00,995 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:51:00,996 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-10 00:51:00,996 - INFO - 
+==================================================
+2025-01-10 00:51:00,996 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-10 00:51:00,996 - INFO - ==================================================
+2025-01-10 00:51:03,087 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:51:11,450 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1993_raw_response.txt
+2025-01-10 00:51:11,450 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:51:11,450 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-10 00:51:12,137 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:51:12,138 - INFO - Processing file: company_00026538_accounts_2001.pdf with mime type: application/pdf
+2025-01-10 00:51:12,139 - INFO - 
+==================================================
+2025-01-10 00:51:12,139 - INFO - Processing: company_00026538_accounts_2001.pdf
+2025-01-10 00:51:12,139 - INFO - ==================================================
+2025-01-10 00:51:13,677 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:51:25,776 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2001_raw_response.txt
+2025-01-10 00:51:25,776 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:51:25,776 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-10 00:51:26,288 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:51:44,035 - INFO - [DEBUG] Saved raw response to debug/raw_response.txt
+2025-01-10 00:51:44,039 - INFO - [DEBUG] Saved cleaned response to debug/cleaned_response.json
+2025-01-10 00:51:44,041 - INFO - [SUCCESS] Successfully parsed consolidated JSON
+2025-01-10 00:52:15,481 - INFO - Starting FinState Analyzer
+2025-01-10 00:52:15,485 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-10 00:52:15,485 - INFO - 
+==================================================
+2025-01-10 00:52:15,486 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-10 00:52:15,486 - INFO - ==================================================
+2025-01-10 00:52:15,712 - INFO - Starting FinState Analyzer
+2025-01-10 00:52:15,715 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-10 00:52:15,715 - INFO - 
+==================================================
+2025-01-10 00:52:15,715 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-10 00:52:15,715 - INFO - ==================================================
+2025-01-10 00:52:15,921 - INFO - Starting FinState Analyzer
+2025-01-10 00:52:15,925 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-10 00:52:15,925 - INFO - 
+==================================================
+2025-01-10 00:52:15,925 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-10 00:52:15,926 - INFO - ==================================================
+2025-01-10 00:52:16,062 - INFO - Starting FinState Analyzer
+2025-01-10 00:52:19,455 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:52:20,131 - INFO - Starting FinState Analyzer
+2025-01-10 00:52:20,136 - INFO - Processing file: company_00026538_accounts_2018.pdf with mime type: application/pdf
+2025-01-10 00:52:20,136 - INFO - 
+==================================================
+2025-01-10 00:52:20,136 - INFO - Processing: company_00026538_accounts_2018.pdf
+2025-01-10 00:52:20,137 - INFO - ==================================================
+2025-01-10 00:52:20,354 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:52:20,490 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:52:24,015 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:52:28,810 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-10 00:52:28,810 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:52:28,811 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-10 00:52:29,264 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:52:29,711 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-10 00:52:29,711 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:52:29,711 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-10 00:52:30,243 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:52:31,435 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-10 00:52:31,438 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:52:31,438 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-10 00:52:32,040 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:52:38,161 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2018_raw_response.txt
+2025-01-10 00:52:38,161 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:52:38,161 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-10 00:52:38,487 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:52:38,489 - INFO - Processing file: company_00026538_accounts_2019.pdf with mime type: application/pdf
+2025-01-10 00:52:38,489 - INFO - 
+==================================================
+2025-01-10 00:52:38,489 - INFO - Processing: company_00026538_accounts_2019.pdf
+2025-01-10 00:52:38,489 - INFO - ==================================================
+2025-01-10 00:52:40,738 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:52:52,692 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2019_raw_response.txt
+2025-01-10 00:52:52,692 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:52:52,692 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-10 00:52:53,413 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:52:53,414 - INFO - Processing file: company_00026538_accounts_2020.pdf with mime type: application/pdf
+2025-01-10 00:52:53,414 - INFO - 
+==================================================
+2025-01-10 00:52:53,414 - INFO - Processing: company_00026538_accounts_2020.pdf
+2025-01-10 00:52:53,415 - INFO - ==================================================
+2025-01-10 00:52:55,631 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:53:09,132 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2020_raw_response.txt
+2025-01-10 00:53:09,132 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:53:09,132 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-10 00:53:10,175 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:53:10,177 - INFO - Processing file: company_00026538_accounts_2021.pdf with mime type: application/pdf
+2025-01-10 00:53:10,177 - INFO - 
+==================================================
+2025-01-10 00:53:10,177 - INFO - Processing: company_00026538_accounts_2021.pdf
+2025-01-10 00:53:10,177 - INFO - ==================================================
+2025-01-10 00:53:12,591 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:53:26,402 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2021_raw_response.txt
+2025-01-10 00:53:26,403 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:53:26,403 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-10 00:53:27,247 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:53:27,249 - INFO - Processing file: company_00026538_accounts_2022.pdf with mime type: application/pdf
+2025-01-10 00:53:27,249 - INFO - 
+==================================================
+2025-01-10 00:53:27,249 - INFO - Processing: company_00026538_accounts_2022.pdf
+2025-01-10 00:53:27,249 - INFO - ==================================================
+2025-01-10 00:53:29,915 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:53:42,257 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2022_raw_response.txt
+2025-01-10 00:53:42,257 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:53:42,257 - INFO - [SUCCESS] Added to consolidation queue (Total: 5)
+2025-01-10 00:53:42,806 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:53:42,807 - INFO - Processing file: company_00026538_accounts_2023.pdf with mime type: application/pdf
+2025-01-10 00:53:42,807 - INFO - 
+==================================================
+2025-01-10 00:53:42,807 - INFO - Processing: company_00026538_accounts_2023.pdf
+2025-01-10 00:53:42,807 - INFO - ==================================================
+2025-01-10 00:53:46,078 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:53:59,580 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2023_raw_response.txt
+2025-01-10 00:53:59,581 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:53:59,581 - INFO - [SUCCESS] Added to consolidation queue (Total: 6)
+2025-01-10 00:54:00,191 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:54:20,794 - INFO - [DEBUG] Saved raw response to debug/raw_response.txt
+2025-01-10 00:54:20,797 - INFO - [DEBUG] Saved cleaned response to debug/cleaned_response.json
+2025-01-10 00:54:20,800 - INFO - [SUCCESS] Successfully parsed consolidated JSON
+2025-01-10 00:55:13,156 - INFO - Starting FinState Analyzer
+2025-01-10 00:55:13,161 - INFO - Processing file: company_00026538_accounts_2018.pdf with mime type: application/pdf
+2025-01-10 00:55:13,161 - INFO - 
+==================================================
+2025-01-10 00:55:13,161 - INFO - Processing: company_00026538_accounts_2018.pdf
+2025-01-10 00:55:13,162 - INFO - ==================================================
+2025-01-10 00:55:13,420 - INFO - Starting FinState Analyzer
+2025-01-10 00:55:13,445 - INFO - Processing file: company_00026538_accounts_2018.pdf with mime type: application/pdf
+2025-01-10 00:55:13,445 - INFO - 
+==================================================
+2025-01-10 00:55:13,445 - INFO - Processing: company_00026538_accounts_2018.pdf
+2025-01-10 00:55:13,445 - INFO - ==================================================
+2025-01-10 00:55:13,623 - INFO - Starting FinState Analyzer
+2025-01-10 00:55:13,626 - INFO - Processing file: company_00026538_accounts_2018.pdf with mime type: application/pdf
+2025-01-10 00:55:13,627 - INFO - 
+==================================================
+2025-01-10 00:55:13,627 - INFO - Processing: company_00026538_accounts_2018.pdf
+2025-01-10 00:55:13,627 - INFO - ==================================================
+2025-01-10 00:55:13,722 - INFO - Starting FinState Analyzer
+2025-01-10 00:55:13,725 - INFO - Processing file: company_00026538_accounts_2018.pdf with mime type: application/pdf
+2025-01-10 00:55:13,725 - INFO - 
+==================================================
+2025-01-10 00:55:13,725 - INFO - Processing: company_00026538_accounts_2018.pdf
+2025-01-10 00:55:13,726 - INFO - ==================================================
+2025-01-10 00:55:14,062 - INFO - Starting FinState Analyzer
+2025-01-10 00:55:14,065 - INFO - Processing file: company_00026538_accounts_2018.pdf with mime type: application/pdf
+2025-01-10 00:55:14,066 - INFO - 
+==================================================
+2025-01-10 00:55:14,067 - INFO - Processing: company_00026538_accounts_2018.pdf
+2025-01-10 00:55:14,085 - INFO - ==================================================
+2025-01-10 00:55:14,320 - INFO - Starting FinState Analyzer
+2025-01-10 00:55:17,551 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:55:18,413 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:55:19,129 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:55:19,185 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:55:19,424 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:55:25,740 - INFO - Starting FinState Analyzer
+2025-01-10 00:55:25,751 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-10 00:55:25,751 - INFO - 
+==================================================
+2025-01-10 00:55:25,751 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-10 00:55:25,752 - INFO - ==================================================
+2025-01-10 00:55:29,883 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:55:31,960 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2018_raw_response.txt
+2025-01-10 00:55:31,961 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:55:31,961 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-10 00:55:32,026 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2018_raw_response.txt
+2025-01-10 00:55:32,026 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:55:32,026 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-10 00:55:32,485 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:55:32,815 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:55:35,154 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2018_raw_response.txt
+2025-01-10 00:55:35,154 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:55:35,154 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-10 00:55:35,809 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:55:36,091 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2018_raw_response.txt
+2025-01-10 00:55:36,091 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:55:36,091 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-10 00:55:36,686 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:55:37,532 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2018_raw_response.txt
+2025-01-10 00:55:37,532 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:55:37,532 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-10 00:55:38,512 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:55:40,575 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-10 00:55:40,575 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:55:40,575 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-10 00:55:41,484 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:55:41,485 - INFO - Processing file: company_00026538_accounts_1992.pdf with mime type: application/pdf
+2025-01-10 00:55:41,485 - INFO - 
+==================================================
+2025-01-10 00:55:41,485 - INFO - Processing: company_00026538_accounts_1992.pdf
+2025-01-10 00:55:41,485 - INFO - ==================================================
+2025-01-10 00:55:43,457 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:55:52,337 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1992_raw_response.txt
+2025-01-10 00:55:52,337 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:55:52,337 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-10 00:55:52,840 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:55:52,841 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-10 00:55:52,841 - INFO - 
+==================================================
+2025-01-10 00:55:52,841 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-10 00:55:52,841 - INFO - ==================================================
+2025-01-10 00:55:54,709 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:56:03,324 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1993_raw_response.txt
+2025-01-10 00:56:03,324 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:56:03,325 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-10 00:56:04,189 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:56:04,190 - INFO - Processing file: company_00026538_accounts_2001.pdf with mime type: application/pdf
+2025-01-10 00:56:04,190 - INFO - 
+==================================================
+2025-01-10 00:56:04,190 - INFO - Processing: company_00026538_accounts_2001.pdf
+2025-01-10 00:56:04,190 - INFO - ==================================================
+2025-01-10 00:56:05,783 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:56:18,552 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2001_raw_response.txt
+2025-01-10 00:56:18,553 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:56:18,553 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-10 00:56:19,453 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:56:19,454 - INFO - Processing file: company_00026538_accounts_2002.pdf with mime type: application/pdf
+2025-01-10 00:56:19,455 - INFO - 
+==================================================
+2025-01-10 00:56:19,455 - INFO - Processing: company_00026538_accounts_2002.pdf
+2025-01-10 00:56:19,455 - INFO - ==================================================
+2025-01-10 00:56:21,111 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:56:30,454 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2002_raw_response.txt
+2025-01-10 00:56:30,454 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:56:30,454 - INFO - [SUCCESS] Added to consolidation queue (Total: 5)
+2025-01-10 00:56:31,331 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:56:31,332 - INFO - Processing file: company_00026538_accounts_2003.pdf with mime type: application/pdf
+2025-01-10 00:56:31,332 - INFO - 
+==================================================
+2025-01-10 00:56:31,333 - INFO - Processing: company_00026538_accounts_2003.pdf
+2025-01-10 00:56:31,333 - INFO - ==================================================
+2025-01-10 00:56:33,116 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:56:42,675 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2003_raw_response.txt
+2025-01-10 00:56:42,676 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:56:42,676 - INFO - [SUCCESS] Added to consolidation queue (Total: 6)
+2025-01-10 00:56:43,321 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:56:43,322 - INFO - Processing file: company_00026538_accounts_2004.pdf with mime type: application/pdf
+2025-01-10 00:56:43,322 - INFO - 
+==================================================
+2025-01-10 00:56:43,323 - INFO - Processing: company_00026538_accounts_2004.pdf
+2025-01-10 00:56:43,323 - INFO - ==================================================
+2025-01-10 00:56:45,215 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:56:54,381 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2004_raw_response.txt
+2025-01-10 00:56:54,381 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:56:54,381 - INFO - [SUCCESS] Added to consolidation queue (Total: 7)
+2025-01-10 00:56:55,170 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:56:55,175 - INFO - Processing file: company_00026538_accounts_2005.pdf with mime type: application/pdf
+2025-01-10 00:56:55,175 - INFO - 
+==================================================
+2025-01-10 00:56:55,175 - INFO - Processing: company_00026538_accounts_2005.pdf
+2025-01-10 00:56:55,175 - INFO - ==================================================
+2025-01-10 00:56:57,076 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:57:09,516 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2005_raw_response.txt
+2025-01-10 00:57:09,516 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:57:09,516 - INFO - [SUCCESS] Added to consolidation queue (Total: 8)
+2025-01-10 00:57:10,687 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:57:10,688 - INFO - Processing file: company_00026538_accounts_2006.pdf with mime type: application/pdf
+2025-01-10 00:57:10,689 - INFO - 
+==================================================
+2025-01-10 00:57:10,689 - INFO - Processing: company_00026538_accounts_2006.pdf
+2025-01-10 00:57:10,689 - INFO - ==================================================
+2025-01-10 00:57:12,320 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:57:21,802 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2006_raw_response.txt
+2025-01-10 00:57:21,803 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:57:21,803 - INFO - [SUCCESS] Added to consolidation queue (Total: 9)
+2025-01-10 00:57:22,260 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:57:22,263 - INFO - Processing file: company_00026538_accounts_2007.pdf with mime type: application/pdf
+2025-01-10 00:57:22,263 - INFO - 
+==================================================
+2025-01-10 00:57:22,264 - INFO - Processing: company_00026538_accounts_2007.pdf
+2025-01-10 00:57:22,264 - INFO - ==================================================
+2025-01-10 00:57:23,989 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:57:34,540 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2007_raw_response.txt
+2025-01-10 00:57:34,545 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:57:34,545 - INFO - [SUCCESS] Added to consolidation queue (Total: 10)
+2025-01-10 00:57:35,091 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:57:35,092 - INFO - Processing file: company_00026538_accounts_2008.pdf with mime type: application/pdf
+2025-01-10 00:57:35,092 - INFO - 
+==================================================
+2025-01-10 00:57:35,092 - INFO - Processing: company_00026538_accounts_2008.pdf
+2025-01-10 00:57:35,092 - INFO - ==================================================
+2025-01-10 00:57:36,774 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:57:46,782 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2008_raw_response.txt
+2025-01-10 00:57:46,782 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:57:46,783 - INFO - [SUCCESS] Added to consolidation queue (Total: 11)
+2025-01-10 00:57:48,020 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:57:48,021 - INFO - Processing file: company_00026538_accounts_2009.pdf with mime type: application/pdf
+2025-01-10 00:57:48,021 - INFO - 
+==================================================
+2025-01-10 00:57:48,021 - INFO - Processing: company_00026538_accounts_2009.pdf
+2025-01-10 00:57:48,021 - INFO - ==================================================
+2025-01-10 00:57:50,562 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:58:00,493 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2009_raw_response.txt
+2025-01-10 00:58:00,495 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:58:00,496 - INFO - [SUCCESS] Added to consolidation queue (Total: 12)
+2025-01-10 00:58:00,923 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:58:00,924 - INFO - Processing file: company_00026538_accounts_2010.pdf with mime type: application/pdf
+2025-01-10 00:58:00,924 - INFO - 
+==================================================
+2025-01-10 00:58:00,925 - INFO - Processing: company_00026538_accounts_2010.pdf
+2025-01-10 00:58:00,925 - INFO - ==================================================
+2025-01-10 00:58:02,516 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:58:12,456 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2010_raw_response.txt
+2025-01-10 00:58:12,456 - ERROR - [ERROR] Invalid JSON from LLM. See: debug\company_00026538_accounts_2010_raw_response.txt
+2025-01-10 00:58:12,457 - ERROR - Error details: Expecting ',' delimiter: line 16 column 75 (char 441)
+2025-01-10 00:58:12,457 - ERROR - 
+First 500 characters of response:
+2025-01-10 00:58:12,457 - ERROR - {
+  "metadata": {
+    "currency": "GBP",
+    "scale": "millions",
+    "unit_symbol": "£m"
+  },
+  "statements": {
+    "profit_and_loss": {
+      "2010": {
+        "TURNOVER": "8,697",
+        "Cost_of_sales": "(8,110)",
+        "GROSS_PROFIT": "587",
+        "Distribution_costs": "(299)",
+        "Administrative_expenses": "(22)",
+        "OPERATING_PROFIT": "266",
+        "EXCEPTIONAL_ITEMS": "Net_profit_on_sale_of_tangible_fixed_assets": "3",
+        "PROFIT_ON_ORDINARY_ACTIVITIES_BEFORE_INTERE...
+2025-01-10 00:58:13,129 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:58:13,129 - WARNING - Failed to process company_00026538_accounts_2010.pdf
+2025-01-10 00:58:13,130 - INFO - Processing file: company_00026538_accounts_2011.pdf with mime type: application/pdf
+2025-01-10 00:58:13,131 - INFO - 
+==================================================
+2025-01-10 00:58:13,131 - INFO - Processing: company_00026538_accounts_2011.pdf
+2025-01-10 00:58:13,131 - INFO - ==================================================
+2025-01-10 00:58:14,957 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:58:23,976 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2011_raw_response.txt
+2025-01-10 00:58:23,976 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:58:23,977 - INFO - [SUCCESS] Added to consolidation queue (Total: 13)
+2025-01-10 00:58:24,594 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:58:24,595 - INFO - Processing file: company_00026538_accounts_2012.pdf with mime type: application/pdf
+2025-01-10 00:58:24,595 - INFO - 
+==================================================
+2025-01-10 00:58:24,595 - INFO - Processing: company_00026538_accounts_2012.pdf
+2025-01-10 00:58:24,595 - INFO - ==================================================
+2025-01-10 00:58:26,219 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:58:40,371 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2012_raw_response.txt
+2025-01-10 00:58:40,372 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:58:40,372 - INFO - [SUCCESS] Added to consolidation queue (Total: 14)
+2025-01-10 00:58:40,801 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:58:40,804 - INFO - Processing file: company_00026538_accounts_2013.pdf with mime type: application/pdf
+2025-01-10 00:58:40,805 - INFO - 
+==================================================
+2025-01-10 00:58:40,825 - INFO - Processing: company_00026538_accounts_2013.pdf
+2025-01-10 00:58:40,825 - INFO - ==================================================
+2025-01-10 00:58:42,632 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:58:54,134 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2013_raw_response.txt
+2025-01-10 00:58:54,134 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:58:54,134 - INFO - [SUCCESS] Added to consolidation queue (Total: 15)
+2025-01-10 00:58:54,756 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:58:54,757 - INFO - Processing file: company_00026538_accounts_2014.pdf with mime type: application/pdf
+2025-01-10 00:58:54,757 - INFO - 
+==================================================
+2025-01-10 00:58:54,757 - INFO - Processing: company_00026538_accounts_2014.pdf
+2025-01-10 00:58:54,757 - INFO - ==================================================
+2025-01-10 00:58:56,783 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:59:10,688 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2014_raw_response.txt
+2025-01-10 00:59:10,688 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:59:10,688 - INFO - [SUCCESS] Added to consolidation queue (Total: 16)
+2025-01-10 00:59:11,633 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:59:11,638 - INFO - Processing file: company_00026538_accounts_2015.pdf with mime type: application/pdf
+2025-01-10 00:59:11,639 - INFO - 
+==================================================
+2025-01-10 00:59:11,640 - INFO - Processing: company_00026538_accounts_2015.pdf
+2025-01-10 00:59:11,640 - INFO - ==================================================
+2025-01-10 00:59:13,968 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:59:27,742 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2015_raw_response.txt
+2025-01-10 00:59:27,742 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:59:27,743 - INFO - [SUCCESS] Added to consolidation queue (Total: 17)
+2025-01-10 00:59:28,165 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:59:28,166 - INFO - Processing file: company_00026538_accounts_2016.pdf with mime type: application/pdf
+2025-01-10 00:59:28,166 - INFO - 
+==================================================
+2025-01-10 00:59:28,166 - INFO - Processing: company_00026538_accounts_2016.pdf
+2025-01-10 00:59:28,166 - INFO - ==================================================
+2025-01-10 00:59:30,351 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:59:39,654 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2016_raw_response.txt
+2025-01-10 00:59:39,654 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:59:39,654 - INFO - [SUCCESS] Added to consolidation queue (Total: 18)
+2025-01-10 00:59:40,385 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:59:40,386 - INFO - Processing file: company_00026538_accounts_2017.pdf with mime type: application/pdf
+2025-01-10 00:59:40,387 - INFO - 
+==================================================
+2025-01-10 00:59:40,387 - INFO - Processing: company_00026538_accounts_2017.pdf
+2025-01-10 00:59:40,387 - INFO - ==================================================
+2025-01-10 00:59:42,305 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 00:59:55,316 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2017_raw_response.txt
+2025-01-10 00:59:55,316 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 00:59:55,316 - INFO - [SUCCESS] Added to consolidation queue (Total: 19)
+2025-01-10 00:59:55,764 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 00:59:55,766 - INFO - Processing file: company_00026538_accounts_2018.pdf with mime type: application/pdf
+2025-01-10 00:59:55,767 - INFO - 
+==================================================
+2025-01-10 00:59:55,767 - INFO - Processing: company_00026538_accounts_2018.pdf
+2025-01-10 00:59:55,767 - INFO - ==================================================
+2025-01-10 00:59:57,699 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 01:00:11,151 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2018_raw_response.txt
+2025-01-10 01:00:11,152 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 01:00:11,152 - INFO - [SUCCESS] Added to consolidation queue (Total: 20)
+2025-01-10 01:00:11,694 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 01:00:11,696 - INFO - Processing file: company_00026538_accounts_2019.pdf with mime type: application/pdf
+2025-01-10 01:00:11,696 - INFO - 
+==================================================
+2025-01-10 01:00:11,696 - INFO - Processing: company_00026538_accounts_2019.pdf
+2025-01-10 01:00:11,697 - INFO - ==================================================
+2025-01-10 01:00:13,938 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 01:00:25,752 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2019_raw_response.txt
+2025-01-10 01:00:25,753 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 01:00:25,753 - INFO - [SUCCESS] Added to consolidation queue (Total: 21)
+2025-01-10 01:00:26,205 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 01:00:26,207 - INFO - Processing file: company_00026538_accounts_2020.pdf with mime type: application/pdf
+2025-01-10 01:00:26,207 - INFO - 
+==================================================
+2025-01-10 01:00:26,208 - INFO - Processing: company_00026538_accounts_2020.pdf
+2025-01-10 01:00:26,213 - INFO - ==================================================
+2025-01-10 01:00:28,471 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 01:00:41,741 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2020_raw_response.txt
+2025-01-10 01:00:41,741 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 01:00:41,741 - INFO - [SUCCESS] Added to consolidation queue (Total: 22)
+2025-01-10 01:00:42,360 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 01:00:42,361 - INFO - Processing file: company_00026538_accounts_2021.pdf with mime type: application/pdf
+2025-01-10 01:00:42,361 - INFO - 
+==================================================
+2025-01-10 01:00:42,361 - INFO - Processing: company_00026538_accounts_2021.pdf
+2025-01-10 01:00:42,362 - INFO - ==================================================
+2025-01-10 01:00:44,451 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 01:00:58,127 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2021_raw_response.txt
+2025-01-10 01:00:58,128 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 01:00:58,128 - INFO - [SUCCESS] Added to consolidation queue (Total: 23)
+2025-01-10 01:00:58,451 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 01:00:58,454 - INFO - Processing file: company_00026538_accounts_2022.pdf with mime type: application/pdf
+2025-01-10 01:00:58,455 - INFO - 
+==================================================
+2025-01-10 01:00:58,456 - INFO - Processing: company_00026538_accounts_2022.pdf
+2025-01-10 01:00:58,456 - INFO - ==================================================
+2025-01-10 01:01:00,892 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 01:01:13,966 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2022_raw_response.txt
+2025-01-10 01:01:13,967 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 01:01:13,967 - INFO - [SUCCESS] Added to consolidation queue (Total: 24)
+2025-01-10 01:01:14,590 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 01:01:14,591 - INFO - Processing file: company_00026538_accounts_2023.pdf with mime type: application/pdf
+2025-01-10 01:01:14,591 - INFO - 
+==================================================
+2025-01-10 01:01:14,591 - INFO - Processing: company_00026538_accounts_2023.pdf
+2025-01-10 01:01:14,591 - INFO - ==================================================
+2025-01-10 01:01:17,152 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 01:01:35,962 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2023_raw_response.txt
+2025-01-10 01:01:35,962 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 01:01:35,962 - INFO - [SUCCESS] Added to consolidation queue (Total: 25)
+2025-01-10 01:01:36,515 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 01:02:12,330 - INFO - [DEBUG] Saved raw response to debug/raw_response.txt
+2025-01-10 01:02:12,332 - WARNING - Mismatched braces: 36 opening vs 33 closing
+2025-01-10 01:02:12,336 - INFO - [DEBUG] Saved cleaned response to debug/cleaned_response.json
+2025-01-10 01:02:12,336 - ERROR - [ERROR] JSON validation failed: Expecting value: line 1 column 1 (char 0)
+2025-01-10 01:02:12,336 - ERROR - 
+=== JSON Parsing Error ===
+2025-01-10 01:02:12,336 - ERROR - Error type: JSONDecodeError
+2025-01-10 01:02:12,336 - ERROR - Error message: Expecting value: line 1 column 1 (char 0)
+2025-01-10 01:02:12,337 - ERROR - Error position: 0
+2025-01-10 01:02:12,337 - ERROR - 
+Content snippet around error:
+2025-01-10 01:02:12,337 - ERROR - ... >>> ERROR HERE <<< ...
+2025-01-10 01:07:31,328 - INFO - Starting FinState Analyzer
+2025-01-10 01:07:36,354 - INFO - Starting FinState Analyzer
+2025-01-10 01:07:43,552 - INFO - Starting FinState Analyzer
+2025-01-10 01:07:43,556 - INFO - Processing file: company_00026538_accounts_2008.pdf with mime type: application/pdf
+2025-01-10 01:07:43,557 - INFO - 
+==================================================
+2025-01-10 01:07:43,557 - INFO - Processing: company_00026538_accounts_2008.pdf
+2025-01-10 01:07:43,557 - INFO - ==================================================
+2025-01-10 01:07:47,603 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 01:07:57,370 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2008_raw_response.txt
+2025-01-10 01:07:57,371 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 01:07:57,371 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-10 01:07:57,825 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 01:07:57,828 - INFO - Processing file: company_00026538_accounts_2009.pdf with mime type: application/pdf
+2025-01-10 01:07:57,829 - INFO - 
+==================================================
+2025-01-10 01:07:57,829 - INFO - Processing: company_00026538_accounts_2009.pdf
+2025-01-10 01:07:57,830 - INFO - ==================================================
+2025-01-10 01:07:59,590 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 01:08:09,247 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2009_raw_response.txt
+2025-01-10 01:08:09,248 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 01:08:09,248 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-10 01:08:09,776 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 01:08:09,777 - INFO - Processing file: company_00026538_accounts_2010.pdf with mime type: application/pdf
+2025-01-10 01:08:09,778 - INFO - 
+==================================================
+2025-01-10 01:08:09,778 - INFO - Processing: company_00026538_accounts_2010.pdf
+2025-01-10 01:08:09,778 - INFO - ==================================================
+2025-01-10 01:08:12,217 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 01:08:24,496 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2010_raw_response.txt
+2025-01-10 01:08:24,497 - ERROR - [ERROR] Invalid JSON from LLM. See: debug\company_00026538_accounts_2010_raw_response.txt
+2025-01-10 01:08:24,497 - ERROR - Error details: Expecting ',' delimiter: line 16 column 75 (char 441)
+2025-01-10 01:08:24,497 - ERROR - 
+First 500 characters of response:
+2025-01-10 01:08:24,497 - ERROR - {
+  "metadata": {
+    "currency": "GBP",
+    "scale": "millions",
+    "unit_symbol": "£m"
+  },
+  "statements": {
+    "profit_and_loss": {
+      "2010": {
+        "TURNOVER": "8,697",
+        "Cost_of_sales": "(8,110)",
+        "GROSS_PROFIT": "587",
+        "Distribution_costs": "(299)",
+        "Administrative_expenses": "(22)",
+        "OPERATING_PROFIT": "266",
+        "EXCEPTIONAL_ITEMS": "Net_profit_on_sale_of_tangible_fixed_assets": "269",
+        "PROFIT_ON_ORDINARY_ACTIVITIES_BEFORE_INTE...
+2025-01-10 01:08:25,184 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 01:08:25,184 - WARNING - Failed to process company_00026538_accounts_2010.pdf
+2025-01-10 01:08:25,185 - INFO - Processing file: company_00026538_accounts_2011.pdf with mime type: application/pdf
+2025-01-10 01:08:25,185 - INFO - 
+==================================================
+2025-01-10 01:08:25,185 - INFO - Processing: company_00026538_accounts_2011.pdf
+2025-01-10 01:08:25,185 - INFO - ==================================================
+2025-01-10 01:08:27,066 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 01:08:38,868 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2011_raw_response.txt
+2025-01-10 01:08:38,868 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 01:08:38,869 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-10 01:08:39,548 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 01:08:39,549 - INFO - Processing file: company_00026538_accounts_2012.pdf with mime type: application/pdf
+2025-01-10 01:08:39,549 - INFO - 
+==================================================
+2025-01-10 01:08:39,550 - INFO - Processing: company_00026538_accounts_2012.pdf
+2025-01-10 01:08:39,550 - INFO - ==================================================
+2025-01-10 01:08:41,361 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 01:08:54,010 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2012_raw_response.txt
+2025-01-10 01:08:54,011 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 01:08:54,011 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-10 01:08:54,674 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 01:09:27,123 - INFO - [DEBUG] Saved raw response to debug/raw_response.txt
+2025-01-10 01:09:27,125 - INFO - [DEBUG] Saved cleaned response to debug/cleaned_response.json
+2025-01-10 01:09:27,126 - INFO - [SUCCESS] Successfully parsed consolidated JSON
+2025-01-10 01:10:49,573 - INFO - Starting FinState Analyzer
+2025-01-10 01:10:49,577 - INFO - Processing file: company_00026538_accounts_2008.pdf with mime type: application/pdf
+2025-01-10 01:10:49,578 - INFO - 
+==================================================
+2025-01-10 01:10:49,578 - INFO - Processing: company_00026538_accounts_2008.pdf
+2025-01-10 01:10:49,578 - INFO - ==================================================
+2025-01-10 01:10:53,671 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 01:11:03,604 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2008_raw_response.txt
+2025-01-10 01:11:03,604 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 01:11:03,605 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-10 01:11:05,105 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 01:11:05,111 - INFO - Processing file: company_00026538_accounts_2009.pdf with mime type: application/pdf
+2025-01-10 01:11:05,111 - INFO - 
+==================================================
+2025-01-10 01:11:05,111 - INFO - Processing: company_00026538_accounts_2009.pdf
+2025-01-10 01:11:05,111 - INFO - ==================================================
+2025-01-10 01:11:06,726 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 01:11:16,799 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2009_raw_response.txt
+2025-01-10 01:11:16,800 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 01:11:16,800 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-10 01:11:17,320 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 01:11:17,321 - INFO - Processing file: company_00026538_accounts_2010.pdf with mime type: application/pdf
+2025-01-10 01:11:17,322 - INFO - 
+==================================================
+2025-01-10 01:11:17,322 - INFO - Processing: company_00026538_accounts_2010.pdf
+2025-01-10 01:11:17,322 - INFO - ==================================================
+2025-01-10 01:11:19,584 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 01:11:33,150 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2010_raw_response.txt
+2025-01-10 01:11:33,150 - ERROR - [ERROR] Invalid JSON from LLM. See: debug\company_00026538_accounts_2010_raw_response.txt
+2025-01-10 01:11:33,151 - ERROR - Error details: Expecting ',' delimiter: line 16 column 75 (char 441)
+2025-01-10 01:11:33,151 - ERROR - 
+First 500 characters of response:
+2025-01-10 01:11:33,151 - ERROR - {
+  "metadata": {
+    "currency": "GBP",
+    "scale": "millions",
+    "unit_symbol": "£m"
+  },
+  "statements": {
+    "profit_and_loss": {
+      "2010": {
+        "TURNOVER": "8,697",
+        "Cost_of_sales": "(8,110)",
+        "GROSS_PROFIT": "587",
+        "Distribution_costs": "(299)",
+        "Administrative_expenses": "(22)",
+        "OPERATING_PROFIT": "266",
+        "EXCEPTIONAL_ITEMS": "Net_profit_on_sale_of_tangible_fixed_assets": "269",
+        "PROFIT_ON_ORDINARY_ACTIVITIES_BEFORE_INTE...
+2025-01-10 01:11:33,752 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 01:11:33,753 - WARNING - Failed to process company_00026538_accounts_2010.pdf
+2025-01-10 01:11:33,754 - INFO - Processing file: company_00026538_accounts_2011.pdf with mime type: application/pdf
+2025-01-10 01:11:33,754 - INFO - 
+==================================================
+2025-01-10 01:11:33,754 - INFO - Processing: company_00026538_accounts_2011.pdf
+2025-01-10 01:11:33,754 - INFO - ==================================================
+2025-01-10 01:11:35,763 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 01:11:48,170 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2011_raw_response.txt
+2025-01-10 01:11:48,174 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 01:11:48,174 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-10 01:11:48,767 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 01:11:48,768 - INFO - Processing file: company_00026538_accounts_2012.pdf with mime type: application/pdf
+2025-01-10 01:11:48,768 - INFO - 
+==================================================
+2025-01-10 01:11:48,769 - INFO - Processing: company_00026538_accounts_2012.pdf
+2025-01-10 01:11:48,769 - INFO - ==================================================
+2025-01-10 01:11:51,141 - INFO - [SUCCESS] File uploaded successfully
+2025-01-10 01:12:04,390 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2012_raw_response.txt
+2025-01-10 01:12:04,390 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-10 01:12:04,390 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-10 01:12:04,971 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-10 01:12:35,309 - INFO - [DEBUG] Saved raw response to debug/raw_response.txt
+2025-01-10 01:12:35,311 - INFO - [DEBUG] Saved cleaned response to debug/cleaned_response.json
+2025-01-10 01:12:35,312 - INFO - [SUCCESS] Successfully parsed consolidated JSON
+2025-01-14 00:25:14,754 - INFO - Starting FinState Analyzer
+2025-01-14 00:25:41,272 - INFO - Starting FinState Analyzer
+2025-01-14 00:26:06,696 - INFO - Starting FinState Analyzer
+2025-01-14 00:26:06,699 - INFO - Processing file: company_00026538_accounts_2004.pdf with mime type: application/pdf
+2025-01-14 00:26:06,700 - INFO - 
+==================================================
+2025-01-14 00:26:06,700 - INFO - Processing: company_00026538_accounts_2004.pdf
+2025-01-14 00:26:06,700 - INFO - ==================================================
+2025-01-14 00:26:11,773 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:26:26,469 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2004_raw_response.txt
+2025-01-14 00:26:26,470 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:26:26,470 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 00:26:29,518 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:29:07,131 - INFO - Starting FinState Analyzer
+2025-01-14 00:29:14,011 - INFO - Starting FinState Analyzer
+2025-01-14 00:29:16,817 - INFO - Starting FinState Analyzer
+2025-01-14 00:29:16,820 - INFO - Processing file: company_00026538_accounts_2004.pdf with mime type: application/pdf
+2025-01-14 00:29:16,820 - INFO - 
+==================================================
+2025-01-14 00:29:16,820 - INFO - Processing: company_00026538_accounts_2004.pdf
+2025-01-14 00:29:16,821 - INFO - ==================================================
+2025-01-14 00:29:21,616 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:29:30,814 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2004_raw_response.txt
+2025-01-14 00:29:30,814 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:29:30,814 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 00:29:31,311 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:31:46,499 - INFO - Starting FinState Analyzer
+2025-01-14 00:31:46,501 - INFO - Processing file: company_00026538_accounts_2004.pdf with mime type: application/pdf
+2025-01-14 00:31:46,502 - INFO - 
+==================================================
+2025-01-14 00:31:46,503 - INFO - Processing: company_00026538_accounts_2004.pdf
+2025-01-14 00:31:46,503 - INFO - ==================================================
+2025-01-14 00:31:51,223 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:31:59,974 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2004_raw_response.txt
+2025-01-14 00:31:59,975 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:31:59,975 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 00:32:00,576 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:33:08,694 - INFO - Starting FinState Analyzer
+2025-01-14 00:33:08,697 - INFO - Processing file: company_00026538_accounts_2004.pdf with mime type: application/pdf
+2025-01-14 00:33:08,697 - INFO - 
+==================================================
+2025-01-14 00:33:08,698 - INFO - Processing: company_00026538_accounts_2004.pdf
+2025-01-14 00:33:08,698 - INFO - ==================================================
+2025-01-14 00:33:13,517 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:33:26,543 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2004_raw_response.txt
+2025-01-14 00:33:26,544 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:33:26,544 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 00:33:27,063 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:33:58,587 - INFO - Starting FinState Analyzer
+2025-01-14 00:33:58,591 - INFO - Processing file: company_00026538_accounts_2004.pdf with mime type: application/pdf
+2025-01-14 00:33:58,592 - INFO - 
+==================================================
+2025-01-14 00:33:58,592 - INFO - Processing: company_00026538_accounts_2004.pdf
+2025-01-14 00:33:58,592 - INFO - ==================================================
+2025-01-14 00:34:04,388 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:34:16,012 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2004_raw_response.txt
+2025-01-14 00:34:16,016 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:34:16,017 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 00:34:16,590 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:35:17,483 - INFO - Starting FinState Analyzer
+2025-01-14 00:35:17,485 - INFO - Processing file: company_00026538_accounts_2004.pdf with mime type: application/pdf
+2025-01-14 00:35:17,486 - INFO - 
+==================================================
+2025-01-14 00:35:17,487 - INFO - Processing: company_00026538_accounts_2004.pdf
+2025-01-14 00:35:17,487 - INFO - ==================================================
+2025-01-14 00:35:19,131 - INFO - Starting FinState Analyzer
+2025-01-14 00:35:19,133 - INFO - Processing file: company_00026538_accounts_2004.pdf with mime type: application/pdf
+2025-01-14 00:35:19,134 - INFO - 
+==================================================
+2025-01-14 00:35:19,134 - INFO - Processing: company_00026538_accounts_2004.pdf
+2025-01-14 00:35:19,134 - INFO - ==================================================
+2025-01-14 00:35:19,570 - INFO - Starting FinState Analyzer
+2025-01-14 00:35:19,573 - INFO - Processing file: company_00026538_accounts_2004.pdf with mime type: application/pdf
+2025-01-14 00:35:19,574 - INFO - 
+==================================================
+2025-01-14 00:35:19,574 - INFO - Processing: company_00026538_accounts_2004.pdf
+2025-01-14 00:35:19,574 - INFO - ==================================================
+2025-01-14 00:35:19,911 - INFO - Starting FinState Analyzer
+2025-01-14 00:35:22,881 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:35:23,934 - INFO - Starting FinState Analyzer
+2025-01-14 00:35:23,936 - INFO - Processing file: company_00026538_accounts_2006.pdf with mime type: application/pdf
+2025-01-14 00:35:23,937 - INFO - 
+==================================================
+2025-01-14 00:35:23,937 - INFO - Processing: company_00026538_accounts_2006.pdf
+2025-01-14 00:35:23,937 - INFO - ==================================================
+2025-01-14 00:35:25,038 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:35:25,582 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:35:28,600 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:35:34,057 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2004_raw_response.txt
+2025-01-14 00:35:34,058 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:35:34,058 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 00:35:34,490 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:35:44,066 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2004_raw_response.txt
+2025-01-14 00:35:44,067 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:35:44,067 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 00:35:44,423 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:35:45,258 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2004_raw_response.txt
+2025-01-14 00:35:45,260 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:35:45,260 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 00:35:45,759 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2006_raw_response.txt
+2025-01-14 00:35:45,761 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:35:45,761 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 00:35:45,856 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:35:46,142 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:35:46,144 - INFO - Processing file: company_00026538_accounts_2008.pdf with mime type: application/pdf
+2025-01-14 00:35:46,144 - INFO - 
+==================================================
+2025-01-14 00:35:46,144 - INFO - Processing: company_00026538_accounts_2008.pdf
+2025-01-14 00:35:46,144 - INFO - ==================================================
+2025-01-14 00:35:50,417 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:36:03,579 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2008_raw_response.txt
+2025-01-14 00:36:03,580 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:36:03,581 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 00:36:04,109 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:36:21,526 - INFO - [DEBUG] Saved raw response to debug/raw_response.txt
+2025-01-14 00:36:21,529 - INFO - [DEBUG] Saved cleaned response to debug/cleaned_response.json
+2025-01-14 00:36:21,530 - INFO - [SUCCESS] Successfully parsed consolidated JSON
+2025-01-14 00:39:19,439 - INFO - Starting FinState Analyzer
+2025-01-14 00:39:19,443 - INFO - Processing file: company_00026538_accounts_2006.pdf with mime type: application/pdf
+2025-01-14 00:39:19,444 - INFO - 
+==================================================
+2025-01-14 00:39:19,445 - INFO - Processing: company_00026538_accounts_2006.pdf
+2025-01-14 00:39:19,445 - INFO - ==================================================
+2025-01-14 00:39:24,492 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:39:34,191 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2006_raw_response.txt
+2025-01-14 00:39:34,191 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:39:34,192 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 00:39:34,871 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:39:34,872 - INFO - Processing file: company_00026538_accounts_2008.pdf with mime type: application/pdf
+2025-01-14 00:39:34,872 - INFO - 
+==================================================
+2025-01-14 00:39:34,873 - INFO - Processing: company_00026538_accounts_2008.pdf
+2025-01-14 00:39:34,874 - INFO - ==================================================
+2025-01-14 00:39:37,494 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:39:51,840 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2008_raw_response.txt
+2025-01-14 00:39:51,841 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:39:51,842 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 00:39:52,390 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:39:52,392 - ERROR - Consolidation failed: '\n    "metadata"'
+2025-01-14 00:42:19,513 - INFO - Starting FinState Analyzer
+2025-01-14 00:42:19,516 - INFO - Processing file: company_00026538_accounts_2006.pdf with mime type: application/pdf
+2025-01-14 00:42:19,516 - INFO - 
+==================================================
+2025-01-14 00:42:19,517 - INFO - Processing: company_00026538_accounts_2006.pdf
+2025-01-14 00:42:19,517 - INFO - ==================================================
+2025-01-14 00:42:24,575 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:42:37,987 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2006_raw_response.txt
+2025-01-14 00:42:37,987 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:42:37,987 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 00:42:38,463 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:42:38,465 - INFO - Processing file: company_00026538_accounts_2008.pdf with mime type: application/pdf
+2025-01-14 00:42:38,465 - INFO - 
+==================================================
+2025-01-14 00:42:38,465 - INFO - Processing: company_00026538_accounts_2008.pdf
+2025-01-14 00:42:38,466 - INFO - ==================================================
+2025-01-14 00:42:42,372 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:42:56,465 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2008_raw_response.txt
+2025-01-14 00:42:56,466 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:42:56,466 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 00:42:57,103 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:42:57,105 - ERROR - Consolidation failed: '\n    "metadata"'
+2025-01-14 00:44:33,237 - INFO - Starting FinState Analyzer
+2025-01-14 00:44:33,240 - INFO - Processing file: company_00026538_accounts_2006.pdf with mime type: application/pdf
+2025-01-14 00:44:33,241 - INFO - 
+==================================================
+2025-01-14 00:44:33,241 - INFO - Processing: company_00026538_accounts_2006.pdf
+2025-01-14 00:44:33,242 - INFO - ==================================================
+2025-01-14 00:44:38,606 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:44:48,159 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2006_raw_response.txt
+2025-01-14 00:44:48,159 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:44:48,159 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 00:44:48,759 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:44:48,761 - INFO - Processing file: company_00026538_accounts_2008.pdf with mime type: application/pdf
+2025-01-14 00:44:48,761 - INFO - 
+==================================================
+2025-01-14 00:44:48,761 - INFO - Processing: company_00026538_accounts_2008.pdf
+2025-01-14 00:44:48,761 - INFO - ==================================================
+2025-01-14 00:44:51,945 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:45:04,950 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2008_raw_response.txt
+2025-01-14 00:45:04,951 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:45:04,951 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 00:45:05,405 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:45:05,407 - ERROR - Consolidation failed: '\n    "metadata"'
+2025-01-14 00:46:00,891 - INFO - Starting FinState Analyzer
+2025-01-14 00:46:00,899 - INFO - Processing file: company_00026538_accounts_2006.pdf with mime type: application/pdf
+2025-01-14 00:46:00,900 - INFO - 
+==================================================
+2025-01-14 00:46:00,900 - INFO - Processing: company_00026538_accounts_2006.pdf
+2025-01-14 00:46:00,901 - INFO - ==================================================
+2025-01-14 00:46:06,022 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:46:15,391 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2006_raw_response.txt
+2025-01-14 00:46:15,392 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:46:15,394 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 00:46:15,887 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:46:15,889 - INFO - Processing file: company_00026538_accounts_2008.pdf with mime type: application/pdf
+2025-01-14 00:46:15,889 - INFO - 
+==================================================
+2025-01-14 00:46:15,889 - INFO - Processing: company_00026538_accounts_2008.pdf
+2025-01-14 00:46:15,890 - INFO - ==================================================
+2025-01-14 00:46:19,095 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:46:31,269 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2008_raw_response.txt
+2025-01-14 00:46:31,269 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:46:31,269 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 00:46:31,898 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:46:31,899 - ERROR - Consolidation failed: '\n    "metadata"'
+2025-01-14 00:47:10,391 - INFO - Starting FinState Analyzer
+2025-01-14 00:47:10,402 - INFO - Processing file: company_00026538_accounts_2006.pdf with mime type: application/pdf
+2025-01-14 00:47:10,403 - INFO - 
+==================================================
+2025-01-14 00:47:10,404 - INFO - Processing: company_00026538_accounts_2006.pdf
+2025-01-14 00:47:10,407 - INFO - ==================================================
+2025-01-14 00:47:15,578 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:47:27,555 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2006_raw_response.txt
+2025-01-14 00:47:27,555 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:47:27,556 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 00:47:27,994 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:47:27,996 - INFO - Processing file: company_00026538_accounts_2008.pdf with mime type: application/pdf
+2025-01-14 00:47:27,996 - INFO - 
+==================================================
+2025-01-14 00:47:27,996 - INFO - Processing: company_00026538_accounts_2008.pdf
+2025-01-14 00:47:27,997 - INFO - ==================================================
+2025-01-14 00:47:32,975 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:47:51,431 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2008_raw_response.txt
+2025-01-14 00:47:51,434 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:47:51,435 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 00:47:52,038 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:48:04,659 - INFO - [DEBUG] Saved raw response to debug/raw_response.txt
+2025-01-14 00:48:04,660 - INFO - [DEBUG] Saved cleaned response to debug/cleaned_response.json
+2025-01-14 00:48:04,662 - INFO - [SUCCESS] Successfully parsed consolidated JSON
+2025-01-14 00:48:31,585 - INFO - Starting FinState Analyzer
+2025-01-14 00:48:31,588 - INFO - Processing file: company_00026538_accounts_2006.pdf with mime type: application/pdf
+2025-01-14 00:48:31,589 - INFO - 
+==================================================
+2025-01-14 00:48:31,589 - INFO - Processing: company_00026538_accounts_2006.pdf
+2025-01-14 00:48:31,589 - INFO - ==================================================
+2025-01-14 00:48:32,063 - INFO - Starting FinState Analyzer
+2025-01-14 00:48:36,230 - INFO - Starting FinState Analyzer
+2025-01-14 00:48:36,235 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 00:48:36,235 - INFO - 
+==================================================
+2025-01-14 00:48:36,235 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 00:48:36,236 - INFO - ==================================================
+2025-01-14 00:48:37,838 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:48:41,816 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:48:46,656 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2006_raw_response.txt
+2025-01-14 00:48:46,656 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:48:46,657 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 00:48:47,078 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:48:54,293 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 00:48:54,294 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:48:54,295 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 00:48:54,727 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:48:54,728 - INFO - Processing file: company_00026538_accounts_1992.pdf with mime type: application/pdf
+2025-01-14 00:48:54,728 - INFO - 
+==================================================
+2025-01-14 00:48:54,729 - INFO - Processing: company_00026538_accounts_1992.pdf
+2025-01-14 00:48:54,729 - INFO - ==================================================
+2025-01-14 00:48:57,651 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:49:06,009 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1992_raw_response.txt
+2025-01-14 00:49:06,010 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:49:06,010 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 00:49:06,397 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:49:06,398 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-14 00:49:06,398 - INFO - 
+==================================================
+2025-01-14 00:49:06,398 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-14 00:49:06,399 - INFO - ==================================================
+2025-01-14 00:49:11,255 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:49:22,533 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1993_raw_response.txt
+2025-01-14 00:49:22,560 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:49:22,560 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-14 00:49:22,988 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:49:22,990 - INFO - Processing file: company_00026538_accounts_2001.pdf with mime type: application/pdf
+2025-01-14 00:49:22,990 - INFO - 
+==================================================
+2025-01-14 00:49:22,990 - INFO - Processing: company_00026538_accounts_2001.pdf
+2025-01-14 00:49:22,990 - INFO - ==================================================
+2025-01-14 00:49:25,297 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:49:51,682 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2001_raw_response.txt
+2025-01-14 00:49:51,683 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:49:51,683 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-14 00:49:52,342 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:49:52,344 - INFO - Processing file: company_00026538_accounts_2002.pdf with mime type: application/pdf
+2025-01-14 00:49:52,344 - INFO - 
+==================================================
+2025-01-14 00:49:52,344 - INFO - Processing: company_00026538_accounts_2002.pdf
+2025-01-14 00:49:52,344 - INFO - ==================================================
+2025-01-14 00:49:54,828 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:50:06,908 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2002_raw_response.txt
+2025-01-14 00:50:06,908 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:50:06,909 - INFO - [SUCCESS] Added to consolidation queue (Total: 5)
+2025-01-14 00:50:07,546 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:50:21,976 - INFO - [DEBUG] Saved raw response to debug/raw_response.txt
+2025-01-14 00:50:21,977 - INFO - [DEBUG] Saved cleaned response to debug/cleaned_response.json
+2025-01-14 00:50:21,978 - ERROR - [ERROR] JSON validation failed: Expecting property name enclosed in double quotes: line 167 column 9 (char 6514)
+2025-01-14 00:50:21,978 - ERROR - 
+=== JSON Parsing Error ===
+2025-01-14 00:50:21,978 - ERROR - Error type: JSONDecodeError
+2025-01-14 00:50:21,979 - ERROR - Error message: Expecting property name enclosed in double quotes: line 167 column 9 (char 6514)
+2025-01-14 00:50:21,979 - ERROR - Error position: 6514
+2025-01-14 00:50:21,979 - ERROR - 
+Content snippet around error:
+2025-01-14 00:50:21,979 - ERROR - ...},
+    "balance_sheet": {
+      "1989": {
+         >>> ERROR HERE <<< // ... (rest of the balance sheet data)
+      },
+ ...
+2025-01-14 00:52:41,500 - INFO - Starting FinState Analyzer
+2025-01-14 00:52:41,506 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 00:52:41,507 - INFO - 
+==================================================
+2025-01-14 00:52:41,507 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 00:52:41,508 - INFO - ==================================================
+2025-01-14 00:52:50,446 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:53:02,117 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 00:53:02,117 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:53:02,118 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 00:53:02,501 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:53:02,502 - INFO - Processing file: company_00026538_accounts_1992.pdf with mime type: application/pdf
+2025-01-14 00:53:02,502 - INFO - 
+==================================================
+2025-01-14 00:53:02,503 - INFO - Processing: company_00026538_accounts_1992.pdf
+2025-01-14 00:53:02,503 - INFO - ==================================================
+2025-01-14 00:53:06,444 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:53:15,320 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1992_raw_response.txt
+2025-01-14 00:53:15,320 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:53:15,321 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 00:53:15,962 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:53:15,963 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-14 00:53:15,964 - INFO - 
+==================================================
+2025-01-14 00:53:15,964 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-14 00:53:15,964 - INFO - ==================================================
+2025-01-14 00:53:22,448 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:53:52,224 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1993_raw_response.txt
+2025-01-14 00:53:52,228 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:53:52,229 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-14 00:53:53,230 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:53:53,232 - INFO - Processing file: company_00026538_accounts_2001.pdf with mime type: application/pdf
+2025-01-14 00:53:53,232 - INFO - 
+==================================================
+2025-01-14 00:53:53,232 - INFO - Processing: company_00026538_accounts_2001.pdf
+2025-01-14 00:53:53,232 - INFO - ==================================================
+2025-01-14 00:53:56,729 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:54:07,061 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2001_raw_response.txt
+2025-01-14 00:54:07,062 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:54:07,062 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-14 00:54:07,383 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:54:07,386 - INFO - Processing file: company_00026538_accounts_2002.pdf with mime type: application/pdf
+2025-01-14 00:54:07,386 - INFO - 
+==================================================
+2025-01-14 00:54:07,386 - INFO - Processing: company_00026538_accounts_2002.pdf
+2025-01-14 00:54:07,387 - INFO - ==================================================
+2025-01-14 00:54:10,082 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:54:24,418 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2002_raw_response.txt
+2025-01-14 00:54:24,419 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:54:24,419 - INFO - [SUCCESS] Added to consolidation queue (Total: 5)
+2025-01-14 00:54:25,053 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:54:25,055 - ERROR - Consolidation failed: '\n    "metadata"'
+2025-01-14 00:58:53,199 - INFO - Starting FinState Analyzer
+2025-01-14 00:58:53,208 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 00:58:53,208 - INFO - 
+==================================================
+2025-01-14 00:58:53,209 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 00:58:53,209 - INFO - ==================================================
+2025-01-14 00:59:02,485 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:59:16,485 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 00:59:16,486 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:59:16,486 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 00:59:16,922 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:59:16,923 - INFO - Processing file: company_00026538_accounts_1992.pdf with mime type: application/pdf
+2025-01-14 00:59:16,923 - INFO - 
+==================================================
+2025-01-14 00:59:16,923 - INFO - Processing: company_00026538_accounts_1992.pdf
+2025-01-14 00:59:16,924 - INFO - ==================================================
+2025-01-14 00:59:19,810 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:59:28,168 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1992_raw_response.txt
+2025-01-14 00:59:28,168 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:59:28,168 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 00:59:28,500 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:59:28,501 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-14 00:59:28,502 - INFO - 
+==================================================
+2025-01-14 00:59:28,502 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-14 00:59:28,502 - INFO - ==================================================
+2025-01-14 00:59:33,196 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:59:42,295 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1993_raw_response.txt
+2025-01-14 00:59:42,295 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:59:42,295 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-14 00:59:42,703 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:59:42,707 - INFO - Processing file: company_00026538_accounts_2001.pdf with mime type: application/pdf
+2025-01-14 00:59:42,708 - INFO - 
+==================================================
+2025-01-14 00:59:42,709 - INFO - Processing: company_00026538_accounts_2001.pdf
+2025-01-14 00:59:42,710 - INFO - ==================================================
+2025-01-14 00:59:45,164 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 00:59:56,287 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2001_raw_response.txt
+2025-01-14 00:59:56,288 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 00:59:56,288 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-14 00:59:56,872 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 00:59:56,873 - INFO - Processing file: company_00026538_accounts_2002.pdf with mime type: application/pdf
+2025-01-14 00:59:56,873 - INFO - 
+==================================================
+2025-01-14 00:59:56,873 - INFO - Processing: company_00026538_accounts_2002.pdf
+2025-01-14 00:59:56,875 - INFO - ==================================================
+2025-01-14 00:59:58,635 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:00:11,076 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2002_raw_response.txt
+2025-01-14 01:00:11,077 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:00:11,077 - INFO - [SUCCESS] Added to consolidation queue (Total: 5)
+2025-01-14 01:00:11,672 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:00:11,673 - ERROR - Consolidation failed: '\n    "metadata"'
+2025-01-14 01:02:01,225 - INFO - Starting FinState Analyzer
+2025-01-14 01:02:01,228 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 01:02:01,229 - INFO - 
+==================================================
+2025-01-14 01:02:01,229 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 01:02:01,230 - INFO - ==================================================
+2025-01-14 01:02:10,200 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:02:23,255 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 01:02:23,255 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:02:23,256 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:02:23,806 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:02:23,807 - INFO - Processing file: company_00026538_accounts_1992.pdf with mime type: application/pdf
+2025-01-14 01:02:23,807 - INFO - 
+==================================================
+2025-01-14 01:02:23,807 - INFO - Processing: company_00026538_accounts_1992.pdf
+2025-01-14 01:02:23,808 - INFO - ==================================================
+2025-01-14 01:02:26,404 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:02:34,448 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1992_raw_response.txt
+2025-01-14 01:02:34,448 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:02:34,449 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 01:02:34,887 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:02:34,892 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-14 01:02:34,893 - INFO - 
+==================================================
+2025-01-14 01:02:34,893 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-14 01:02:34,893 - INFO - ==================================================
+2025-01-14 01:02:39,451 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:02:48,792 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1993_raw_response.txt
+2025-01-14 01:02:48,793 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:02:48,793 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-14 01:02:49,493 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:02:49,494 - INFO - Processing file: company_00026538_accounts_2001.pdf with mime type: application/pdf
+2025-01-14 01:02:49,494 - INFO - 
+==================================================
+2025-01-14 01:02:49,494 - INFO - Processing: company_00026538_accounts_2001.pdf
+2025-01-14 01:02:49,494 - INFO - ==================================================
+2025-01-14 01:02:52,377 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:03:04,385 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2001_raw_response.txt
+2025-01-14 01:03:04,385 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:03:04,385 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-14 01:03:04,875 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:03:04,875 - INFO - Processing file: company_00026538_accounts_2002.pdf with mime type: application/pdf
+2025-01-14 01:03:04,875 - INFO - 
+==================================================
+2025-01-14 01:03:04,876 - INFO - Processing: company_00026538_accounts_2002.pdf
+2025-01-14 01:03:04,876 - INFO - ==================================================
+2025-01-14 01:03:08,356 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:03:19,920 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2002_raw_response.txt
+2025-01-14 01:03:19,921 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:03:19,921 - INFO - [SUCCESS] Added to consolidation queue (Total: 5)
+2025-01-14 01:03:20,395 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:03:20,397 - ERROR - Consolidation failed: '" and ending with "'
+2025-01-14 01:04:39,115 - INFO - Starting FinState Analyzer
+2025-01-14 01:04:39,120 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 01:04:39,122 - INFO - 
+==================================================
+2025-01-14 01:04:39,122 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 01:04:39,122 - INFO - ==================================================
+2025-01-14 01:04:46,042 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:04:59,391 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 01:04:59,392 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:04:59,392 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:04:59,950 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:04:59,951 - INFO - Processing file: company_00026538_accounts_1992.pdf with mime type: application/pdf
+2025-01-14 01:04:59,951 - INFO - 
+==================================================
+2025-01-14 01:04:59,951 - INFO - Processing: company_00026538_accounts_1992.pdf
+2025-01-14 01:04:59,951 - INFO - ==================================================
+2025-01-14 01:05:04,720 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:05:12,780 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1992_raw_response.txt
+2025-01-14 01:05:12,782 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:05:12,782 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 01:05:13,268 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:05:13,271 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-14 01:05:13,272 - INFO - 
+==================================================
+2025-01-14 01:05:13,272 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-14 01:05:13,272 - INFO - ==================================================
+2025-01-14 01:05:18,711 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:05:28,159 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1993_raw_response.txt
+2025-01-14 01:05:28,160 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:05:28,160 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-14 01:05:28,828 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:05:28,829 - INFO - Processing file: company_00026538_accounts_2001.pdf with mime type: application/pdf
+2025-01-14 01:05:28,829 - INFO - 
+==================================================
+2025-01-14 01:05:28,830 - INFO - Processing: company_00026538_accounts_2001.pdf
+2025-01-14 01:05:28,830 - INFO - ==================================================
+2025-01-14 01:05:31,895 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:05:43,162 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2001_raw_response.txt
+2025-01-14 01:05:43,162 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:05:43,163 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-14 01:05:43,559 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:05:43,560 - INFO - Processing file: company_00026538_accounts_2002.pdf with mime type: application/pdf
+2025-01-14 01:05:43,560 - INFO - 
+==================================================
+2025-01-14 01:05:43,560 - INFO - Processing: company_00026538_accounts_2002.pdf
+2025-01-14 01:05:43,561 - INFO - ==================================================
+2025-01-14 01:05:46,831 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:05:57,580 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2002_raw_response.txt
+2025-01-14 01:05:57,585 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:05:57,585 - INFO - [SUCCESS] Added to consolidation queue (Total: 5)
+2025-01-14 01:05:58,092 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:05:58,095 - ERROR - Consolidation failed: '"metadata"'
+2025-01-14 01:07:40,060 - INFO - Starting FinState Analyzer
+2025-01-14 01:07:40,065 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 01:07:40,065 - INFO - 
+==================================================
+2025-01-14 01:07:40,065 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 01:07:40,066 - INFO - ==================================================
+2025-01-14 01:07:40,261 - INFO - Starting FinState Analyzer
+2025-01-14 01:07:40,265 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 01:07:40,266 - INFO - 
+==================================================
+2025-01-14 01:07:40,266 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 01:07:40,266 - INFO - ==================================================
+2025-01-14 01:07:40,435 - INFO - Starting FinState Analyzer
+2025-01-14 01:07:40,437 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 01:07:40,437 - INFO - 
+==================================================
+2025-01-14 01:07:40,438 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 01:07:40,438 - INFO - ==================================================
+2025-01-14 01:07:40,616 - INFO - Starting FinState Analyzer
+2025-01-14 01:07:40,619 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 01:07:40,619 - INFO - 
+==================================================
+2025-01-14 01:07:40,620 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 01:07:40,620 - INFO - ==================================================
+2025-01-14 01:07:41,056 - INFO - Starting FinState Analyzer
+2025-01-14 01:07:49,265 - INFO - Starting FinState Analyzer
+2025-01-14 01:07:49,267 - INFO - Processing file: company_00026538_accounts_2012.pdf with mime type: application/pdf
+2025-01-14 01:07:49,268 - INFO - 
+==================================================
+2025-01-14 01:07:49,268 - INFO - Processing: company_00026538_accounts_2012.pdf
+2025-01-14 01:07:49,268 - INFO - ==================================================
+2025-01-14 01:07:55,684 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:07:55,759 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:07:57,162 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:07:57,877 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:07:59,342 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:08:06,422 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 01:08:06,423 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:08:06,423 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:08:06,910 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:08:08,257 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2012_raw_response.txt
+2025-01-14 01:08:08,257 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:08:08,257 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:08:08,957 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:08:08,959 - INFO - Processing file: company_00026538_accounts_2014.pdf with mime type: application/pdf
+2025-01-14 01:08:08,959 - INFO - 
+==================================================
+2025-01-14 01:08:08,960 - INFO - Processing: company_00026538_accounts_2014.pdf
+2025-01-14 01:08:08,960 - INFO - ==================================================
+2025-01-14 01:08:10,359 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 01:08:10,360 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:08:10,360 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:08:10,713 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 01:08:10,713 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:08:10,714 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:08:10,970 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:08:11,340 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:08:11,392 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 01:08:11,393 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:08:11,393 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:08:12,151 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:08:13,221 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:08:26,974 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2014_raw_response.txt
+2025-01-14 01:08:26,975 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:08:26,975 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 01:08:27,454 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:08:27,455 - ERROR - Consolidation failed: '\n    "metadata"'
+2025-01-14 01:09:09,201 - INFO - Starting FinState Analyzer
+2025-01-14 01:09:09,205 - INFO - Processing file: company_00026538_accounts_2012.pdf with mime type: application/pdf
+2025-01-14 01:09:09,206 - INFO - 
+==================================================
+2025-01-14 01:09:09,207 - INFO - Processing: company_00026538_accounts_2012.pdf
+2025-01-14 01:09:09,207 - INFO - ==================================================
+2025-01-14 01:09:14,865 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:09:23,770 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2012_raw_response.txt
+2025-01-14 01:09:23,771 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:09:23,771 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:09:24,399 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:09:24,400 - INFO - Processing file: company_00026538_accounts_2014.pdf with mime type: application/pdf
+2025-01-14 01:09:24,401 - INFO - 
+==================================================
+2025-01-14 01:09:24,401 - INFO - Processing: company_00026538_accounts_2014.pdf
+2025-01-14 01:09:24,401 - INFO - ==================================================
+2025-01-14 01:09:31,087 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:09:40,507 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2014_raw_response.txt
+2025-01-14 01:09:40,508 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:09:40,508 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 01:09:41,058 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:09:41,059 - ERROR - Consolidation failed: '\n    "metadata"'
+2025-01-14 01:10:12,196 - INFO - Starting FinState Analyzer
+2025-01-14 01:10:12,225 - INFO - Processing file: company_00026538_accounts_2012.pdf with mime type: application/pdf
+2025-01-14 01:10:12,235 - INFO - 
+==================================================
+2025-01-14 01:10:12,236 - INFO - Processing: company_00026538_accounts_2012.pdf
+2025-01-14 01:10:12,236 - INFO - ==================================================
+2025-01-14 01:10:18,502 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:10:27,073 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2012_raw_response.txt
+2025-01-14 01:10:27,073 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:10:27,073 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:10:27,768 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:10:27,770 - INFO - Processing file: company_00026538_accounts_2014.pdf with mime type: application/pdf
+2025-01-14 01:10:27,770 - INFO - 
+==================================================
+2025-01-14 01:10:27,771 - INFO - Processing: company_00026538_accounts_2014.pdf
+2025-01-14 01:10:27,771 - INFO - ==================================================
+2025-01-14 01:10:30,461 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:10:42,012 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2014_raw_response.txt
+2025-01-14 01:10:42,012 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:10:42,013 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 01:10:42,674 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:10:42,676 - ERROR - Consolidation failed: '\n    "metadata"'
+2025-01-14 01:12:07,237 - INFO - Starting FinState Analyzer
+2025-01-14 01:12:07,240 - INFO - Processing file: company_00026538_accounts_2012.pdf with mime type: application/pdf
+2025-01-14 01:12:07,241 - INFO - 
+==================================================
+2025-01-14 01:12:07,242 - INFO - Processing: company_00026538_accounts_2012.pdf
+2025-01-14 01:12:07,242 - INFO - ==================================================
+2025-01-14 01:12:18,244 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:12:27,157 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2012_raw_response.txt
+2025-01-14 01:12:27,157 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:12:27,157 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:12:27,554 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:12:27,555 - INFO - Processing file: company_00026538_accounts_2014.pdf with mime type: application/pdf
+2025-01-14 01:12:27,555 - INFO - 
+==================================================
+2025-01-14 01:12:27,556 - INFO - Processing: company_00026538_accounts_2014.pdf
+2025-01-14 01:12:27,556 - INFO - ==================================================
+2025-01-14 01:12:33,771 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:12:43,007 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2014_raw_response.txt
+2025-01-14 01:12:43,008 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:12:43,008 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 01:12:43,767 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:12:43,769 - ERROR - Consolidation failed: '\n    "metadata"'
+2025-01-14 01:17:35,813 - INFO - Starting FinState Analyzer
+2025-01-14 01:17:35,816 - INFO - Processing file: company_00026538_accounts_2012.pdf with mime type: application/pdf
+2025-01-14 01:17:35,817 - INFO - 
+==================================================
+2025-01-14 01:17:35,817 - INFO - Processing: company_00026538_accounts_2012.pdf
+2025-01-14 01:17:35,818 - INFO - ==================================================
+2025-01-14 01:17:40,956 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:17:50,751 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2012_raw_response.txt
+2025-01-14 01:17:50,752 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:17:50,753 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:17:51,378 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:17:51,379 - INFO - Processing file: company_00026538_accounts_2014.pdf with mime type: application/pdf
+2025-01-14 01:17:51,380 - INFO - 
+==================================================
+2025-01-14 01:17:51,380 - INFO - Processing: company_00026538_accounts_2014.pdf
+2025-01-14 01:17:51,380 - INFO - ==================================================
+2025-01-14 01:17:59,636 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:18:08,766 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2014_raw_response.txt
+2025-01-14 01:18:08,767 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:18:08,767 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 01:18:09,431 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:18:09,432 - ERROR - Consolidation failed: "Unable to determine the intended type of the `dict`. For `Content`, a 'parts' key is expected. For `Part`, either an 'inline_data' or a 'text' key is expected. For `Blob`, both 'mime_type' and 'data' keys are expected. However, the provided dictionary has the following keys: ['metadata', 'statements']"
+2025-01-14 01:18:45,776 - INFO - Starting FinState Analyzer
+2025-01-14 01:18:45,781 - INFO - Processing file: company_00026538_accounts_2012.pdf with mime type: application/pdf
+2025-01-14 01:18:45,781 - INFO - 
+==================================================
+2025-01-14 01:18:45,782 - INFO - Processing: company_00026538_accounts_2012.pdf
+2025-01-14 01:18:45,782 - INFO - ==================================================
+2025-01-14 01:18:58,076 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:19:06,971 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2012_raw_response.txt
+2025-01-14 01:19:06,972 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:19:06,973 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:19:07,837 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:19:07,839 - INFO - Processing file: company_00026538_accounts_2014.pdf with mime type: application/pdf
+2025-01-14 01:19:07,839 - INFO - 
+==================================================
+2025-01-14 01:19:07,839 - INFO - Processing: company_00026538_accounts_2014.pdf
+2025-01-14 01:19:07,839 - INFO - ==================================================
+2025-01-14 01:19:12,536 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:19:25,391 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2014_raw_response.txt
+2025-01-14 01:19:25,392 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:19:25,392 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 01:19:25,986 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:20:13,164 - ERROR - Consolidation failed: name 'debug_dir' is not defined
+2025-01-14 01:20:46,776 - INFO - Starting FinState Analyzer
+2025-01-14 01:20:46,781 - INFO - Processing file: company_00026538_accounts_2012.pdf with mime type: application/pdf
+2025-01-14 01:20:46,783 - INFO - 
+==================================================
+2025-01-14 01:20:46,783 - INFO - Processing: company_00026538_accounts_2012.pdf
+2025-01-14 01:20:46,786 - INFO - ==================================================
+2025-01-14 01:20:59,009 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:21:11,232 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2012_raw_response.txt
+2025-01-14 01:21:11,233 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:21:11,234 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:21:11,802 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:21:11,803 - INFO - Processing file: company_00026538_accounts_2014.pdf with mime type: application/pdf
+2025-01-14 01:21:11,804 - INFO - 
+==================================================
+2025-01-14 01:21:11,804 - INFO - Processing: company_00026538_accounts_2014.pdf
+2025-01-14 01:21:11,804 - INFO - ==================================================
+2025-01-14 01:21:15,721 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:21:25,355 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2014_raw_response.txt
+2025-01-14 01:21:25,355 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:21:25,355 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 01:21:26,190 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:22:12,235 - ERROR - [ERROR] JSON parsing failed: Expecting value: line 1 column 1 (char 0)
+2025-01-14 01:22:12,235 - ERROR - Consolidation failed: Expecting value: line 1 column 1 (char 0)
+2025-01-14 01:22:44,679 - INFO - Starting FinState Analyzer
+2025-01-14 01:22:44,683 - INFO - Processing file: company_00026538_accounts_2012.pdf with mime type: application/pdf
+2025-01-14 01:22:44,684 - INFO - 
+==================================================
+2025-01-14 01:22:44,684 - INFO - Processing: company_00026538_accounts_2012.pdf
+2025-01-14 01:22:44,684 - INFO - ==================================================
+2025-01-14 01:22:54,309 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:23:07,251 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2012_raw_response.txt
+2025-01-14 01:23:07,254 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:23:07,255 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:23:07,904 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:23:07,905 - INFO - Processing file: company_00026538_accounts_2014.pdf with mime type: application/pdf
+2025-01-14 01:23:07,905 - INFO - 
+==================================================
+2025-01-14 01:23:07,905 - INFO - Processing: company_00026538_accounts_2014.pdf
+2025-01-14 01:23:07,905 - INFO - ==================================================
+2025-01-14 01:23:12,773 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:23:21,947 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2014_raw_response.txt
+2025-01-14 01:23:21,948 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:23:21,948 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 01:23:22,382 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:24:08,812 - INFO - Raw response starts with: ```json
+{
+  "metadata": {
+    "currency": "GBP",
+    "scale": "millions",
+    "unit_symbol": "£m"
+  
+2025-01-14 01:24:08,813 - INFO - [SUCCESS] Successfully parsed consolidated JSON
+2025-01-14 01:24:50,785 - INFO - Starting FinState Analyzer
+2025-01-14 01:24:50,788 - INFO - Processing file: company_00026538_accounts_2012.pdf with mime type: application/pdf
+2025-01-14 01:24:50,789 - INFO - 
+==================================================
+2025-01-14 01:24:50,789 - INFO - Processing: company_00026538_accounts_2012.pdf
+2025-01-14 01:24:50,789 - INFO - ==================================================
+2025-01-14 01:24:58,795 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:25:11,738 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2012_raw_response.txt
+2025-01-14 01:25:11,739 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:25:11,741 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:25:12,181 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:25:12,182 - INFO - Processing file: company_00026538_accounts_2014.pdf with mime type: application/pdf
+2025-01-14 01:25:12,183 - INFO - 
+==================================================
+2025-01-14 01:25:12,183 - INFO - Processing: company_00026538_accounts_2014.pdf
+2025-01-14 01:25:12,183 - INFO - ==================================================
+2025-01-14 01:25:17,184 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:25:29,871 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2014_raw_response.txt
+2025-01-14 01:25:29,873 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:25:29,876 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 01:25:30,680 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:26:05,922 - INFO - Raw response starts with: {"metadata":{"currency":"GBP","scale":"millions","unit_symbol":"£m"},"statements":{"profit_and_loss"
+2025-01-14 01:26:05,922 - INFO - [SUCCESS] Successfully parsed consolidated JSON
+2025-01-14 01:30:31,044 - INFO - Starting FinState Analyzer
+2025-01-14 01:30:31,047 - INFO - Processing file: company_00026538_accounts_2012.pdf with mime type: application/pdf
+2025-01-14 01:30:31,047 - INFO - 
+==================================================
+2025-01-14 01:30:31,047 - INFO - Processing: company_00026538_accounts_2012.pdf
+2025-01-14 01:30:31,048 - INFO - ==================================================
+2025-01-14 01:30:38,454 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:30:47,800 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2012_raw_response.txt
+2025-01-14 01:30:47,801 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:30:47,801 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:30:48,452 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:30:48,454 - INFO - Processing file: company_00026538_accounts_2014.pdf with mime type: application/pdf
+2025-01-14 01:30:48,454 - INFO - 
+==================================================
+2025-01-14 01:30:48,455 - INFO - Processing: company_00026538_accounts_2014.pdf
+2025-01-14 01:30:48,455 - INFO - ==================================================
+2025-01-14 01:30:56,003 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:31:05,157 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2014_raw_response.txt
+2025-01-14 01:31:05,159 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:31:05,159 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 01:31:05,855 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:31:37,463 - INFO - Raw response starts with: {"metadata":{"currency":"GBP","scale":"millions","unit_symbol":"£m"},"statements":{"profit_and_loss"
+2025-01-14 01:31:37,463 - INFO - [SUCCESS] Successfully parsed consolidated JSON
+2025-01-14 01:32:57,125 - INFO - Starting FinState Analyzer
+2025-01-14 01:32:57,128 - INFO - Processing file: company_00026538_accounts_2012.pdf with mime type: application/pdf
+2025-01-14 01:32:57,128 - INFO - 
+==================================================
+2025-01-14 01:32:57,129 - INFO - Processing: company_00026538_accounts_2012.pdf
+2025-01-14 01:32:57,129 - INFO - ==================================================
+2025-01-14 01:32:57,627 - INFO - Starting FinState Analyzer
+2025-01-14 01:33:02,455 - INFO - Starting FinState Analyzer
+2025-01-14 01:33:02,461 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 01:33:02,461 - INFO - 
+==================================================
+2025-01-14 01:33:02,461 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 01:33:02,462 - INFO - ==================================================
+2025-01-14 01:33:02,810 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:33:08,598 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:33:12,528 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2012_raw_response.txt
+2025-01-14 01:33:12,529 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:33:12,529 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:33:12,867 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:33:17,258 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 01:33:17,259 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:33:17,259 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:33:17,689 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:33:17,690 - INFO - Processing file: company_00026538_accounts_1992.pdf with mime type: application/pdf
+2025-01-14 01:33:17,691 - INFO - 
+==================================================
+2025-01-14 01:33:17,691 - INFO - Processing: company_00026538_accounts_1992.pdf
+2025-01-14 01:33:17,691 - INFO - ==================================================
+2025-01-14 01:33:22,456 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:33:30,984 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1992_raw_response.txt
+2025-01-14 01:33:30,987 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:33:30,987 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 01:33:31,533 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:33:31,535 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-14 01:33:31,535 - INFO - 
+==================================================
+2025-01-14 01:33:31,535 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-14 01:33:31,537 - INFO - ==================================================
+2025-01-14 01:33:37,787 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:33:48,935 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1993_raw_response.txt
+2025-01-14 01:33:48,937 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:33:48,937 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-14 01:33:49,552 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:33:49,553 - INFO - Processing file: company_00026538_accounts_2001.pdf with mime type: application/pdf
+2025-01-14 01:33:49,553 - INFO - 
+==================================================
+2025-01-14 01:33:49,554 - INFO - Processing: company_00026538_accounts_2001.pdf
+2025-01-14 01:33:49,554 - INFO - ==================================================
+2025-01-14 01:33:51,465 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:34:03,881 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2001_raw_response.txt
+2025-01-14 01:34:03,882 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:34:03,882 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-14 01:34:04,309 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:34:04,310 - INFO - Processing file: company_00026538_accounts_2002.pdf with mime type: application/pdf
+2025-01-14 01:34:04,311 - INFO - 
+==================================================
+2025-01-14 01:34:04,311 - INFO - Processing: company_00026538_accounts_2002.pdf
+2025-01-14 01:34:04,311 - INFO - ==================================================
+2025-01-14 01:34:07,015 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:34:17,483 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2002_raw_response.txt
+2025-01-14 01:34:17,483 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:34:17,483 - INFO - [SUCCESS] Added to consolidation queue (Total: 5)
+2025-01-14 01:34:18,002 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:34:18,003 - INFO - Processing file: company_00026538_accounts_2003.pdf with mime type: application/pdf
+2025-01-14 01:34:18,003 - INFO - 
+==================================================
+2025-01-14 01:34:18,004 - INFO - Processing: company_00026538_accounts_2003.pdf
+2025-01-14 01:34:18,004 - INFO - ==================================================
+2025-01-14 01:34:21,564 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:34:30,289 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2003_raw_response.txt
+2025-01-14 01:34:30,289 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:34:30,289 - INFO - [SUCCESS] Added to consolidation queue (Total: 6)
+2025-01-14 01:34:30,867 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:34:30,868 - INFO - Processing file: company_00026538_accounts_2004.pdf with mime type: application/pdf
+2025-01-14 01:34:30,868 - INFO - 
+==================================================
+2025-01-14 01:34:30,868 - INFO - Processing: company_00026538_accounts_2004.pdf
+2025-01-14 01:34:30,869 - INFO - ==================================================
+2025-01-14 01:34:34,459 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:34:42,791 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2004_raw_response.txt
+2025-01-14 01:34:42,791 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:34:42,791 - INFO - [SUCCESS] Added to consolidation queue (Total: 7)
+2025-01-14 01:34:43,465 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:42:02,174 - INFO - Starting FinState Analyzer
+2025-01-14 01:42:02,179 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 01:42:02,180 - INFO - 
+==================================================
+2025-01-14 01:42:02,180 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 01:42:02,180 - INFO - ==================================================
+2025-01-14 01:42:02,378 - INFO - Starting FinState Analyzer
+2025-01-14 01:42:02,386 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 01:42:02,386 - INFO - 
+==================================================
+2025-01-14 01:42:02,386 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 01:42:02,386 - INFO - ==================================================
+2025-01-14 01:42:02,557 - INFO - Starting FinState Analyzer
+2025-01-14 01:42:02,561 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 01:42:02,561 - INFO - 
+==================================================
+2025-01-14 01:42:02,561 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 01:42:02,562 - INFO - ==================================================
+2025-01-14 01:42:02,747 - INFO - Starting FinState Analyzer
+2025-01-14 01:42:02,751 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 01:42:02,751 - INFO - 
+==================================================
+2025-01-14 01:42:02,751 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 01:42:02,751 - INFO - ==================================================
+2025-01-14 01:42:03,050 - INFO - Starting FinState Analyzer
+2025-01-14 01:42:03,053 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 01:42:03,054 - INFO - 
+==================================================
+2025-01-14 01:42:03,054 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 01:42:03,054 - INFO - ==================================================
+2025-01-14 01:42:03,265 - INFO - Starting FinState Analyzer
+2025-01-14 01:42:03,269 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 01:42:03,269 - INFO - 
+==================================================
+2025-01-14 01:42:03,269 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 01:42:03,269 - INFO - ==================================================
+2025-01-14 01:42:03,458 - INFO - Starting FinState Analyzer
+2025-01-14 01:42:11,181 - INFO - Starting FinState Analyzer
+2025-01-14 01:42:11,184 - INFO - Processing file: company_00026538_accounts_2021.pdf with mime type: application/pdf
+2025-01-14 01:42:11,184 - INFO - 
+==================================================
+2025-01-14 01:42:11,185 - INFO - Processing: company_00026538_accounts_2021.pdf
+2025-01-14 01:42:11,185 - INFO - ==================================================
+2025-01-14 01:42:17,301 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:42:18,557 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:42:25,710 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:42:26,544 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:42:26,884 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:42:28,816 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:42:29,445 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:42:34,221 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 01:42:34,221 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:42:34,222 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:42:34,672 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 01:42:34,672 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:42:34,673 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:42:34,921 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:42:35,062 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:42:39,157 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 01:42:39,157 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:42:39,157 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:42:39,449 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 01:42:39,451 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:42:39,451 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:42:39,854 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:42:39,974 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:42:41,417 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 01:42:41,418 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:42:41,418 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:42:42,094 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:42:42,184 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2021_raw_response.txt
+2025-01-14 01:42:42,184 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:42:42,184 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:42:42,622 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:42:42,624 - INFO - Processing file: company_00026538_accounts_2023.pdf with mime type: application/pdf
+2025-01-14 01:42:42,624 - INFO - 
+==================================================
+2025-01-14 01:42:42,624 - INFO - Processing: company_00026538_accounts_2023.pdf
+2025-01-14 01:42:42,625 - INFO - ==================================================
+2025-01-14 01:42:42,714 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 01:42:42,715 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:42:42,715 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:42:43,340 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:42:50,289 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:43:06,511 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2023_raw_response.txt
+2025-01-14 01:43:06,512 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:43:06,512 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 01:43:06,933 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:43:39,456 - INFO - Raw response starts with: {"metadata":{"currency":"GBP","scale":"millions","unit_symbol":"£m"},"statements":{"profit_and_loss"
+2025-01-14 01:43:39,456 - INFO - [SUCCESS] Successfully parsed consolidated JSON
+2025-01-14 01:44:43,504 - ERROR - Consolidation failed: 504 Deadline Exceeded
+2025-01-14 01:45:18,063 - INFO - Starting FinState Analyzer
+2025-01-14 01:45:18,067 - INFO - Processing file: company_00026538_accounts_2021.pdf with mime type: application/pdf
+2025-01-14 01:45:18,068 - INFO - 
+==================================================
+2025-01-14 01:45:18,069 - INFO - Processing: company_00026538_accounts_2021.pdf
+2025-01-14 01:45:18,069 - INFO - ==================================================
+2025-01-14 01:45:25,883 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:45:38,938 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2021_raw_response.txt
+2025-01-14 01:45:38,939 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:45:38,940 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:45:39,488 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:45:39,489 - INFO - Processing file: company_00026538_accounts_2023.pdf with mime type: application/pdf
+2025-01-14 01:45:39,490 - INFO - 
+==================================================
+2025-01-14 01:45:39,490 - INFO - Processing: company_00026538_accounts_2023.pdf
+2025-01-14 01:45:39,490 - INFO - ==================================================
+2025-01-14 01:45:46,726 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:46:02,210 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2023_raw_response.txt
+2025-01-14 01:46:02,211 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:46:02,212 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 01:46:02,799 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:46:24,364 - INFO - [SUCCESS] Successfully consolidated profit_and_loss
+2025-01-14 01:46:45,943 - INFO - [SUCCESS] Successfully consolidated balance_sheet
+2025-01-14 01:46:57,359 - INFO - Starting FinState Analyzer
+2025-01-14 01:46:57,363 - INFO - Processing file: company_00026538_accounts_2021.pdf with mime type: application/pdf
+2025-01-14 01:46:57,363 - INFO - 
+==================================================
+2025-01-14 01:46:57,363 - INFO - Processing: company_00026538_accounts_2021.pdf
+2025-01-14 01:46:57,364 - INFO - ==================================================
+2025-01-14 01:46:57,742 - INFO - Starting FinState Analyzer
+2025-01-14 01:47:03,908 - INFO - Starting FinState Analyzer
+2025-01-14 01:47:03,918 - INFO - Processing file: company_00026538_accounts_1990.pdf with mime type: application/pdf
+2025-01-14 01:47:03,919 - INFO - 
+==================================================
+2025-01-14 01:47:03,919 - INFO - Processing: company_00026538_accounts_1990.pdf
+2025-01-14 01:47:03,919 - INFO - ==================================================
+2025-01-14 01:47:09,820 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:47:11,373 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:47:24,052 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1990_raw_response.txt
+2025-01-14 01:47:24,053 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:47:24,053 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:47:24,902 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:47:24,903 - INFO - Processing file: company_00026538_accounts_1992.pdf with mime type: application/pdf
+2025-01-14 01:47:24,903 - INFO - 
+==================================================
+2025-01-14 01:47:24,903 - INFO - Processing: company_00026538_accounts_1992.pdf
+2025-01-14 01:47:24,903 - INFO - ==================================================
+2025-01-14 01:47:28,966 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:47:37,169 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1992_raw_response.txt
+2025-01-14 01:47:37,169 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:47:37,169 - INFO - [SUCCESS] Added to consolidation queue (Total: 2)
+2025-01-14 01:47:37,580 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:47:37,581 - INFO - Processing file: company_00026538_accounts_1993.pdf with mime type: application/pdf
+2025-01-14 01:47:37,582 - INFO - 
+==================================================
+2025-01-14 01:47:37,582 - INFO - Processing: company_00026538_accounts_1993.pdf
+2025-01-14 01:47:37,582 - INFO - ==================================================
+2025-01-14 01:47:43,822 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:47:52,461 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_1993_raw_response.txt
+2025-01-14 01:47:52,462 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:47:52,462 - INFO - [SUCCESS] Added to consolidation queue (Total: 3)
+2025-01-14 01:47:53,190 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:47:53,192 - INFO - Processing file: company_00026538_accounts_2001.pdf with mime type: application/pdf
+2025-01-14 01:47:53,193 - INFO - 
+==================================================
+2025-01-14 01:47:53,193 - INFO - Processing: company_00026538_accounts_2001.pdf
+2025-01-14 01:47:53,193 - INFO - ==================================================
+2025-01-14 01:47:55,361 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:48:06,428 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2021_raw_response.txt
+2025-01-14 01:48:06,428 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:48:06,428 - INFO - [SUCCESS] Added to consolidation queue (Total: 1)
+2025-01-14 01:48:06,751 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2001_raw_response.txt
+2025-01-14 01:48:06,753 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:48:06,754 - INFO - [SUCCESS] Added to consolidation queue (Total: 4)
+2025-01-14 01:48:06,842 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:48:07,379 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:48:07,381 - INFO - Processing file: company_00026538_accounts_2002.pdf with mime type: application/pdf
+2025-01-14 01:48:07,381 - INFO - 
+==================================================
+2025-01-14 01:48:07,381 - INFO - Processing: company_00026538_accounts_2002.pdf
+2025-01-14 01:48:07,381 - INFO - ==================================================
+2025-01-14 01:48:09,981 - INFO - [SUCCESS] File uploaded successfully
+2025-01-14 01:48:22,896 - INFO - [DEBUG] Raw API response saved to: debug\company_00026538_accounts_2002_raw_response.txt
+2025-01-14 01:48:22,896 - INFO - [SUCCESS] Successfully parsed JSON response
+2025-01-14 01:48:22,896 - INFO - [SUCCESS] Added to consolidation queue (Total: 5)
+2025-01-14 01:48:23,601 - INFO - [SUCCESS] Cleaned up uploaded file
+2025-01-14 01:49:08,191 - INFO - [SUCCESS] Successfully consolidated profit_and_loss
+2025-01-14 01:50:03,840 - INFO - [SUCCESS] Successfully consolidated balance_sheet

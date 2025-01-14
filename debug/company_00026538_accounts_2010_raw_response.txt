@@ -1,0 +1,93 @@
+```json
+{
+  "metadata": {
+    "currency": "GBP",
+    "scale": "millions",
+    "unit_symbol": "£m"
+  },
+  "statements": {
+    "profit_and_loss": {
+      "2010": {
+        "TURNOVER": "8,697",
+        "Cost_of_sales": "(8,110)",
+        "GROSS_PROFIT": "587",
+        "Distribution_costs": "(299)",
+        "Administrative_expenses": "(22)",
+        "OPERATING_PROFIT": "266",
+        "EXCEPTIONAL_ITEMS": "Net_profit_on_sale_of_tangible_fixed_assets": "269",
+        "PROFIT_ON_ORDINARY_ACTIVITIES_BEFORE_INTEREST": "266",
+        "Income_from_other_fixed_asset_investments": "10",
+        "Interest_receivable_and_similar_income": "7",
+        "Interest_payable_and_similar_charges": "(7)",
+        "Other_finance_charges": "(6)",
+        "PROFIT_ON_ORDINARY_ACTIVITIES_BEFORE_TAXATION": "271",
+        "Tax_on_profit_on_ordinary_activities": "(75)",
+        "PROFIT_FOR_THE_FINANCIAL_YEAR": "196"
+      },
+      "2009": {
+        "TURNOVER": "6,803",
+        "Cost_of_sales": "(6,198)",
+        "GROSS_PROFIT": "605",
+        "Distribution_costs": "(284)",
+        "Administrative_expenses": "(17)",
+        "OPERATING_PROFIT": "304",
+        "EXCEPTIONAL_ITEMS": "Net_profit_on_sale_of_tangible_fixed_assets": "2",
+        "PROFIT_ON_ORDINARY_ACTIVITIES_BEFORE_INTEREST": "306",
+        "Income_from_other_fixed_asset_investments": "3",
+        "Interest_receivable_and_similar_income": "5",
+        "Interest_payable_and_similar_charges": "(11)",
+        "Other_finance_charges": "(1)",
+        "PROFIT_ON_ORDINARY_ACTIVITIES_BEFORE_TAXATION": "303",
+        "Tax_on_profit_on_ordinary_activities": "(85)",
+        "PROFIT_FOR_THE_FINANCIAL_YEAR": "218"
+      }
+    },
+    "balance_sheet": {
+      "2010": {
+        "FIXED_ASSETS": "Intangible_assets": "1,432",
+        "Tangible_assets": "1,445",
+        "Investments": "10",
+        "CURRENT_ASSETS": "Stocks": "709",
+        "Debtors": "1,042",
+        "Cash_at_bank": "1,752",
+        "CREDITORS": "amounts_falling_due_within_one_year": "(1,014)",
+        "NET_CURRENT_ASSETS": "738",
+        "TOTAL_ASSETS_LESS_CURRENT_LIABILITIES": "2,183",
+        "CREDITORS": "amounts_falling_due_after_more_than_one_year": "(317)",
+        "PROVISIONS_FOR_LIABILITIES": "Deferred_tax": "(53)",
+        "Other_provisions": "(4)",
+        "NET_ASSETS_EXCLUDING_PENSION_SCHEME_ASSETS": "1,809",
+        "Defined_benefit_pension_scheme_liability": "(336)",
+        "NET_ASSETS_INCLUDING_PENSION_SCHEME_ASSETS": "1,473",
+        "CAPITAL_AND_RESERVES": "Called_up_share_capital": "573",
+        "Revaluation_reserve": "419",
+        "Capital_reserves": "3",
+        "Profit_and_loss_account": "478",
+        "SHAREHOLDERS_FUNDS": "1,473"
+      },
+      "2009": {
+        "FIXED_ASSETS": "Intangible_assets": "1,429",
+        "Tangible_assets": "1,441",
+        "Investments": "10",
+        "CURRENT_ASSETS": "Stocks": "570",
+        "Debtors": "1,244",
+        "Cash_at_bank": "1,819",
+        "CREDITORS": "amounts_falling_due_within_one_year": "(1,233)",
+        "NET_CURRENT_ASSETS": "586",
+        "TOTAL_ASSETS_LESS_CURRENT_LIABILITIES": "2,027",
+        "CREDITORS": "amounts_falling_due_after_more_than_one_year": "(318)",
+        "PROVISIONS_FOR_LIABILITIES": "Deferred_tax": "(61)",
+        "Other_provisions": "(1)",
+        "NET_ASSETS_EXCLUDING_PENSION_SCHEME_ASSETS": "1,647",
+        "Defined_benefit_pension_scheme_liability": "(482)",
+        "NET_ASSETS_INCLUDING_PENSION_SCHEME_ASSETS": "1,165",
+        "CAPITAL_AND_RESERVES": "Called_up_share_capital": "573",
+        "Revaluation_reserve": "424",
+        "Capital_reserves": "3",
+        "Profit_and_loss_account": "165",
+        "SHAREHOLDERS_FUNDS": "1,165"
+      }
+    }
+  }
+}
+```
