@@ -58,7 +58,7 @@
         "CreditorsAmountsFallingDueWithinOneYear": "(1122.9)",
         "NetCurrentAssets": "250.0",
         "TotalAssetsLessCurrentLiabilities": "1740.0",
-        "CreditorsAmountsFallingDueAfterMoreThanOneYear": "(3200)",
+        "CreditorsAmountsFallingDueAfterMoreThanOneYear": "(320.0)",
         "ProvisionsForLiabilitiesAndCharges": "(796)",
         "NetAssetsExcludingPensionAssetLiability": "1340.4",
         "PensionAssetLiability": "62.8",

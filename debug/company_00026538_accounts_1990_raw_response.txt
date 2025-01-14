@@ -2,7 +2,7 @@
 {
   "metadata": {
     "currency": "GBP",
-    "scale": "millions",
+    "scale": "thousands",
     "unit_symbol": "£m"
   },
   "statements": {

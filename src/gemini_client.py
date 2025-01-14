@@ -216,6 +216,9 @@ CRITICAL RULES:
     def _consolidate_statement_type(self, statement_type: str) -> RecognitionResult:
         """Consolidate a specific type of statement (profit_and_loss or balance_sheet)"""
         try:
+            # Get standardized line item names first
+            standardized_names = self._get_standardized_line_items(statement_type)
+            
             consolidation_model = genai.GenerativeModel(GEMINI_CONFIG["consolidation_model"])
             
             # Extract all data for this statement type
@@ -254,13 +257,11 @@ CRITICAL RULES:
                         "text": f"""Consolidate these {statement_type} statements for years {chunk_years[0]}-{chunk_years[-1]} into a single JSON object.
 
 Rules for combining line items:
-1. Normalize names by:
-   - Removing underscores, arrows (→), and spaces
-   - Ignoring case differences
-   - Example: "Fixed_Assets → Intangible_assets" = "FixedAssetsIntangibleAssets"
-2. When multiple items match after normalization, combine their values
-3. Use the most common name format from the input data
-4. Preserve all unique line items
+1. Use these standardized names for line items:
+{json.dumps(standardized_names, indent=2)}
+2. When multiple items map to the same standardized name, combine their values
+3. Preserve all unique line items
+4. Use the standardized name format in the output
 
 Input statements:
 {json.dumps(chunk_data, indent=2)}"""
@@ -307,3 +308,80 @@ Input statements:
                 success=False,
                 error=f"{ErrorCodes.CONSOLIDATION_FAILED}: Failed to consolidate {statement_type}: {str(e)}"
             ) 
+
+    def _get_standardized_line_items(self, statement_type: str) -> Dict[str, str]:
+        """Get standardized names for all line items in a statement type"""
+        try:
+            # Collect all unique line items across all statements
+            all_line_items = set()
+            for json_obj in self.extracted_jsons:
+                if statement_type in json_obj.get("statements", {}):
+                    for year_data in json_obj["statements"][statement_type].values():
+                        all_line_items.update(year_data.keys())
+
+            if not all_line_items:
+                logger.info(f"No line items found for {statement_type}")
+                return {}
+
+            consolidation_model = genai.GenerativeModel(GEMINI_CONFIG["consolidation_model"])
+            
+            prompt = {
+                "role": "user",
+                "parts": [{
+                    "text": f"""Create a standardized mapping for these financial statement line items.
+
+Input items:
+{sorted(list(all_line_items))}
+
+Rules:
+1. Output a valid JSON mapping where:
+   - Keys are the original line items
+   - Values are the standardized names
+2. Standardized names should:
+   - Use proper financial terminology
+   - Be clear and consistent
+   - Capitalize first letter of each word
+   - Use spaces between words
+   - Group similar items (e.g., different types of revenue)
+3. Preserve important distinctions in the data
+4. Handle variations like:
+   - Different capitalizations
+   - Underscores vs spaces
+   - Arrows (→) in names
+   - Similar items with slight naming differences
+
+Output format:
+{{
+    "original_name": "Standardized Name",
+    "another_original": "Another Standard"
+}}"""
+                }]
+            }
+
+            response = consolidation_model.generate_content(
+                prompt,
+                generation_config={
+                    "temperature": 0.1,
+                    "candidate_count": 1,
+                    "max_output_tokens": 4096
+                }
+            )
+
+            if not response or not response.text:
+                raise ValueError(f"Empty response from API for {statement_type} line item standardization")
+
+            # Clean and parse the response
+            cleaned_response = response.text.strip()
+            if cleaned_response.startswith('```'):
+                start = cleaned_response.find('{')
+                end = cleaned_response.rfind('}') + 1
+                if start >= 0 and end > 0:
+                    cleaned_response = cleaned_response[start:end]
+
+            standardized_mapping = json.loads(cleaned_response)
+            logger.info(f"[SUCCESS] Created standardized mapping for {len(standardized_mapping)} {statement_type} line items")
+            return standardized_mapping
+
+        except Exception as e:
+            logger.error(f"Failed to standardize line items for {statement_type}: {str(e)}")
+            return {} 

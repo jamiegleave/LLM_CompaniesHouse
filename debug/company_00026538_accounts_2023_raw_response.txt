@@ -96,7 +96,7 @@
           "Net current assets": "2,222"
         },
         "Total assets less current liabilities": "3,606",
-        "Creditors: Amounts falling due after more than one year": "(102)",
+        "Creditors: Amounts falling due after more than one year": "(112)",
         "Provisions for liabilities": "(176)",
         "Deferred tax": null,
         "Other provisions": "(204)",

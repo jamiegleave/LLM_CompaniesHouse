@@ -67,14 +67,14 @@
           "Provisions for liabilities and charges": "(7.6)",
           "Net Current Assets": "(21.2)",
           "Total Assets less Current Liabilities": "1,347.0",
-          "Net Assets": "599.5"
-        },
-        "Capital and Reserves": {
-          "Called up share capital": "228.4",
-          "Revaluation reserve": "186.0",
-          "Capital reserve": "3.3",
-          "Profit and loss account": "181.8",
-          "Total Shareholder's Funds": "599.5"
+          "Net Assets": "599.5",
+          "Capital and Reserves": {
+            "Called up share capital": "228.4",
+            "Revaluation reserve": "186.0",
+            "Capital reserve": "3.3",
+            "Profit and loss account": "181.8",
+            "Total Shareholder's Funds": "599.5"
+          }
         }
       },
       "2000": {
@@ -97,14 +97,14 @@
           "Provisions for liabilities and charges": "(7.3)",
           "Net Current Assets": "154.4",
           "Total Assets less Current Liabilities": "1,524.4",
-          "Net Assets": "773.6"
-        },
-        "Capital and Reserves": {
-          "Called up share capital": "228.4",
-          "Revaluation reserve": "186.0",
-          "Capital reserve": "3.3",
-          "Profit and loss account": "355.9",
-          "Total Shareholder's Funds": "773.6"
+          "Net Assets": "773.6",
+          "Capital and Reserves": {
+            "Called up share capital": "228.4",
+            "Revaluation reserve": "186.0",
+            "Capital reserve": "3.3",
+            "Profit and loss account": "355.9",
+            "Total Shareholder's Funds": "773.6"
+          }
         }
       }
     }

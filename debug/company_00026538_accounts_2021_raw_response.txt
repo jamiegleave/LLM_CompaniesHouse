@@ -68,8 +68,9 @@
         "OtherProvisions": "(125)",
         "PensionLiability": "(327)",
         "CalledUpShareCapital": "1,353",
-        "OtherReserves": "928",
-        "ProfitAndLossAccount": "2,284"
+        "OtherReserves": "3",
+        "ProfitAndLossAccount": "928",
+        "NetAssets": "2,284"
       },
       "2020": {
         "IntangibleFixedAssets": "958",
@@ -88,8 +89,9 @@
         "OtherProvisions": "(128)",
         "PensionLiability": "(325)",
         "CalledUpShareCapital": "1,103",
-        "OtherReserves": "673",
-        "ProfitAndLossAccount": "1,779"
+        "OtherReserves": "3",
+        "ProfitAndLossAccount": "677",
+        "NetAssets": "1,779"
       }
     }
   }
