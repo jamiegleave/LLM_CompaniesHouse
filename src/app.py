@@ -6,6 +6,8 @@ import logging
 import json
 import sys
 import os
+from .download_accounts import CompaniesHouseDownloader
+from io import BytesIO
 
 # Configure logging to output to both file and console
 logging.basicConfig(
@@ -43,13 +45,50 @@ def main():
 
     st.sidebar.header("Document Upload")
 
-    # File upload section
-    uploaded_files = st.sidebar.file_uploader(
-        "Upload Financial Statements",
-        type=SUPPORTED_FORMATS,
-        accept_multiple_files=True,
-        help=f"Supported formats: {', '.join(SUPPORTED_FORMATS)}. Max size: {MAX_FILE_SIZE_MB}MB"
-    )
+    # Initialize uploaded_files
+    uploaded_files = []
+
+    # Add Companies House input option
+    use_companies_house = st.sidebar.checkbox("Download from Companies House")
+    
+    if use_companies_house:
+        company_number = st.sidebar.text_input(
+            "Companies House Number",
+            help="Enter the 8-digit company registration number"
+        )
+        
+        if st.sidebar.button("Download Accounts"):
+            if not company_number:
+                st.sidebar.error("Please enter a company number")
+            else:
+                with st.spinner("Downloading accounts from Companies House..."):
+                    try:
+                        downloader = CompaniesHouseDownloader(company_number)
+                        downloaded_files = downloader.download_all_accounts()
+                        
+                        # Convert downloaded files to BytesIO objects
+                        uploaded_files = []  # Reset the list before adding new files
+                        for filepath in downloaded_files:
+                            with open(filepath, 'rb') as f:
+                                file_bytes = f.read()
+                                filename = os.path.basename(filepath)
+                                file_obj = BytesIO(file_bytes)
+                                # Add attributes to match Streamlit's UploadedFile
+                                file_obj.name = filename
+                                file_obj.type = "application/pdf"
+                                uploaded_files.append(file_obj)
+                        st.sidebar.success(f"Downloaded {len(downloaded_files)} files")
+                    except Exception as e:
+                        st.sidebar.error(f"Error downloading files: {str(e)}")
+                        uploaded_files = []
+    else:
+        # Original file upload section
+        uploaded_files = st.sidebar.file_uploader(
+            "Upload Financial Statements",
+            type=SUPPORTED_FORMATS,
+            accept_multiple_files=True,
+            help=f"Supported formats: {', '.join(SUPPORTED_FORMATS)}. Max size: {MAX_FILE_SIZE_MB}MB"
+        )
 
     if uploaded_files:
         # Only process if we haven't already or if files changed
