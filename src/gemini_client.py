@@ -221,24 +221,36 @@ CRITICAL RULES:
                     error=f"{ErrorCodes.CONSOLIDATION_FAILED}: No statements to consolidate"
                 )
 
-            # First consolidate profit and loss statements
-            profit_loss_result = self._consolidate_statement_type("profit_and_loss")
-            if not profit_loss_result.success:
-                return profit_loss_result
-
-            # Then consolidate balance sheet statements
-            balance_sheet_result = self._consolidate_statement_type("balance_sheet")
-            if not balance_sheet_result.success:
-                return balance_sheet_result
-
-            # Combine the results
+            # Initialize consolidated data structure
             consolidated_data = {
                 "metadata": self.extracted_jsons[0]["metadata"],  # Use metadata from first statement
                 "statements": {
-                    "profit_and_loss": profit_loss_result.extracted_data,
-                    "balance_sheet": balance_sheet_result.extracted_data
+                    "profit_and_loss": {},
+                    "balance_sheet": {}
                 }
             }
+
+            # Merge all statements
+            for json_obj in self.extracted_jsons:
+                for statement_type in ["profit_and_loss", "balance_sheet"]:
+                    if statement_type in json_obj.get("statements", {}):
+                        # Add each year's data to consolidated result
+                        for year, year_data in json_obj["statements"][statement_type].items():
+                            if year in consolidated_data["statements"][statement_type]:
+                                logger.warning(f"Duplicate data found for {year} in {statement_type}")
+                                # If duplicate year exists, keep the non-null values
+                                existing_data = consolidated_data["statements"][statement_type][year]
+                                for key, value in year_data.items():
+                                    if value is not None:
+                                        existing_data[key] = value
+                            else:
+                                consolidated_data["statements"][statement_type][year] = year_data
+
+            # Sort years within each statement type
+            for statement_type in ["profit_and_loss", "balance_sheet"]:
+                consolidated_data["statements"][statement_type] = dict(
+                    sorted(consolidated_data["statements"][statement_type].items())
+                )
 
             return RecognitionResult(
                 success=True,
@@ -252,96 +264,4 @@ CRITICAL RULES:
             return RecognitionResult(
                 success=False,
                 error=f"{ErrorCodes.CONSOLIDATION_FAILED}: {str(e)}"
-            )
-
-    def _consolidate_statement_type(self, statement_type: str) -> RecognitionResult:
-        """Consolidate a specific type of statement (profit_and_loss or balance_sheet)"""
-        try:
-            consolidation_model = genai.GenerativeModel(GEMINI_CONFIG["consolidation_model"])
-            
-            # Extract all data for this statement type
-            statement_data = []
-            for json_obj in self.extracted_jsons:
-                if statement_type in json_obj.get("statements", {}):
-                    statement_data.append(json_obj["statements"][statement_type])
-
-            if not statement_data:
-                logger.info(f"No {statement_type} statements to consolidate")
-                return RecognitionResult(
-                    success=True,
-                    statement_type=statement_type,
-                    extracted_data={}
-                )
-
-            # Chunk the statements into groups of 5 years
-            consolidated_chunks = {}
-            chunk_size = 5
-            years = sorted(list({year for stmt in statement_data for year in stmt.keys()}))
-            
-            for i in range(0, len(years), chunk_size):
-                chunk_years = years[i:i + chunk_size]
-                chunk_data = []
-                
-                # Create subset of data for each chunk
-                for stmt in statement_data:
-                    chunk_stmt = {year: stmt[year] for year in chunk_years if year in stmt}
-                    if chunk_stmt:
-                        chunk_data.append(chunk_stmt)
-
-                # Format the prompt for this chunk
-                prompt = {
-                    "role": "user",
-                    "parts": [{
-                        "text": f"""Consolidate these {statement_type} statements for years {chunk_years[0]}-{chunk_years[-1]} into a single JSON object.
-
-Rules:
-1. Maintain UK Companies Act terminology (already standardized)
-2. When multiple items map to the same name, combine their values
-3. Preserve all unique line items
-4. Keep negative numbers for expenses and liabilities
-
-Input statements:
-{json.dumps(chunk_data, indent=2)}"""
-                    }]
-                }
-
-                # Process chunk
-                response = consolidation_model.generate_content(
-                    prompt,
-                    generation_config={
-                        "temperature": 0.1,
-                        "candidate_count": 1,
-                        "max_output_tokens": 8192
-                    }
-                )
-
-                if not response or not response.text:
-                    raise ValueError(f"Empty response from API for {statement_type} chunk {chunk_years}")
-
-                # Clean and parse the response
-                cleaned_response = response.text.strip()
-                cleaned_response = cleaned_response.replace('```json', '').replace('```', '')
-                start = cleaned_response.find('{')
-                end = cleaned_response.rfind('}') + 1
-                
-                if start >= 0 and end > 0:
-                    cleaned_response = cleaned_response[start:end]
-                    chunk_result = json.loads(cleaned_response)
-                    consolidated_chunks.update(chunk_result)
-                else:
-                    raise ValueError(f"No valid JSON found in response for {statement_type} chunk {chunk_years}")
-
-                logger.info(f"[SUCCESS] Processed chunk {chunk_years[0]}-{chunk_years[-1]} for {statement_type}")
-
-            return RecognitionResult(
-                success=True,
-                statement_type=statement_type,
-                extracted_data=consolidated_chunks
-            )
-
-        except Exception as e:
-            logger.error(f"Failed to consolidate {statement_type}: {str(e)}")
-            return RecognitionResult(
-                success=False,
-                error=f"{ErrorCodes.CONSOLIDATION_FAILED}: Failed to consolidate {statement_type}: {str(e)}"
             ) 
