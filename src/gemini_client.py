@@ -42,44 +42,90 @@ class GeminiClient:
                 file = genai.upload_file(file_obj, mime_type=mime_type)
                 logger.info("[SUCCESS] File uploaded successfully")
 
-                # Updated system prompt with stricter JSON formatting rules
-                system_prompt = """You are a financial data parser that outputs valid JSON. Extract ALL financial data visible in the document.
+                # Updated system prompt with UK Companies Act format
+                system_prompt = """You are a financial data parser that outputs valid JSON following UK Companies Act format. Extract ALL financial data visible in the document.
 
 STRUCTURE:
 {
     "metadata": {
         "currency": "DETECT FROM DOCUMENT (e.g. GBP, USD, EUR, etc.)",
         "scale": "DETECT FROM DOCUMENT (e.g., millions, thousands, billions)",
-        "unit_symbol": "DETECT FROM DOCUMENT (e.g., $m, £k, €B)"
+        "unit_symbol": "DETECT FROM DOCUMENT (e.g., £m, £k, €B)"
     },
     "statements": {
         "profit_and_loss": {
-            // Each year should be a separate object here with flat structure
-            // Extract all line items from the document
+            "YEAR": {
+                // Format as per UK Companies Act:
+                "Turnover": 0.0,
+                "Cost of Sales": -0.0,
+                "Gross Profit": 0.0,
+                "Distribution Costs": -0.0,
+                "Administrative Expenses": -0.0,
+                "Other Operating Income": 0.0,
+                "Operating Profit": 0.0,
+                "Income from Shares in Group Undertakings": 0.0,
+                "Income from Other Fixed Asset Investments": 0.0,
+                "Interest Receivable and Similar Income": 0.0,
+                "Interest Payable and Similar Charges": -0.0,
+                "Profit Before Taxation": 0.0,
+                "Tax on Profit": -0.0,
+                "Profit for the Financial Year": 0.0
+            }
         },
         "balance_sheet": {
-            // Each year should be a separate object here with flat structure
-            // Extract all line items from the document
+            "YEAR": {
+                // Fixed Assets
+                "Intangible Fixed Assets": 0.0,
+                "Tangible Fixed Assets": 0.0,
+                "Fixed Asset Investments": 0.0,
+                "Total Fixed Assets": 0.0,
+
+                // Current Assets
+                "Stocks": 0.0,
+                "Debtors Due Within One Year": 0.0,
+                "Debtors Due After One Year": 0.0,
+                "Cash at Bank and In Hand": 0.0,
+                "Total Current Assets": 0.0,
+
+                // Liabilities
+                "Creditors: Amounts Falling Due Within One Year": -0.0,
+                "Net Current Assets": 0.0,
+                "Total Assets Less Current Liabilities": 0.0,
+                "Creditors: Amounts Falling Due After One Year": -0.0,
+                "Provisions for Liabilities": -0.0,
+                "Net Assets": 0.0,
+
+                // Capital and Reserves
+                "Called Up Share Capital": 0.0,
+                "Share Premium Account": 0.0,
+                "Revaluation Reserve": 0.0,
+                "Other Reserves": 0.0,
+                "Profit and Loss Account": 0.0,
+                "Total Shareholders Funds": 0.0
+            }
         }
     }
 }
 
 CRITICAL RULES:
-1. Extract ALL visible financial data from the document
-2. Group data by statement type, then by year
-3. Use decimal numbers (e.g., 50.0 not 50)
-4. Use spaces in line item names, not underscores
-5. Use negative numbers for liabilities/creditors
-6. Capitalize the first letter of each word in line item names
-7. Follow ONLY this nesting hierarchy:
-   metadata -> flat key/values
-   statements -> profit_and_loss/balance_sheet -> years -> flat key/values
-8. No other nested objects allowed
-9. Output valid JSON only
-10. ALL keys must be properly escaped strings with double quotes
-11. ALL string values must be properly escaped with double quotes
-12. NO unescaped control characters or special characters in strings
-13. Use strict JSON format - no trailing commas, no comments"""
+1. Follow EXACT UK Companies Act terminology
+2. Use negative numbers for:
+   - All expenses and costs in P&L
+   - Creditors and liabilities in balance sheet
+3. Group items under correct categories
+4. Maintain proper hierarchy
+5. Keep timing distinctions (Within/After One Year)
+6. Preserve group vs non-group distinctions
+7. Use decimal numbers (e.g., 50.0 not 50)
+8. Output valid JSON only
+9. Include all years found in document
+10. Standardize variations:
+    - "Revenue" → "Turnover"
+    - "Inventory" → "Stocks"
+    - "Accounts Receivable" → "Debtors"
+    - "Accounts Payable" → "Creditors"
+    - "Net Income" → "Profit for the Financial Year"
+"""
 
                 # Make API call
                 try:
