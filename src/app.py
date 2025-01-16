@@ -27,9 +27,19 @@ def main():
     
     st.title("FinState Analyzer")
     
-    # Initialize session state for processed results
+    # Initialize session state for processed results and company details
     if 'processed_results' not in st.session_state:
         st.session_state.processed_results = None
+    if 'company_details' not in st.session_state:
+        st.session_state.company_details = None
+    
+    # Display company details if available
+    if st.session_state.company_details:
+        st.markdown(f"""
+        ### Company Details
+        **Name:** {st.session_state.company_details['name']}  
+        **Number:** {st.session_state.company_details['number']}
+        """)
     
     # Add API key configuration in sidebar
     api_key = st.sidebar.text_input(
@@ -64,19 +74,18 @@ def main():
                 with st.spinner("Downloading accounts from Companies House..."):
                     try:
                         downloader = CompaniesHouseDownloader(company_number)
+                        # Get company details first
+                        st.session_state.company_details = downloader.get_company_details()
                         downloaded_files = downloader.download_all_accounts()
                         
                         # Convert downloaded files to BytesIO objects
                         uploaded_files = []  # Reset the list before adding new files
-                        for filepath in downloaded_files:
-                            with open(filepath, 'rb') as f:
-                                file_bytes = f.read()
-                                filename = os.path.basename(filepath)
-                                file_obj = BytesIO(file_bytes)
-                                # Add attributes to match Streamlit's UploadedFile
-                                file_obj.name = filename
-                                file_obj.type = "application/pdf"
-                                uploaded_files.append(file_obj)
+                        for filename, content in downloaded_files:
+                            file_obj = BytesIO(content)
+                            # Add attributes to match Streamlit's UploadedFile
+                            file_obj.name = filename
+                            file_obj.type = "application/pdf"
+                            uploaded_files.append(file_obj)
                         st.sidebar.success(f"Downloaded {len(downloaded_files)} files")
                     except Exception as e:
                         st.sidebar.error(f"Error downloading files: {str(e)}")

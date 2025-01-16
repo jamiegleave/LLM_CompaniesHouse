@@ -69,19 +69,15 @@ class CompaniesHouseDownloader:
         return bool(next_link)
     
     def download_pdf(self, url, year):
-        response = self.session.get(url)
+        response = self.session.get(url, stream=True)
         response.raise_for_status()
         
-        # Create downloads directory if it doesn't exist
-        os.makedirs('downloads', exist_ok=True)
+        # Ensure binary content is properly read
+        content = response.raw.read()
         
-        # Create filename with company number and year
-        filename = f"downloads/company_{self.company_number}_accounts_{year}.pdf"
-        
-        with open(filename, 'wb') as f:
-            f.write(response.content)
-        
-        return filename
+        # Return the PDF content and filename directly
+        filename = f"company_{self.company_number}_accounts_{year}.pdf"
+        return filename, content
     
     def download_all_accounts(self):
         page = 1
@@ -95,8 +91,12 @@ class CompaniesHouseDownloader:
             for url, year in pdf_links:
                 try:
                     print(f"Downloading accounts for year {year}...")
-                    filename = self.download_pdf(url, year)
-                    downloaded_files.append(filename)
+                    filename, content = self.download_pdf(url, year)
+                    # Ensure content is valid PDF before adding
+                    if content.startswith(b'%PDF'):  # Check for PDF magic number
+                        downloaded_files.append((filename, content))
+                    else:
+                        print(f"Warning: Downloaded content for {filename} is not a valid PDF")
                     # Be nice to the server
                     time.sleep(2)
                 except Exception as e:
@@ -106,23 +106,22 @@ class CompaniesHouseDownloader:
                 break
                 
             page += 1
-            # Be nice to the server
             time.sleep(2)
         
         return downloaded_files
-
-def main():
-    # Example usage
-    company_number = "00026538"  # Esso Petroleum Company Limited
-    downloader = CompaniesHouseDownloader(company_number)
     
-    try:
-        downloaded_files = downloader.download_all_accounts()
-        print("\nSuccessfully downloaded files:")
-        for file in downloaded_files:
-            print(f"- {file}")
-    except Exception as e:
-        print(f"An error occurred: {str(e)}")
-
-if __name__ == "__main__":
-    main()
+    def get_company_details(self):
+        """Extract company name and number from the filing history page"""
+        html = self.get_filing_history_page()
+        soup = BeautifulSoup(html, 'html.parser')
+        
+        # Extract company name from h1 tag
+        company_name = soup.select_one(".company-header > h1").text.strip()
+        
+        # Extract company number from strong tag within #company-number
+        company_number = soup.select_one("#company-number > strong").text.strip()
+        
+        return {
+            'name': company_name,
+            'number': company_number
+        }
