@@ -48,9 +48,29 @@ def main():
         help="Enter your Google API key",
         value=os.getenv('GEMINI_API_KEY','')
     )
+
+    # Add JSON upload option in sidebar
+    st.sidebar.header("Load Previous Analysis")
+    uploaded_json = st.sidebar.file_uploader(
+        "Upload JSON Analysis",
+        type=['json'],
+        help="Upload a previously exported JSON analysis"
+    )
+
+    if uploaded_json:
+        try:
+            json_data = json.load(uploaded_json)
+            st.session_state.processed_results = json_data
+            st.session_state.last_processed_files = ['uploaded_json']  # Prevent reprocessing
+            if 'metadata' in json_data:
+                st.sidebar.success("JSON analysis loaded successfully")
+                # Display the results immediately after loading JSON
+                display_consolidated_results(json_data)
+        except Exception as e:
+            st.sidebar.error(f"Error loading JSON: {str(e)}")
     
-    if not api_key:
-        st.warning("Please enter your Google API key to enable document recognition.")
+    if not api_key and not uploaded_json:
+        st.warning("Please either enter your Google API key to process documents or upload a previous JSON analysis.")
         return
 
     st.sidebar.header("Document Upload")
@@ -145,10 +165,7 @@ def main():
                     with st.spinner("Consolidating statements..."):
                         consolidated_result = gemini_client.consolidate_statements()
                         
-                        # Display processing summary
-                        if processed_files:
-                            st.success(f"Successfully processed: {', '.join(processed_files)}")
-                        
+                        # Only show failed files if any
                         if failed_files:
                             st.warning("The following files had issues:")
                             for file_name, error in failed_files:

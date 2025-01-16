@@ -4,6 +4,10 @@ import os
 import time
 from datetime import datetime
 import re
+import logging
+
+# Get logger
+logger = logging.getLogger(__name__)
 
 class CompaniesHouseDownloader:
     def __init__(self, company_number):
@@ -80,27 +84,29 @@ class CompaniesHouseDownloader:
         return filename, content
     
     def download_all_accounts(self):
+        logger.info(f"Starting download process for company {self.company_number}")
         page = 1
         downloaded_files = []
         
         while True:
-            print(f"Processing page {page}...")
+            logger.info(f"Processing page {page}...")
             html = self.get_filing_history_page(page)
             pdf_links = self.extract_pdf_links(html)
             
             for url, year in pdf_links:
                 try:
-                    print(f"Downloading accounts for year {year}...")
+                    logger.info(f"Downloading accounts for year {year}...")
                     filename, content = self.download_pdf(url, year)
                     # Ensure content is valid PDF before adding
                     if content.startswith(b'%PDF'):  # Check for PDF magic number
                         downloaded_files.append((filename, content))
+                        logger.info(f"Successfully downloaded {filename}")
                     else:
-                        print(f"Warning: Downloaded content for {filename} is not a valid PDF")
+                        logger.warning(f"Downloaded content for {filename} is not a valid PDF")
                     # Be nice to the server
                     time.sleep(2)
                 except Exception as e:
-                    print(f"Error downloading {url}: {str(e)}")
+                    logger.error(f"Error downloading {url}: {str(e)}")
             
             if not self.has_next_page(html):
                 break
@@ -108,6 +114,7 @@ class CompaniesHouseDownloader:
             page += 1
             time.sleep(2)
         
+        logger.info(f"Download process complete. Downloaded {len(downloaded_files)} files.")
         return downloaded_files
     
     def get_company_details(self):

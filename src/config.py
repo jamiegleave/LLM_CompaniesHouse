@@ -33,7 +33,7 @@ ERROR_MESSAGES = {
 
 # Gemini Configuration
 GEMINI_CONFIG = {
-    "analysis_model": "gemini-1.5-flash-8b",  # For document analysis
+    "analysis_model": "gemini-2.0-flash-exp",  # For document analysis
     "consolidation_model": "gemini-2.0-flash-exp",   # For statement consolidation
     "timeout": 600,  # 10 minutes timeout for large documents
     "max_retries": 3,

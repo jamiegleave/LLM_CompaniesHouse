@@ -42,7 +42,7 @@ class GeminiClient:
                 file = genai.upload_file(file_obj, mime_type=mime_type)
                 logger.info("[SUCCESS] File uploaded successfully")
 
-                # Updated system prompt with stricter response format and structure
+                # Updated system prompt with stricter JSON formatting rules
                 system_prompt = """You are a financial data parser that outputs valid JSON. Extract ALL financial data visible in the document.
 
 STRUCTURE:
@@ -75,7 +75,11 @@ CRITICAL RULES:
    metadata -> flat key/values
    statements -> profit_and_loss/balance_sheet -> years -> flat key/values
 8. No other nested objects allowed
-9. Output valid JSON only"""
+9. Output valid JSON only
+10. ALL keys must be properly escaped strings with double quotes
+11. ALL string values must be properly escaped with double quotes
+12. NO unescaped control characters or special characters in strings
+13. Use strict JSON format - no trailing commas, no comments"""
 
                 # Make API call
                 try:
@@ -277,6 +281,13 @@ Input statements:
                 cleaned_response = cleaned_response.replace('```json', '').replace('```', '')
                 start = cleaned_response.find('{')
                 end = cleaned_response.rfind('}') + 1
+                
+                # Log the raw response before parsing
+                logger.info(f"Raw response for {statement_type} chunk {chunk_years}:")
+                logger.info(f"Response before cleaning: {response.text}")
+                logger.info(f"Response after cleaning: {cleaned_response}")
+                if start >= 0 and end > 0:
+                    logger.info(f"Extracted JSON string: {cleaned_response[start:end]}")
                 
                 if start >= 0 and end > 0:
                     cleaned_response = cleaned_response[start:end]
