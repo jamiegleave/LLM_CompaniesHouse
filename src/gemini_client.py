@@ -230,21 +230,52 @@ CRITICAL RULES:
                 }
             }
 
-            # Merge all statements
+            # Track count of values for averaging
+            value_counts = {
+                "profit_and_loss": {},
+                "balance_sheet": {}
+            }
+
+            # First pass: Sum all values and count occurrences
             for json_obj in self.extracted_jsons:
                 for statement_type in ["profit_and_loss", "balance_sheet"]:
                     if statement_type in json_obj.get("statements", {}):
-                        # Add each year's data to consolidated result
+                        # Initialize year data structures if they don't exist
                         for year, year_data in json_obj["statements"][statement_type].items():
-                            if year in consolidated_data["statements"][statement_type]:
-                                logger.warning(f"Duplicate data found for {year} in {statement_type}")
-                                # If duplicate year exists, keep the non-null values
-                                existing_data = consolidated_data["statements"][statement_type][year]
-                                for key, value in year_data.items():
-                                    if value is not None:
-                                        existing_data[key] = value
-                            else:
-                                consolidated_data["statements"][statement_type][year] = year_data
+                            if year not in consolidated_data["statements"][statement_type]:
+                                consolidated_data["statements"][statement_type][year] = {}
+                            if year not in value_counts[statement_type]:
+                                value_counts[statement_type][year] = {}
+
+                            # Sum values and count occurrences
+                            for key, value in year_data.items():
+                                if value is not None:
+                                    try:
+                                        # Initialize if first occurrence
+                                        if key not in consolidated_data["statements"][statement_type][year]:
+                                            consolidated_data["statements"][statement_type][year][key] = 0
+                                            value_counts[statement_type][year][key] = 0
+
+                                        # Add value and increment counter
+                                        consolidated_data["statements"][statement_type][year][key] += float(value)
+                                        value_counts[statement_type][year][key] += 1
+                                    except (ValueError, TypeError) as e:
+                                        logger.warning(f"Could not process value for {key}: {value}")
+                                        continue
+
+            # Second pass: Calculate averages
+            for statement_type in ["profit_and_loss", "balance_sheet"]:
+                for year in consolidated_data["statements"][statement_type]:
+                    for key in consolidated_data["statements"][statement_type][year].copy():
+                        count = value_counts[statement_type][year].get(key, 0)
+                        if count > 0:
+                            # Calculate average and round to 1 decimal place
+                            value = consolidated_data["statements"][statement_type][year][key]
+                            average = round(value / count, 1)
+                            consolidated_data["statements"][statement_type][year][key] = average
+                            
+                            if count > 1:
+                                logger.info(f"Averaged {count} values for {year} {key}: {average}")
 
             # Sort years within each statement type
             for statement_type in ["profit_and_loss", "balance_sheet"]:
