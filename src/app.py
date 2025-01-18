@@ -11,6 +11,10 @@ from io import BytesIO
 import plotly.express as px
 import plotly.graph_objects as go
 from typing import Dict, List
+import tempfile
+from pathlib import Path
+from datetime import datetime, timedelta
+import hashlib
 
 # Configure logging to output to both file and console
 logging.basicConfig(
@@ -25,6 +29,132 @@ logging.basicConfig(
 # Get logger
 logger = logging.getLogger(__name__)
 
+# Add these constants near the top of the file
+CACHE_DIR = Path(tempfile.gettempdir()) / "finstate_analyzer"
+CACHE_EXPIRY_HOURS = 24  # Cache files expire after 24 hours
+
+def save_to_cache(data: dict, file_names: list = None, company_number: str = None, company_details: dict = None) -> str:
+    """Save processed results to cache using either company number or MD5 of filenames"""
+    try:
+        # Create cache directory if it doesn't exist
+        CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        
+        if company_number:
+            # Companies House path - use company number as key
+            cache_key = company_number
+        elif file_names:
+            # UI upload path - use MD5 of sorted filenames
+            sorted_names = sorted(file_names)
+            cache_key = hashlib.md5('_'.join(sorted_names).encode()).hexdigest()
+        else:
+            logger.error("Neither company number nor file names provided for caching")
+            return None
+            
+        cache_path = CACHE_DIR / f"{cache_key}.json"
+        
+        # Save data with timestamp and metadata
+        cache_data = {
+            "timestamp": datetime.now().isoformat(),
+            "data": data,
+            "company_details": company_details,
+            "file_names": file_names,
+            "company_number": company_number
+        }
+        
+        with open(cache_path, "w") as f:
+            json.dump(cache_data, f)
+            
+        logger.info(f"Saved results to cache: {cache_path}")
+        return str(cache_path)
+        
+    except Exception as e:
+        logger.error(f"Error saving to cache: {str(e)}")
+        return None
+
+def load_from_cache(file_names: list = None, company_number: str = None) -> tuple[dict, dict]:
+    """Load processed results from cache using either company number or MD5 of filenames"""
+    try:
+        if company_number:
+            # Companies House path
+            cache_key = company_number
+        elif file_names:
+            # UI upload path
+            sorted_names = sorted(file_names)
+            cache_key = hashlib.md5('_'.join(sorted_names).encode()).hexdigest()
+        else:
+            logger.error("Neither company number nor file names provided for cache lookup")
+            return None, None
+            
+        cache_path = CACHE_DIR / f"{cache_key}.json"
+        
+        if not cache_path.exists():
+            logger.info(f"No cache file found for key: {cache_key}")
+            return None, None
+            
+        with open(cache_path, "r") as f:
+            cache_data = json.load(f)
+            
+        # Check if cache has expired
+        cache_time = datetime.fromisoformat(cache_data["timestamp"])
+        if datetime.now() - cache_time > timedelta(hours=CACHE_EXPIRY_HOURS):
+            logger.info(f"Cache expired for: {cache_key}")
+            cache_path.unlink()  # Delete expired cache
+            return None, None
+            
+        logger.info(f"Loaded results from cache for key: {cache_key}")
+        return cache_data["data"], cache_data.get("company_details")
+        
+    except Exception as e:
+        logger.error(f"Error loading from cache: {str(e)}")
+        return None, None
+
+def cleanup_old_cache():
+    """Remove expired cache files"""
+    try:
+        if not CACHE_DIR.exists():
+            return
+            
+        for cache_file in CACHE_DIR.glob("*.json"):
+            try:
+                with open(cache_file, "r") as f:
+                    cache_data = json.load(f)
+                cache_time = datetime.fromisoformat(cache_data["timestamp"])
+                
+                if datetime.now() - cache_time > timedelta(hours=CACHE_EXPIRY_HOURS):
+                    cache_file.unlink()
+                    logger.info(f"Removed expired cache: {cache_file}")
+            except Exception as e:
+                logger.warning(f"Error processing cache file {cache_file}: {str(e)}")
+                cache_file.unlink()  # Remove invalid cache file
+                
+    except Exception as e:
+        logger.error(f"Error cleaning up cache: {str(e)}")
+
+def process_uploaded_file(uploaded_file, gemini_client):
+    """Process a single file without caching"""
+    try:
+        if not uploaded_file:
+            logger.error("No file provided to process_uploaded_file")
+            return RecognitionResult(success=False, error="No file provided")
+
+        mime_type = {
+            'pdf': 'application/pdf',
+            'jpg': 'image/jpeg',
+            'jpeg': 'image/jpeg',
+            'png': 'image/png'
+        }.get(uploaded_file.name.lower().split('.')[-1])
+        
+        if not mime_type:
+            logger.error(f"Unsupported file type: {uploaded_file.name}")
+            return RecognitionResult(success=False, error=f"Unsupported file type: {uploaded_file.name}")
+
+        logger.info(f"Processing file: {uploaded_file.name} with mime type: {mime_type}")
+        return gemini_client.analyze_document(uploaded_file, mime_type)
+
+    except Exception as e:
+        logger.error(f"Error processing {uploaded_file.name}: {str(e)}")
+        return RecognitionResult(success=False, error=str(e))
+
 def main():
     logger.info("Starting FinState Analyzer")
     
@@ -35,7 +165,12 @@ def main():
         st.session_state.processed_results = None
     if 'company_details' not in st.session_state:
         st.session_state.company_details = None
-    
+    if 'last_processed_files' not in st.session_state:
+        st.session_state.last_processed_files = None
+        
+    # Clean up old cache files on startup
+    cleanup_old_cache()
+
     # Add API key configuration in sidebar
     api_key = st.sidebar.text_input(
         "Google API Key",
@@ -66,31 +201,32 @@ def main():
             if not company_number:
                 st.sidebar.error("Please enter a company number")
             else:
-                with st.spinner("Downloading accounts from Companies House..."):
-                    try:
-                        downloader = CompaniesHouseDownloader(company_number)
-                        
-                        # Get company details and downloaded files in one go
-                        company_details = downloader.get_company_details()
-                        downloaded_files = downloader.download_all_accounts()
-                        
-                        # Set both the company details and prepare the files
-                        st.session_state.company_details = company_details
-                        
-                        # Convert downloaded files to BytesIO objects
-                        uploaded_files = []  # Reset the list before adding new files
-                        for filename, content in downloaded_files:
-                            file_obj = BytesIO(content)
-                            # Add attributes to match Streamlit's UploadedFile
-                            file_obj.name = filename
-                            file_obj.type = "application/pdf"
-                            uploaded_files.append(file_obj)
-                        
-                        st.sidebar.success(f"Downloaded {len(downloaded_files)} files")
+                # Try to load from cache first
+                cached_results, cached_company_details = load_from_cache(company_number=company_number)
+                if cached_results:
+                    st.session_state.processed_results = cached_results
+                    st.session_state.company_details = cached_company_details
+                else:
+                    with st.spinner("Downloading accounts from Companies House..."):
+                        try:
+                            downloader = CompaniesHouseDownloader(company_number)
+                            company_details = downloader.get_company_details()
+                            downloaded_files = downloader.download_all_accounts()
                             
-                    except Exception as e:
-                        st.sidebar.error(f"Error downloading files: {str(e)}")
-                        uploaded_files = []
+                            st.session_state.company_details = company_details
+                            
+                            uploaded_files = []
+                            for filename, content in downloaded_files:
+                                file_obj = BytesIO(content)
+                                file_obj.name = filename
+                                file_obj.type = "application/pdf"
+                                uploaded_files.append(file_obj)
+                                
+                            st.sidebar.success(f"Downloaded {len(downloaded_files)} files")
+                                
+                        except Exception as e:
+                            st.sidebar.error(f"Error downloading files: {str(e)}")
+                            uploaded_files = []
     else:
         # Original file upload section
         uploaded_files = st.sidebar.file_uploader(
@@ -100,122 +236,118 @@ def main():
             help=f"Supported formats: {', '.join(SUPPORTED_FORMATS)}. Max size: {MAX_FILE_SIZE_MB}MB"
         )
 
+    # Try to load from cache if we have files to check against
+    files_to_check = None
     if uploaded_files:
-        # Only process if we haven't already or if files changed
-        current_files = [f.name for f in uploaded_files]
-        if (st.session_state.processed_results is None or 
-            'last_processed_files' not in st.session_state or 
-            st.session_state.last_processed_files != current_files):
-            
-            try:
-                # Process files
-                gemini_client = GeminiClient(api_key=api_key)
-                
-                if len(uploaded_files) == 1:
-                    # Single file processing logic
-                    with st.spinner(f"Processing {uploaded_files[0].name}..."):
-                        recognition_result = process_uploaded_file(uploaded_files[0], gemini_client)
-                        if recognition_result is None:
-                            st.error(f"Failed to process {uploaded_files[0].name}")
-                            return
-                        if recognition_result.success:
-                            st.session_state.processed_results = recognition_result.extracted_data
-                            st.session_state.last_processed_files = current_files
-                        else:
-                            st.error(f"Analysis failed: {recognition_result.error}")
-                
-                else:
-                    # Multiple files processing logic
-                    processed_files = []
-                    failed_files = []
-                    
-                    for idx, uploaded_file in enumerate(uploaded_files):
-                        with st.spinner(f"Processing: {uploaded_file.name}"):
-                            recognition_result = process_uploaded_file(uploaded_file, gemini_client)
-                            if recognition_result is None or not recognition_result.success:
-                                failed_files.append((uploaded_file.name, recognition_result.error if recognition_result else "Processing failed"))
-                                logger.warning(f"Failed to process {uploaded_file.name}")
-                                continue
-                            processed_files.append(uploaded_file.name)
+        parsable_files = [f.name for f in uploaded_files]
+        files_to_check = parsable_files
+    elif st.session_state.last_processed_files is not None:
+        files_to_check = st.session_state.last_processed_files
 
-                    if not processed_files:
-                        st.error("No files were successfully processed")
-                        return
+    if files_to_check and st.session_state.processed_results is None:
+        cached_results, cached_company_details = load_from_cache(file_names=files_to_check)
+        if cached_results:
+            logger.info("Restored results from cache")
+            st.session_state.processed_results = cached_results
+            st.session_state.company_details = cached_company_details
 
-                    # Consolidate results only for multiple files
-                    with st.spinner("Consolidating statements..."):
-                        consolidated_result = gemini_client.consolidate_statements()
-                        
-                        # Only show failed files if any
-                        if failed_files:
-                            st.warning("The following files had issues:")
-                            for file_name, error in failed_files:
-                                st.warning(f"- {file_name}: {error}")
-                        
-                        if consolidated_result.success:
-                            st.session_state.processed_results = consolidated_result.extracted_data
-                            st.session_state.last_processed_files = current_files
-            
-            except Exception as e:
-                logger.error(f"Error in main processing: {str(e)}")
-                st.error(f"Error processing files: {str(e)}")
+    try:
+        # Process files
         
-        # Display results if available
-        if st.session_state.processed_results:
-            
-            # Create tabs for tables and visualization
-            tab_tables, tab_viz, tab_json = st.tabs(["Financial Statements", "Visualization", "Raw JSON"])
-            
-            with tab_tables:
-                display_company_details()
-                # Display metadata
-                metadata = st.session_state.processed_results.get("metadata", {})
-                display_metadata(metadata)
-                
-                # Create tabs for each statement type
-                statement_types = [st for st, sd in st.session_state.processed_results["statements"].items() if sd]
-                if statement_types:
-                    tabs = st.tabs([type.replace('_', ' ').title() for type in statement_types])
-                    
-                    # Display each statement in its own tab
-                    for tab, statement_type in zip(tabs, statement_types):
-                        with tab:
-                            statement_data = st.session_state.processed_results["statements"][statement_type]
-                            display_statement_data(statement_type, statement_data)
+        gemini_client = GeminiClient(api_key=api_key)
+        
+        if len(uploaded_files) == 1:
+            # Single file processing
+            with st.spinner(f"Processing {uploaded_files[0].name}..."):
+                recognition_result = process_uploaded_file(uploaded_files[0], gemini_client)
+                if recognition_result and recognition_result.success:
+                    st.session_state.processed_results = recognition_result.extracted_data
+                    # Cache the results using MD5 of filename
+                    save_to_cache(recognition_result.extracted_data, file_names=parsable_files)
                 else:
-                    st.warning("No statement data found")
+                    st.error(f"Failed to process {uploaded_files[0].name}")
+                
+        else:
+            # Multiple files processing
+            for uploaded_file in uploaded_files:
+                with st.spinner(f"Processing: {uploaded_file.name}"):
+                    process_uploaded_file(uploaded_file, gemini_client)
             
-            with tab_viz:
-                display_visualizations(st.session_state.processed_results)
+            # Consolidate and cache results
+            consolidated_result = gemini_client.consolidate_statements()
+            if consolidated_result.success:
+                st.session_state.processed_results = consolidated_result.extracted_data
+                # Cache the consolidated results using company number if available
+                save_to_cache(
+                    consolidated_result.extracted_data, 
+                    file_names=parsable_files,
+                    company_number=company_number if use_companies_house else None,
+                    company_details=st.session_state.company_details
+                )
+                
+    except Exception as e:
+        logger.error(f"Error in main processing: {str(e)}")
+        st.error(f"Error processing files: {str(e)}")
+
+        # Clean up old cache files
+        cleanup_old_cache()
+
+    # Display results if available (either from cache or new processing)
+    if st.session_state.processed_results:
+        # Create tabs for tables and visualization
+        tab_tables, tab_viz, tab_json = st.tabs(["Financial Statements", "Visualization", "Raw JSON"])
+        
+        with tab_tables:
+            display_company_details()
+            # Display metadata
+            metadata = st.session_state.processed_results.get("metadata", {})
+            display_metadata(metadata)
             
-            with tab_json:
-                # Add export options with unique keys
-                col1, col2 = st.columns([3, 1])
-                with col1:
-                    st.json(st.session_state.processed_results)
-                with col2:
-                    if 'json_data' not in st.session_state:
-                        st.session_state.json_data = json.dumps(st.session_state.processed_results, indent=2)
-                    
-                    st.download_button(
-                        label="💾 Download JSON",
-                        data=st.session_state.json_data,
-                        file_name="financial_statements.json",
-                        mime="application/json",
-                        help="Download the financial statements as a JSON file",
-                        use_container_width=True,
-                        key="download_json_main"
-                    )
-                    
-                    st.button(
-                        "📋 Copy JSON",
-                        help="Copy the JSON to clipboard",
-                        use_container_width=True,
-                        key="copy_json_main",
-                        on_click=lambda: st.write(
-                            f'<script>navigator.clipboard.writeText({json.dumps(st.session_state.json_data)})</script>',
-                            unsafe_allow_html=True
-                        )
+            # Create tabs for each statement type
+            statement_types = [st for st, sd in st.session_state.processed_results["statements"].items() if sd]
+            if statement_types:
+                tabs = st.tabs([type.replace('_', ' ').title() for type in statement_types])
+                
+                # Display each statement in its own tab
+                for tab, statement_type in zip(tabs, statement_types):
+                    with tab:
+                        statement_data = st.session_state.processed_results["statements"][statement_type]
+                        display_statement_data(statement_type, statement_data)
+            else:
+                st.warning("No statement data found")
+        
+        with tab_viz:
+            display_visualizations(st.session_state.processed_results)
+        
+        with tab_json:
+            # Add export options with unique keys
+            col1, col2 = st.columns([3, 1])
+            with col1:
+                st.json(st.session_state.processed_results)
+            with col2:
+                # Ensure we have valid JSON data
+                json_data = json.dumps(st.session_state.processed_results, indent=2)
+                
+                st.download_button(
+                    label="💾 Download JSON",
+                    data=json_data,
+                    file_name="financial_statements.json",
+                    mime="application/json",
+                    help="Download the financial statements as a JSON file",
+                    use_container_width=True,
+                    key="download_json_main"
+                )
+                
+                # Copy button
+                if st.button(
+                    "📋 Copy JSON",
+                    help="Copy the JSON to clipboard",
+                    use_container_width=True,
+                    key="copy_json_main"
+                ):
+                    st.write(
+                        f'<script>navigator.clipboard.writeText({json.dumps(json_data)})</script>',
+                        unsafe_allow_html=True
                     )
 
 def consolidate_data(consolidated_data: dict, new_data: dict):
@@ -235,21 +367,6 @@ def consolidate_data(consolidated_data: dict, new_data: dict):
     except Exception as e:
         logger.error(f"Error consolidating data: {str(e)}")
         raise
-
-def display_consolidated_results(data: dict):
-    """Display statement data in tabular format"""
-    try:
-        if "statements" not in data:
-            st.error("No statements found in data")
-            return
-
-        # Display each statement type's data
-        statement_data = data["statements"][statement_type]
-        display_statement_data(statement_type, statement_data)
-
-    except Exception as e:
-        logger.error(f"Error displaying results: {str(e)}")
-        st.error(f"Error displaying results: {str(e)}")
 
 def display_statement_data(statement_type: str, data: dict):
     try:
@@ -338,36 +455,35 @@ def flatten_dict(d: dict, parent_key: str = '', sep: str = ' → ') -> dict:
         logger.error(f"Error flattening dictionary: {str(e)}")
         return {}
 
-def process_uploaded_file(uploaded_file, gemini_client):
-    try:
-        if not uploaded_file:
-            logger.error("No file provided to process_uploaded_file")
-            return RecognitionResult(success=False, error="No file provided")
-
-        mime_type = {
-            'pdf': 'application/pdf',
-            'jpg': 'image/jpeg',
-            'jpeg': 'image/jpeg',
-            'png': 'image/png'
-        }.get(uploaded_file.name.lower().split('.')[-1])
-        
-        if not mime_type:
-            logger.error(f"Unsupported file type: {uploaded_file.name}")
-            return RecognitionResult(success=False, error=f"Unsupported file type: {uploaded_file.name}")
-
-        logger.info(f"Processing file: {uploaded_file.name} with mime type: {mime_type}")
-        recognition_result = gemini_client.analyze_document(uploaded_file, mime_type)
-        return recognition_result
-
-    except Exception as e:
-        logger.error(f"Error processing {uploaded_file.name}: {str(e)}")
-        return RecognitionResult(success=False, error=str(e))
-
 def display_visualizations(data: dict):
     try:
         if not data or "statements" not in data:
             st.error("No statements found in data")
             return
+
+        # Get all available years across all statements
+        all_years = set()
+        for statement_type in data.get("statements", {}).values():
+            all_years.update(year for year in statement_type.keys() if year.isdigit())
+        
+        years_list = sorted(list(all_years))
+        if not years_list:
+            st.warning("No yearly data available")
+            return
+            
+        # Add year range slider
+        min_year, max_year = int(min(years_list)), int(max(years_list))
+        year_range = st.slider(
+            "Select Year Range",
+            min_value=min_year,
+            max_value=max_year,
+            value=(min_year, max_year),
+            step=1,
+            key="year_range_slider"
+        )
+        
+        # Filter years based on slider selection
+        selected_years = [str(year) for year in range(year_range[0], year_range[1] + 1)]
 
         # Initialize selection state if not exists
         if 'selected_pl_metrics' not in st.session_state:
@@ -388,9 +504,10 @@ def display_visualizations(data: dict):
             # Calculate ROCE for each year
             roce_data = {}
             for year in sorted(set(statements["profit_and_loss"].keys()) & set(statements["balance_sheet"].keys())):
+                if year not in selected_years:  # Skip years outside selected range
+                    continue
+                    
                 operating_profit = statements["profit_and_loss"][year].get("Operating Profit", 0)
-                
-                # Try to get Total Assets Less Current Liabilities directly
                 capital_employed = statements["balance_sheet"][year].get("Total Assets Less Current Liabilities")
                 
                 # If not available, calculate it alternatively
@@ -404,10 +521,10 @@ def display_visualizations(data: dict):
                     roce_data[year] = (operating_profit / capital_employed) * 100
             
             if roce_data:
-                # Calculate average ROCE
+                # Calculate average ROCE only for selected years
                 avg_roce = sum(roce_data.values()) / len(roce_data)
                 
-                # Create ROCE bar chart
+                # Create ROCE bar chart with filtered data
                 fig_roce = go.Figure()
                 
                 # Add bars for yearly ROCE
@@ -472,10 +589,10 @@ def display_visualizations(data: dict):
                     fig_pl = go.Figure()
                     
                     for metric in st.session_state.selected_pl_metrics:
-                        values = [pl_data[year].get(metric, 0) for year in years]
+                        values = [pl_data[year].get(metric, 0) for year in selected_years if year in pl_data]
                         
                         fig_pl.add_trace(go.Scatter(
-                            x=years,
+                            x=selected_years,
                             y=values,
                             name=metric,
                             hovertemplate="%{fullData.name}<br>Year: %{x}<br>Value: £%{y:.1f}M<extra></extra>"
@@ -526,10 +643,10 @@ def display_visualizations(data: dict):
                     fig_bs = go.Figure()
                     
                     for metric in st.session_state.selected_bs_metrics:
-                        values = [bs_data[year].get(metric, 0) for year in years]
+                        values = [bs_data[year].get(metric, 0) for year in selected_years if year in bs_data]
                         
                         fig_bs.add_trace(go.Scatter(
-                            x=years,
+                            x=selected_years,
                             y=values,
                             name=metric,
                             hovertemplate="%{fullData.name}<br>Year: %{x}<br>Value: £%{y:.1f}M<extra></extra>"

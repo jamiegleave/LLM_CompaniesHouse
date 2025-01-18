@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import os
 import time
 from datetime import datetime
 import re
@@ -34,13 +33,15 @@ class CompaniesHouseDownloader:
         rows = soup.find_all('tr')
 
         for row in rows:
-            # Find description cell containing "Full accounts" in any nested element
+            # Find description cell containing accounts-related text in any nested element
             description_cell = row.find('td', recursive=True, 
-                                    string=lambda text: isinstance(text, str) and "Full accounts" in text)
+                                    string=lambda text: isinstance(text, str) and 
+                                    any(term in text for term in ["accounts", "Accounts"]))
             
             if not description_cell:
                 # Try finding it through the strong tag
-                strong_tag = row.find('strong', string=lambda text: isinstance(text, str) and "Full accounts" in text)
+                strong_tag = row.find('strong', string=lambda text: isinstance(text, str) and 
+                                    any(term in text for term in ["accounts", "Accounts"]))
                 if strong_tag:
                     description_cell = strong_tag.find_parent('td')
             
