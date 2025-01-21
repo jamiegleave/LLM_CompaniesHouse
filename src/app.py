@@ -283,9 +283,13 @@ def main():
     # Try to load from cache if we have files to check against
     files_to_check = None
     if uploaded_files:
+        # New files uploaded - clear any existing results and process these files
         parsable_files = [f.name for f in uploaded_files]
+        st.session_state.processed_results = None  # Clear existing results
+        # Only check cache if we haven't started processing yet
         files_to_check = parsable_files
     elif st.session_state.last_processed_files is not None:
+        # Only check last processed files if we don't have new uploads
         files_to_check = st.session_state.last_processed_files
 
     if files_to_check and st.session_state.processed_results is None:
@@ -297,7 +301,6 @@ def main():
 
     try:
         # Process files
-        
         gemini_client = GeminiClient(api_key=api_key)
         
         if len(uploaded_files) == 1:

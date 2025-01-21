@@ -223,7 +223,11 @@ CRITICAL RULES:
 
             # Initialize consolidated data structure
             consolidated_data = {
-                "metadata": self.extracted_jsons[0]["metadata"],  # Use metadata from first statement
+                "metadata": {
+                    "currency": "GBP",
+                    "scale": "millions",
+                    "unit_symbol": "£m"
+                },
                 "statements": {
                     "profit_and_loss": {},
                     "balance_sheet": {}
@@ -236,18 +240,25 @@ CRITICAL RULES:
                 "balance_sheet": {}
             }
 
-            # First pass: Sum all values and count occurrences
+            # First pass: Sum all values and count occurrences, normalizing to millions
             for json_obj in self.extracted_jsons:
+                # Get scaling factor based on metadata
+                scale_factor = 1.0
+                if json_obj.get("metadata"):
+                    if json_obj["metadata"].get("scale") == "thousands":
+                        scale_factor = 0.001  # Convert thousands to millions
+                    elif json_obj["metadata"].get("scale") == "billions":
+                        scale_factor = 1000  # Convert billions to millions
+
                 for statement_type in ["profit_and_loss", "balance_sheet"]:
                     if statement_type in json_obj.get("statements", {}):
-                        # Initialize year data structures if they don't exist
                         for year, year_data in json_obj["statements"][statement_type].items():
                             if year not in consolidated_data["statements"][statement_type]:
                                 consolidated_data["statements"][statement_type][year] = {}
                             if year not in value_counts[statement_type]:
                                 value_counts[statement_type][year] = {}
 
-                            # Sum values and count occurrences
+                            # Sum values and count occurrences, applying scale factor
                             for key, value in year_data.items():
                                 if value is not None:
                                     try:
@@ -256,9 +267,13 @@ CRITICAL RULES:
                                             consolidated_data["statements"][statement_type][year][key] = 0
                                             value_counts[statement_type][year][key] = 0
 
-                                        # Add value and increment counter
-                                        consolidated_data["statements"][statement_type][year][key] += float(value)
+                                        # Add normalized value and increment counter
+                                        normalized_value = float(value) * scale_factor
+                                        consolidated_data["statements"][statement_type][year][key] += normalized_value
                                         value_counts[statement_type][year][key] += 1
+                                        
+                                        if scale_factor != 1.0:
+                                            logger.info(f"Normalized value for {year} {key}: {value} -> {normalized_value}")
                                     except (ValueError, TypeError) as e:
                                         logger.warning(f"Could not process value for {key}: {value}")
                                         continue
