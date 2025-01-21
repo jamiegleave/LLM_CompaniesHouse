@@ -6,15 +6,14 @@ import logging
 import json
 import sys
 import os
-from .download_accounts import CompaniesHouseDownloader
 from io import BytesIO
-import plotly.express as px
 import plotly.graph_objects as go
-from typing import Dict, List
 import tempfile
 from pathlib import Path
 from datetime import datetime, timedelta
 import hashlib
+import asyncio
+from .download_accounts import CompaniesHouseDownloader
 
 # Configure logging to output to both file and console
 logging.basicConfig(
@@ -130,8 +129,8 @@ def cleanup_old_cache():
     except Exception as e:
         logger.error(f"Error cleaning up cache: {str(e)}")
 
-def process_uploaded_file(uploaded_file, gemini_client):
-    """Process a single file without caching"""
+async def process_uploaded_file(uploaded_file, gemini_client):
+    """Process a single file with caching"""
     try:
         if not uploaded_file:
             logger.error("No file provided to process_uploaded_file")
@@ -154,6 +153,50 @@ def process_uploaded_file(uploaded_file, gemini_client):
     except Exception as e:
         logger.error(f"Error processing {uploaded_file.name}: {str(e)}")
         return RecognitionResult(success=False, error=str(e))
+
+async def process_file(gemini_client, file_obj):
+    """Process a single file with Gemini"""
+    result = await gemini_client.analyze_document(file_obj, mime_type="application/pdf")
+    return result
+
+async def fetch_and_process_all(company_number, downloader, gemini_client):
+    """Fetch company details and process files as they are downloaded"""
+    company_details, downloaded_files = await asyncio.gather(
+        downloader.get_company_details(),
+        downloader.download_all_accounts()
+    )
+    
+    if not downloaded_files:
+        return company_details, []
+    
+    # Create file objects and process with Gemini concurrently
+    processing_tasks = []
+    uploaded_files = []
+    
+    for filename, content in downloaded_files:
+        file_obj = BytesIO(content)
+        file_obj.name = filename
+        file_obj.type = "application/pdf"
+        uploaded_files.append(file_obj)
+        
+        # Start Gemini processing for this file
+        task = process_file(gemini_client, file_obj)
+        processing_tasks.append(task)
+    
+    # Wait for all Gemini processing to complete
+    await asyncio.gather(*processing_tasks)
+    
+    return company_details, uploaded_files
+
+# Add this helper function to run async code in sync context
+def run_async(coroutine):
+    """Helper function to run async code in synchronous context"""
+    try:
+        loop = asyncio.get_event_loop()
+    except RuntimeError:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+    return loop.run_until_complete(coroutine)
 
 def main():
     logger.info("Starting FinState Analyzer")
@@ -210,8 +253,9 @@ def main():
                     with st.spinner("Downloading accounts from Companies House..."):
                         try:
                             downloader = CompaniesHouseDownloader(company_number)
-                            company_details = downloader.get_company_details()
-                            downloaded_files = downloader.download_all_accounts()
+                            # Run async methods using our helper
+                            company_details = run_async(downloader.get_company_details())
+                            downloaded_files = run_async(downloader.download_all_accounts())
                             
                             st.session_state.company_details = company_details
                             
@@ -271,7 +315,7 @@ def main():
             # Multiple files processing
             for uploaded_file in uploaded_files:
                 with st.spinner(f"Processing: {uploaded_file.name}"):
-                    process_uploaded_file(uploaded_file, gemini_client)
+                    result = run_async(process_uploaded_file(uploaded_file, gemini_client))
             
             # Consolidate and cache results
             consolidated_result = gemini_client.consolidate_statements()

@@ -1,6 +1,6 @@
-import requests
+import aiohttp
+import asyncio
 from bs4 import BeautifulSoup
-import time
 from datetime import datetime
 import re
 import logging
@@ -12,44 +12,42 @@ class CompaniesHouseDownloader:
     def __init__(self, company_number):
         self.company_number = company_number
         self.base_url = "https://find-and-update.company-information.service.gov.uk"
-        self.session = requests.Session()
         # Set headers to mimic a browser
-        self.session.headers.update({
+        self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        })
+        }
+        self.semaphore = asyncio.Semaphore(3)  # Limit concurrent downloads
         
-    def get_filing_history_page(self, page=1):
+    async def get_filing_history_page(self, page=1):
+        """Fetch a single page of filing history"""
         url = f"{self.base_url}/company/{self.company_number}/filing-history"
         params = {'page': page} if page > 1 else {}
-        response = self.session.get(url, params=params)
-        response.raise_for_status()
-        return response.text
+        
+        async with aiohttp.ClientSession(headers=self.headers) as session:
+            async with session.get(url, params=params) as response:
+                response.raise_for_status()
+                return await response.text()
     
     def extract_pdf_links(self, html):
+        """Extract PDF links from the page HTML (unchanged as it's sync parsing)"""
         soup = BeautifulSoup(html, 'html.parser')
         pdf_links = []
-                
-        # Find all table rows
+        
         rows = soup.find_all('tr')
-
         for row in rows:
-            # Find description cell containing accounts-related text in any nested element
             description_cell = row.find('td', recursive=True, 
                                     string=lambda text: isinstance(text, str) and 
                                     any(term in text for term in ["accounts", "Accounts"]))
             
             if not description_cell:
-                # Try finding it through the strong tag
                 strong_tag = row.find('strong', string=lambda text: isinstance(text, str) and 
                                     any(term in text for term in ["accounts", "Accounts"]))
                 if strong_tag:
                     description_cell = strong_tag.find_parent('td')
             
             if description_cell:
-                # Find PDF link in the same row
                 pdf_link = row.find('a', href=lambda href: href and '/document?format=pdf' in href)
                 if pdf_link:
-                    # Extract date from description text (including nested elements)
                     full_text = description_cell.get_text()
                     date_match = re.search(r'made up to (\d{1,2} [A-Za-z]+ \d{4})', full_text)
                     if date_match:
@@ -62,71 +60,91 @@ class CompaniesHouseDownloader:
                     else:
                         year = 'unknown'
                     
-                    # Assuming base_url is defined somewhere
-                    full_url = pdf_link['href']  # Remove self.base_url for testing
-                    pdf_links.append((f"{self.base_url}/{full_url}", year))
+                    full_url = pdf_link['href']
+                    pdf_links.append((f"{self.base_url}{full_url}", year))
         
         return pdf_links
     
     def has_next_page(self, html):
+        """Check if there's a next page (unchanged as it's sync parsing)"""
         soup = BeautifulSoup(html, 'html.parser')
         next_link = soup.find('a', {'rel': 'next'})
         return bool(next_link)
     
-    def download_pdf(self, url, year):
-        response = self.session.get(url, stream=True)
-        response.raise_for_status()
-        
-        # Ensure binary content is properly read
-        content = response.raw.read()
-        
-        # Return the PDF content and filename directly
-        filename = f"company_{self.company_number}_accounts_{year}.pdf"
-        return filename, content
+    async def download_pdf(self, url, year):
+        """Download a single PDF with rate limiting"""
+        async with self.semaphore:  # Limit concurrent downloads
+            try:
+                async with aiohttp.ClientSession(headers=self.headers) as session:
+                    async with session.get(url) as response:
+                        response.raise_for_status()
+                        content = await response.read()
+                        
+                        # Verify PDF content
+                        if content.startswith(b'%PDF'):
+                            filename = f"company_{self.company_number}_accounts_{year}.pdf"
+                            logger.info(f"Successfully downloaded {filename}")
+                            return filename, content
+                        else:
+                            logger.warning(f"Downloaded content is not a valid PDF for year {year}")
+                            return None
+                            
+            except Exception as e:
+                logger.error(f"Error downloading PDF for year {year}: {str(e)}")
+                return None
+            
+            # Rate limiting delay
+            await asyncio.sleep(2)
     
-    def download_all_accounts(self):
+    async def download_all_accounts(self):
+        """Main method to download all account PDFs"""
         logger.info(f"Starting download process for company {self.company_number}")
         page = 1
-        downloaded_files = []
+        pdf_links = []
         
+        # First phase: Get all PDF links from all pages
         while True:
             logger.info(f"Processing page {page}...")
-            html = self.get_filing_history_page(page)
-            pdf_links = self.extract_pdf_links(html)
-            
-            for url, year in pdf_links:
-                try:
-                    logger.info(f"Downloading accounts for year {year}...")
-                    filename, content = self.download_pdf(url, year)
-                    # Ensure content is valid PDF before adding
-                    if content.startswith(b'%PDF'):  # Check for PDF magic number
-                        downloaded_files.append((filename, content))
-                        logger.info(f"Successfully downloaded {filename}")
-                    else:
-                        logger.warning(f"Downloaded content for {filename} is not a valid PDF")
-                    # Be nice to the server
-                    time.sleep(2)
-                except Exception as e:
-                    logger.error(f"Error downloading {url}: {str(e)}")
+            html = await self.get_filing_history_page(page)
+            page_links = self.extract_pdf_links(html)
+            pdf_links.extend(page_links)
             
             if not self.has_next_page(html):
+                logger.info(f"No more pages to process. Found {len(pdf_links)} PDF links.")
                 break
                 
             page += 1
-            time.sleep(2)
+            await asyncio.sleep(2)  # Be nice between pages
         
-        logger.info(f"Download process complete. Downloaded {len(downloaded_files)} files.")
+        if not pdf_links:
+            logger.warning("No PDF links found")
+            return []
+            
+        # Second phase: Download all PDFs concurrently
+        logger.info(f"Starting download of {len(pdf_links)} PDFs...")
+        downloaded_files = []
+        
+        async with asyncio.TaskGroup() as tg:
+            # Create tasks for all downloads
+            tasks = [tg.create_task(self.download_pdf(url, year)) for url, year in pdf_links]
+        
+        # If we get here, all tasks completed successfully
+        downloaded_files = [task.result() for task in tasks]
+        # Filter out None results from failed downloads
+        downloaded_files = [f for f in downloaded_files if f is not None]
+        
+        if len(downloaded_files) != len(pdf_links):
+            raise RuntimeError(f"Some downloads failed. Expected {len(pdf_links)} files but got {len(downloaded_files)}")
+        
+        logger.info(f"Download process complete. Successfully downloaded {len(downloaded_files)} files.")
         return downloaded_files
     
-    def get_company_details(self):
+    async def get_company_details(self):
         """Extract company name and number from the filing history page"""
-        html = self.get_filing_history_page()
+        html = await self.get_filing_history_page()
         soup = BeautifulSoup(html, 'html.parser')
         
-        # Extract company name from h1 tag
         company_name = soup.select_one(".company-header > h1").text.strip()
-        
-        # Extract company number from strong tag within #company-number
         company_number = soup.select_one("#company-number > strong").text.strip()
         
         return {
