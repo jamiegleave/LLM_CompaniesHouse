@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import re
 import logging
+import random
 
 # Get logger
 logger = logging.getLogger(__name__)
@@ -19,14 +20,33 @@ class CompaniesHouseDownloader:
         self.semaphore = asyncio.Semaphore(3)  # Limit concurrent downloads
         
     async def get_filing_history_page(self, page=1):
-        """Fetch a single page of filing history"""
+        """Fetch a single page of filing history with exponential backoff"""
         url = f"{self.base_url}/company/{self.company_number}/filing-history"
         params = {'page': page} if page > 1 else {}
         
-        async with aiohttp.ClientSession(headers=self.headers) as session:
-            async with session.get(url, params=params) as response:
-                response.raise_for_status()
-                return await response.text()
+        max_retries = 5
+        base_delay = 2
+        max_delay = 30
+        
+        for attempt in range(max_retries):
+            try:
+                async with aiohttp.ClientSession(headers=self.headers) as session:
+                    async with session.get(url, params=params) as response:
+                        if response.status >= 500:
+                            raise aiohttp.ClientError(f"Server error: {response.status}")
+                        response.raise_for_status()
+                        return await response.text()
+                            
+            except aiohttp.ClientError as e:
+                if attempt == max_retries - 1:
+                    logger.error(f"Failed to fetch page {page} after {max_retries} attempts: {str(e)}")
+                    raise
+                    
+                delay = min(base_delay * (2 ** attempt) + random.uniform(0, 1), max_delay)
+                logger.warning(f"Request failed, retrying in {delay:.1f} seconds (attempt {attempt + 1}/{max_retries})")
+                await asyncio.sleep(delay)
+                
+        raise Exception(f"Failed to fetch page {page} after {max_retries} attempts")
     
     def extract_pdf_links(self, html):
         """Extract PDF links from the page HTML (unchanged as it's sync parsing)"""

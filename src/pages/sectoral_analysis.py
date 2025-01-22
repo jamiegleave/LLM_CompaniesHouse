@@ -4,6 +4,7 @@ import plotly.figure_factory as ff
 import plotly.graph_objects as go
 from src.gemini_client import GeminiClient
 from src.download_accounts import CompaniesHouseDownloader
+from src.cache_manager import RedisCache
 import asyncio
 import logging
 from pathlib import Path
@@ -13,6 +14,9 @@ from datetime import datetime
 from io import BytesIO
 
 logger = logging.getLogger(__name__)
+
+# Initialize Redis cache
+redis_cache = RedisCache()
 
 def calculate_roce(statements, year):
     """Calculate ROCE for a given year's statements"""
@@ -36,19 +40,44 @@ def calculate_roce(statements, year):
         logger.error(f"Error calculating ROCE: {str(e)}")
         return None
 
+def calculate_metrics(statements, year):
+    """Calculate key financial metrics for a given year"""
+    try:
+        pl_data = statements.get("profit_and_loss", {}).get(year, {})
+        bs_data = statements.get("balance_sheet", {}).get(year, {})
+        
+        # Calculate capital employed (ROCE denominator)
+        capital_employed = bs_data.get("Total Assets Less Current Liabilities")
+        if not capital_employed:
+            total_assets = bs_data.get("Total Fixed Assets", 0) + bs_data.get("Total Current Assets", 0)
+            current_liabilities = bs_data.get("Creditors: Amounts Falling Due Within One Year", 0)
+            capital_employed = total_assets + current_liabilities
+        
+        metrics = {
+            "ROCE (%)": calculate_roce(statements, year),
+            "Capital Employed": capital_employed,  # Added ROCE denominator
+            "Turnover": pl_data.get("Turnover"),
+            "Gross Margin (%)": (pl_data.get("Gross Profit", 0) / pl_data.get("Turnover", 1)) * 100 if pl_data.get("Turnover") else None,
+            "Operating Margin (%)": (pl_data.get("Operating Profit", 0) / pl_data.get("Turnover", 1)) * 100 if pl_data.get("Turnover") else None,
+            "Net Profit Margin (%)": (pl_data.get("Profit for the Financial Year", 0) / pl_data.get("Turnover", 1)) * 100 if pl_data.get("Turnover") else None,
+            "Asset Turnover": pl_data.get("Turnover", 0) / bs_data.get("Total Assets Less Current Liabilities", 1) if bs_data.get("Total Assets Less Current Liabilities") else None
+        }
+        return {k: round(v, 1) if v is not None else None for k, v in metrics.items()}
+    except Exception as e:
+        logger.error(f"Error calculating metrics: {str(e)}")
+        return None
+
 def load_company_data(company_number: str, api_key: str):
     """Load company data from cache or fetch new"""
-    cache_dir = Path("cache")
-    cache_file = cache_dir / f"{company_number}.json"
-    
-    if cache_file.exists():
-        with open(cache_file, "r") as f:
-            cached_data = json.load(f)
-            if datetime.now().timestamp() - cached_data["timestamp"] < 86400:  # 24 hours
-                return cached_data["company_details"], cached_data["statements"]
-    
-    # Fetch new data if not cached or expired
     try:
+        # Check cache first
+        cached_data = redis_cache.get_company_data(company_number)
+        if cached_data:
+            logger.info(f"Cache hit for company {company_number}")
+            return cached_data["company_details"], cached_data["statements"]
+            
+        # Fetch new data if not cached
+        logger.info(f"Cache miss for company {company_number}, fetching from Companies House")
         downloader = CompaniesHouseDownloader(company_number)
         company_details = asyncio.run(downloader.get_company_details())
         downloaded_files = asyncio.run(downloader.download_all_accounts())
@@ -59,29 +88,77 @@ def load_company_data(company_number: str, api_key: str):
         # Process files with Gemini
         gemini_client = GeminiClient(api_key)
         for filename, content in downloaded_files:
-            # Create a file-like object from the bytes content
             file_obj = BytesIO(content)
-            file_obj.name = filename  # Add name attribute required by Gemini
+            file_obj.name = filename
             result = gemini_client.analyze_document(file_obj, "application/pdf")
             
         consolidated_result = gemini_client.consolidate_statements()
         if consolidated_result.success:
-            # Cache the results
-            cache_dir.mkdir(exist_ok=True)
-            with open(cache_file, "w") as f:
-                json.dump({
-                    "timestamp": datetime.now().timestamp(),
-                    "company_details": company_details,
-                    "statements": consolidated_result.extracted_data
-                }, f)
+            # Cache the results using Redis
+            redis_cache.set_company_data(
+                company_number=company_number,
+                company_details=company_details,
+                statements=consolidated_result.extracted_data
+            )
             return company_details, consolidated_result.extracted_data
             
     except Exception as e:
         logger.error(f"Error loading company {company_number}: {str(e)}")
         return None, None
 
+def create_metric_visualization(df, metric_name):
+    """Create line chart for selected metric"""
+    fig = go.Figure()
+    
+    # Determine if metric is a percentage
+    is_percentage = "%" in metric_name
+    
+    for company in df.index:
+        fig.add_trace(go.Scatter(
+            x=df.columns,
+            y=df.loc[company],
+            name=company,
+            mode='lines+markers',
+            hovertemplate=(
+                f"{company}<br>"
+                f"Year: %{{x}}<br>"
+                f"{metric_name}: %{{y:.1f}}{'%' if is_percentage else ''}<br>"
+            )
+        ))
+    
+    fig.update_layout(
+        title=f"{metric_name} by Company",
+        xaxis_title="Year",
+        yaxis_title=metric_name,
+        hovermode='x unified',
+        height=400
+    )
+    return fig
+
+def create_heatmap(df, metric_name):
+    """Create heatmap for selected metric"""
+    # Determine if metric is a percentage
+    is_percentage = "%" in metric_name
+    
+    fig = ff.create_annotated_heatmap(
+        z=df.values,
+        x=df.columns.tolist(),
+        y=df.index.tolist(),
+        annotation_text=[[f"{v:.1f}{'%' if is_percentage else ''}" if pd.notnull(v) else "" for v in row] for row in df.values],
+        colorscale="RdYlBu",
+        showscale=True
+    )
+    
+    fig.update_layout(
+        title=f"{metric_name} by Company",
+        xaxis_title="Year",
+        yaxis_title="Company",
+        height=400 + (len(df.index) * 30)
+    )
+    return fig
+
 def sectoral_analysis():
-    st.title("Sectoral ROCE Analysis")
+    st.title("Sectoral Financial Analysis")
     
     # API key input
     api_key = st.sidebar.text_input("Google API Key", 
@@ -104,16 +181,33 @@ def sectoral_analysis():
     current_year = datetime.now().year
     year_range = st.slider(
         "Select Year Range",
-        min_value=current_year-30,
+        min_value=current_year-50,
         max_value=current_year,
         value=(current_year-5, current_year),
         step=1
     )
     
+    # Metric selection
+    available_metrics = [
+        "ROCE (%)",
+        "Capital Employed",
+        "Turnover",
+        "Gross Margin (%)",
+        "Operating Margin (%)",
+        "Net Profit Margin (%)",
+        "Asset Turnover"
+    ]
+    
+    selected_metric = st.selectbox(
+        "Select Financial Metric",
+        available_metrics,
+        index=0
+    )
+    
     if st.button("Analyze Companies") and company_numbers:
         with st.spinner("Analyzing companies..."):
-            # Initialize data structure for ROCE values
-            roce_data = {}
+            # Initialize data structure for metrics
+            metric_data = {}
             company_names = {}
             
             # Process each company
@@ -128,51 +222,45 @@ def sectoral_analysis():
                     continue
                 
                 company_names[company_number] = company_details.get("name", company_number)
-                roce_data[company_number] = {}
+                metric_data[company_number] = {}
                 
-                # Calculate ROCE for each year in range
+                # Calculate metrics for each year in range
                 for year in range(year_range[0], year_range[1] + 1):
-                    roce = calculate_roce(statements.get("statements", {}), str(year))
-                    if roce is not None:
-                        roce_data[company_number][str(year)] = roce
+                    metrics = calculate_metrics(statements.get("statements", {}), str(year))
+                    if metrics and metrics.get(selected_metric) is not None:
+                        metric_data[company_number][str(year)] = metrics[selected_metric]
             
-            if roce_data:
-                # Create DataFrame for heatmap
-                df = pd.DataFrame(roce_data).T
-                
-                # Replace company numbers with names in index
+            if metric_data:
+                # Create DataFrame
+                df = pd.DataFrame(metric_data).T
                 df.index = [company_names.get(num, num) for num in df.index]
                 
-                # Create heatmap
-                fig = ff.create_annotated_heatmap(
-                    z=df.values,
-                    x=df.columns.tolist(),
-                    y=df.index.tolist(),
-                    annotation_text=[[f"{v:.1f}%" if pd.notnull(v) else "" for v in row] for row in df.values],
-                    colorscale="RdYlBu",
-                    showscale=True
-                )
+                # Show visualizations
+                tab1, tab2 = st.tabs(["Line Chart", "Heatmap"])
                 
-                fig.update_layout(
-                    title="Return on Capital Employed (ROCE) by Company",
-                    xaxis_title="Year",
-                    yaxis_title="Company",
-                    height=400 + (len(company_numbers) * 30)
-                )
+                with tab1:
+                    st.plotly_chart(
+                        create_metric_visualization(df, selected_metric),
+                        use_container_width=True
+                    )
                 
-                st.plotly_chart(fig, use_container_width=True)
+                with tab2:
+                    st.plotly_chart(
+                        create_heatmap(df, selected_metric),
+                        use_container_width=True
+                    )
                 
                 # Display summary statistics
                 st.subheader("Summary Statistics")
                 summary_df = df.describe()
-                st.dataframe(summary_df.style.format("{:.1f}%"))
+                st.dataframe(summary_df.style.format("{:.1f}"))
                 
                 # Download options
                 csv = df.to_csv()
                 st.download_button(
                     label="Download CSV",
                     data=csv,
-                    file_name="roce_analysis.csv",
+                    file_name="financial_analysis.csv",
                     mime="text/csv"
                 )
             else:

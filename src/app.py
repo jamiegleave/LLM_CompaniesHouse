@@ -8,9 +8,6 @@ import sys
 import os
 from io import BytesIO
 import plotly.graph_objects as go
-import tempfile
-from pathlib import Path
-from datetime import datetime, timedelta
 import hashlib
 import asyncio
 from src.download_accounts import CompaniesHouseDownloader
@@ -289,9 +286,6 @@ def main():
         logger.error(f"Error in main processing: {str(e)}")
         st.error(f"Error processing files: {str(e)}")
 
-        # Clean up old cache files
-        cleanup_old_cache()
-
     # Display results if available (either from cache or new processing)
     if st.session_state.processed_results:
         # Create tabs for tables and visualization
@@ -391,7 +385,7 @@ def display_statement_data(statement_type: str, data: dict):
             rows.append(row)
 
         # Create and display DataFrame
-        df = pd.DataFrame(rows)
+        df = pd.DataFrame(rows).set_index('Line Item')
         display_styled_dataframe(df, years)
     except Exception as e:
         st.error(f"Error displaying {statement_type}: {str(e)}")

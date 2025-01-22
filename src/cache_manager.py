@@ -20,7 +20,7 @@ class RedisCache:
             decode_responses=True
         )
         self.expire_seconds = int(timedelta(
-            hours=int(os.getenv('REDIS_EXPIRE_HOURS', 24))
+            hours=int(os.getenv('REDIS_EXPIRE_HOURS', 24*30))
         ).total_seconds())
 
     def get_company_data(self, company_number: str):
