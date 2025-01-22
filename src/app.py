@@ -1,6 +1,6 @@
 import streamlit as st
-from .gemini_client import GeminiClient, RecognitionResult
-from .config import SUPPORTED_FORMATS, MAX_FILE_SIZE_MB
+from src.gemini_client import GeminiClient, RecognitionResult
+from src.config import SUPPORTED_FORMATS, MAX_FILE_SIZE_MB
 import pandas as pd
 import logging
 import json
@@ -13,7 +13,8 @@ from pathlib import Path
 from datetime import datetime, timedelta
 import hashlib
 import asyncio
-from .download_accounts import CompaniesHouseDownloader
+from src.download_accounts import CompaniesHouseDownloader
+from cache_manager import RedisCache
 
 # Configure logging to output to both file and console
 logging.basicConfig(
@@ -28,106 +29,61 @@ logging.basicConfig(
 # Get logger
 logger = logging.getLogger(__name__)
 
-# Add these constants near the top of the file
-CACHE_DIR = Path(tempfile.gettempdir()) / "finstate_analyzer"
-CACHE_EXPIRY_HOURS = 24  # Cache files expire after 24 hours
+# Initialize Redis cache
+redis_cache = RedisCache()
 
-def save_to_cache(data: dict, file_names: list = None, company_number: str = None, company_details: dict = None) -> str:
-    """Save processed results to cache using either company number or MD5 of filenames"""
+def save_to_cache(data: dict, file_names: list = None, company_number: str = None, company_details: dict = None) -> bool:
+    """Save processed results to Redis cache using either company number or MD5 of filenames"""
     try:
-        # Create cache directory if it doesn't exist
-        CACHE_DIR.mkdir(parents=True, exist_ok=True)
-        
         if company_number:
-            # Companies House path - use company number as key
+            # Companies House path - use company number directly
+            return redis_cache.set_company_data(
+                company_number=company_number,
+                company_details=company_details,
+                statements=data
+            )
+        elif file_names:
+            # UI upload path - use MD5 of sorted filenames as key
+            sorted_names = sorted(file_names)
+            cache_key = hashlib.md5('_'.join(sorted_names).encode()).hexdigest()
+            return redis_cache.set_company_data(
+                company_number=cache_key,  # Using MD5 hash as the key
+                company_details={"source": "file_upload", "files": sorted_names},
+                statements=data
+            )
+        else:
+            logger.error("Neither company number nor file names provided for caching")
+            return False
+            
+    except Exception as e:
+        logger.error(f"Error saving to cache: {str(e)}")
+        return False
+
+def load_from_cache(file_names: list = None, company_number: str = None) -> tuple[dict, dict]:
+    """Load processed results from Redis cache using either company number or MD5 of filenames"""
+    try:
+        if company_number:
+            # Companies House path
             cache_key = company_number
         elif file_names:
             # UI upload path - use MD5 of sorted filenames
             sorted_names = sorted(file_names)
             cache_key = hashlib.md5('_'.join(sorted_names).encode()).hexdigest()
         else:
-            logger.error("Neither company number nor file names provided for caching")
-            return None
-            
-        cache_path = CACHE_DIR / f"{cache_key}.json"
-        
-        # Save data with timestamp and metadata
-        cache_data = {
-            "timestamp": datetime.now().isoformat(),
-            "data": data,
-            "company_details": company_details,
-            "file_names": file_names,
-            "company_number": company_number
-        }
-        
-        with open(cache_path, "w") as f:
-            json.dump(cache_data, f)
-            
-        logger.info(f"Saved results to cache: {cache_path}")
-        return str(cache_path)
-        
-    except Exception as e:
-        logger.error(f"Error saving to cache: {str(e)}")
-        return None
-
-def load_from_cache(file_names: list = None, company_number: str = None) -> tuple[dict, dict]:
-    """Load processed results from cache using either company number or MD5 of filenames"""
-    try:
-        if company_number:
-            # Companies House path
-            cache_key = company_number
-        elif file_names:
-            # UI upload path
-            sorted_names = sorted(file_names)
-            cache_key = hashlib.md5('_'.join(sorted_names).encode()).hexdigest()
-        else:
             logger.error("Neither company number nor file names provided for cache lookup")
             return None, None
             
-        cache_path = CACHE_DIR / f"{cache_key}.json"
-        
-        if not cache_path.exists():
-            logger.info(f"No cache file found for key: {cache_key}")
+        cached_data = redis_cache.get_company_data(cache_key)
+        if cached_data:
+            logger.info(f"Cache hit for key: {cache_key}")
+            return cached_data["statements"], cached_data["company_details"]
+        else:
+            logger.info(f"Cache miss for key: {cache_key}")
             return None, None
             
-        with open(cache_path, "r") as f:
-            cache_data = json.load(f)
-            
-        # Check if cache has expired
-        cache_time = datetime.fromisoformat(cache_data["timestamp"])
-        if datetime.now() - cache_time > timedelta(hours=CACHE_EXPIRY_HOURS):
-            logger.info(f"Cache expired for: {cache_key}")
-            cache_path.unlink()  # Delete expired cache
-            return None, None
-            
-        logger.info(f"Loaded results from cache for key: {cache_key}")
-        return cache_data["data"], cache_data.get("company_details")
-        
     except Exception as e:
         logger.error(f"Error loading from cache: {str(e)}")
         return None, None
-
-def cleanup_old_cache():
-    """Remove expired cache files"""
-    try:
-        if not CACHE_DIR.exists():
-            return
-            
-        for cache_file in CACHE_DIR.glob("*.json"):
-            try:
-                with open(cache_file, "r") as f:
-                    cache_data = json.load(f)
-                cache_time = datetime.fromisoformat(cache_data["timestamp"])
-                
-                if datetime.now() - cache_time > timedelta(hours=CACHE_EXPIRY_HOURS):
-                    cache_file.unlink()
-                    logger.info(f"Removed expired cache: {cache_file}")
-            except Exception as e:
-                logger.warning(f"Error processing cache file {cache_file}: {str(e)}")
-                cache_file.unlink()  # Remove invalid cache file
-                
-    except Exception as e:
-        logger.error(f"Error cleaning up cache: {str(e)}")
 
 async def process_uploaded_file(uploaded_file, gemini_client):
     """Process a single file with caching"""
@@ -210,9 +166,6 @@ def main():
         st.session_state.company_details = None
     if 'last_processed_files' not in st.session_state:
         st.session_state.last_processed_files = None
-        
-    # Clean up old cache files on startup
-    cleanup_old_cache()
 
     # Add API key configuration in sidebar
     api_key = st.sidebar.text_input(
