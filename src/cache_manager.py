@@ -56,4 +56,19 @@ class RedisCache:
             return self.redis_client.ping()
         except Exception as e:
             logger.error(f"Redis health check failed: {str(e)}")
+            return False
+
+    def delete_company_data(self, company_number: str) -> bool:
+        """Delete company data from cache"""
+        try:
+            key = f"company:{company_number}"
+            result = self.redis_client.delete(key)
+            if result:
+                logger.info(f"Successfully deleted data for company {company_number}")
+                return True
+            else:
+                logger.info(f"No data found for company {company_number}")
+                return False
+        except Exception as e:
+            logger.error(f"Redis delete error: {str(e)}")
             return False 

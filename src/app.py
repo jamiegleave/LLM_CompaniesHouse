@@ -107,40 +107,6 @@ async def process_uploaded_file(uploaded_file, gemini_client):
         logger.error(f"Error processing {uploaded_file.name}: {str(e)}")
         return RecognitionResult(success=False, error=str(e))
 
-async def process_file(gemini_client, file_obj):
-    """Process a single file with Gemini"""
-    result = await gemini_client.analyze_document(file_obj, mime_type="application/pdf")
-    return result
-
-async def fetch_and_process_all(company_number, downloader, gemini_client):
-    """Fetch company details and process files as they are downloaded"""
-    company_details, downloaded_files = await asyncio.gather(
-        downloader.get_company_details(),
-        downloader.download_all_accounts()
-    )
-    
-    if not downloaded_files:
-        return company_details, []
-    
-    # Create file objects and process with Gemini concurrently
-    processing_tasks = []
-    uploaded_files = []
-    
-    for filename, content in downloaded_files:
-        file_obj = BytesIO(content)
-        file_obj.name = filename
-        file_obj.type = "application/pdf"
-        uploaded_files.append(file_obj)
-        
-        # Start Gemini processing for this file
-        task = process_file(gemini_client, file_obj)
-        processing_tasks.append(task)
-    
-    # Wait for all Gemini processing to complete
-    await asyncio.gather(*processing_tasks)
-    
-    return company_details, uploaded_files
-
 # Add this helper function to run async code in sync context
 def run_async(coroutine):
     """Helper function to run async code in synchronous context"""
@@ -256,7 +222,7 @@ def main():
         if len(uploaded_files) == 1:
             # Single file processing
             with st.spinner(f"Processing {uploaded_files[0].name}..."):
-                recognition_result = process_uploaded_file(uploaded_files[0], gemini_client)
+                recognition_result = run_async(process_uploaded_file(uploaded_files[0], gemini_client))
                 if recognition_result and recognition_result.success:
                     st.session_state.processed_results = recognition_result.extracted_data
                     # Cache the results using MD5 of filename

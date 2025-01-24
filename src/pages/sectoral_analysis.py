@@ -24,7 +24,11 @@ def calculate_roce(statements, year):
         pl_data = statements.get("profit_and_loss", {}).get(year, {})
         bs_data = statements.get("balance_sheet", {}).get(year, {})
         
-        operating_profit = pl_data.get("Operating Profit", 0)
+        # Try to get Operating Profit, fallback to Profit Before Taxation
+        operating_profit = pl_data.get("Operating Profit")
+        if operating_profit is None:
+            operating_profit = pl_data.get("Profit Before Taxation", 0)
+        
         capital_employed = bs_data.get("Total Assets Less Current Liabilities")
         
         # Alternative calculation if total assets less current liabilities isn't available
@@ -136,29 +140,118 @@ def create_metric_visualization(df, metric_name):
     return fig
 
 def create_heatmap(df, metric_name):
-    """Create heatmap for selected metric"""
+    """Create heatmap with 5-year period chunks on x-axis"""
     # Determine if metric is a percentage
     is_percentage = "%" in metric_name
     
+    # Group years into 5-year periods
+    all_years = sorted(df.columns)
+    period_data = {}
+    for i in range(0, len(all_years), 5):
+        years = all_years[i:i + 5]
+        if len(years) == 5:  # Only use complete 5-year periods
+            period_name = f"{years[0]}-{years[-1]}"
+            period_data[period_name] = df[years].mean(axis=1)
+    
+    # Create new DataFrame with periods
+    period_df = pd.DataFrame(period_data)
+    
+    # Create heatmap with simpler color scale and better text visibility
     fig = ff.create_annotated_heatmap(
-        z=df.values,
-        x=df.columns.tolist(),
-        y=df.index.tolist(),
-        annotation_text=[[f"{v:.1f}{'%' if is_percentage else ''}" if pd.notnull(v) else "" for v in row] for row in df.values],
-        colorscale="RdYlBu",
-        showscale=True
+        z=period_df.values,
+        x=period_df.columns.tolist(),
+        y=period_df.index.tolist(),
+        annotation_text=[[f"{v:.1f}{'%' if is_percentage else ''}" if pd.notnull(v) else "" for v in row] for row in period_df.values],
+        colorscale=[
+            [0, 'rgb(255,255,255)'],      # White
+            [1, 'rgb(200,220,255)']       # Very light blue
+        ],
+        showscale=False,
+        hoverongaps=False,
+        font_colors=['black'],  # Force black text for all cells
     )
     
+    # Improve layout
     fig.update_layout(
-        title=f"{metric_name} by Company",
-        xaxis_title="Year",
+        title=f"{metric_name} by Company (5-Year Periods)",
+        xaxis_title="Period",
         yaxis_title="Company",
-        height=400 + (len(df.index) * 30)
+        height=max(300, len(df.index) * 80),  # Increased height
+        margin=dict(t=50, l=200),
+        xaxis=dict(
+            side='bottom',
+            tickangle=45
+        ),
+        yaxis=dict(
+            side='left',
+            tickmode='array',
+            ticktext=df.index,
+            tickfont=dict(size=12)
+        )
     )
+    
+    # Update cell properties
+    fig.update_traces(
+        xgap=5,  # Increased gap between cells
+        ygap=5,
+        hovertemplate=(
+            "<b>%{y}</b><br>" +
+            "Period: %{x}<br>" +
+            f"{metric_name}: %{{z:.1f}}{'%' if is_percentage else ''}<br>" +
+            "<extra></extra>"
+        )
+    )
+    
+    # Update annotations (text) properties
+    for annotation in fig.layout.annotations:
+        annotation.update(
+            font=dict(
+                size=14,          # Larger font
+                color='black',    # Force black text
+                family='Arial'    # Clear font family
+            )
+        )
+    
     return fig
+
+def get_cached_companies():
+    """Get list of all cached companies with their details"""
+    try:
+        companies = []
+        # Get all keys from Redis that start with 'company:'
+        for key in redis_cache.redis_client.keys('company:*'):
+            company_data = redis_cache.get_company_data(key.replace('company:', ''))
+            if company_data and 'company_details' in company_data:
+                details = company_data['company_details']
+                # Only add if we have both name and number
+                if details.get('name') and details.get('number'):
+                    companies.append({
+                        'name': details['name'],
+                        'number': details['number']
+                    })
+        return sorted(companies, key=lambda x: x['name'])
+    except Exception as e:
+        logger.error(f"Error fetching cached companies: {str(e)}")
+        return []
 
 def sectoral_analysis():
     st.title("Sectoral Financial Analysis")
+    
+    # Get and display cached companies
+    cached_companies = get_cached_companies()
+    if not cached_companies:
+        st.warning("No companies available in cache. Please analyze some companies first.")
+        return
+        
+    selected_companies = st.multiselect(
+        "Select Companies to Compare",
+        options=cached_companies,
+        format_func=lambda x: x['name'],  # Show only company name in dropdown
+        key='company_selector'
+    )
+    
+    # Extract company numbers from selections
+    company_numbers = [company['number'] for company in selected_companies]
     
     # API key input
     api_key = st.sidebar.text_input("Google API Key", 
@@ -171,12 +264,6 @@ def sectoral_analysis():
         st.warning("Please enter your Google API key")
         return
         
-    # Company numbers input
-    company_numbers = st.text_area(
-        "Enter Companies House Numbers (one per line)",
-        help="Enter multiple 8-digit company registration numbers, one per line"
-    ).strip().split('\n')
-    
     # Year range selection
     current_year = datetime.now().year
     year_range = st.slider(

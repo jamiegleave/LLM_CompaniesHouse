@@ -143,21 +143,29 @@ class CompaniesHouseDownloader:
         # Second phase: Download all PDFs concurrently
         logger.info(f"Starting download of {len(pdf_links)} PDFs...")
         downloaded_files = []
+        failed_downloads = []
         
         async with asyncio.TaskGroup() as tg:
             # Create tasks for all downloads
             tasks = [tg.create_task(self.download_pdf(url, year)) for url, year in pdf_links]
         
-        # If we get here, all tasks completed successfully
-        downloaded_files = [task.result() for task in tasks]
-        # Filter out None results from failed downloads
-        downloaded_files = [f for f in downloaded_files if f is not None]
+        # Process results, handling None values
+        for task, (url, year) in zip(tasks, pdf_links):
+            result = task.result()
+            if result:
+                downloaded_files.append(result)
+            else:
+                failed_downloads.append((url, year))
         
-        if len(downloaded_files) != len(pdf_links):
-            raise RuntimeError(f"Some downloads failed. Expected {len(pdf_links)} files but got {len(downloaded_files)}")
-        
+        # Log download statistics
         logger.info(f"Download process complete. Successfully downloaded {len(downloaded_files)} files.")
-        return downloaded_files
+        if failed_downloads:
+            logger.warning(f"Failed to download {len(failed_downloads)} files.")
+            for url, year in failed_downloads:
+                logger.warning(f"Failed download: {url} (year: {year})")
+        
+        # Return successful downloads even if some failed
+        return downloaded_files if downloaded_files else None
     
     async def get_company_details(self):
         """Extract company name and number from the filing history page"""

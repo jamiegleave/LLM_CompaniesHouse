@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "currency": "GBP",
+    "scale": "units",
+    "unit_symbol": "\u00a3"
+  },
+  "statements": {
+    "profit_and_loss": {
+      "1998": {
+        "Turnover": 22652818.0,
+        "Cost of Sales": -18445960.0,
+        "Gross Profit": 4206858.0,
+        "Distribution Costs": null,
+        "Administrative Expenses": -2606382.0,
+        "Other Operating Income": null,
+        "Operating Profit": null,
+        "Income from Shares in Group Undertakings": null,
+        "Income from Other Fixed Asset Investments": null,
+        "Interest Receivable and Similar Income": null,
+        "Interest Payable and Similar Charges": null,
+        "Profit Before Taxation": 1588886.0,
+        "Tax on Profit": -252837.0,
+        "Profit for the Financial Year": 1336049.0
+      },
+      "1999": {
+        "Turnover": 35053696.0,
+        "Cost of Sales": -29544806.0,
+        "Gross Profit": 5508890.0,
+        "Distribution Costs": null,
+        "Administrative Expenses": -3417365.0,
+        "Other Operating Income": null,
+        "Operating Profit": null,
+        "Income from Shares in Group Undertakings": null,
+        "Income from Other Fixed Asset Investments": null,
+        "Interest Receivable and Similar Income": 2238.0,
+        "Interest Payable and Similar Charges": null,
+        "Profit Before Taxation": 1748263.0,
+        "Tax on Profit": -237333.0,
+        "Profit for the Financial Year": 1510930.0
+      }
+    },
+    "balance_sheet": {
+      "1998": {
+        "Intangible Fixed Assets": null,
+        "Tangible Fixed Assets": 8743335.0,
+        "Fixed Asset Investments": 204.0,
+        "Total Fixed Assets": 8743539.0,
+        "Stocks": 2310088.0,
+        "Debtors Due Within One Year": 1338643.0,
+        "Debtors Due After One Year": null,
+        "Cash at Bank and In Hand": 510227.0,
+        "Total Current Assets": 4158958.0,
+        "Creditors: Amounts Falling Due Within One Year": -12560689.0,
+        "Net Current Assets": -8401731.0,
+        "Total Assets Less Current Liabilities": 341808.0,
+        "Creditors: Amounts Falling Due After One Year": null,
+        "Provisions for Liabilities": null,
+        "Net Assets": 341808.0,
+        "Called Up Share Capital": 101.0,
+        "Share Premium Account": null,
+        "Revaluation Reserve": -444779.0,
+        "Other Reserves": null,
+        "Profit and Loss Account": 786486.0,
+        "Total Shareholders Funds": 341808.0
+      },
+      "1999": {
+        "Intangible Fixed Assets": null,
+        "Tangible Fixed Assets": 16981772.0,
+        "Fixed Asset Investments": 204.0,
+        "Total Fixed Assets": 16981976.0,
+        "Stocks": 3264715.0,
+        "Debtors Due Within One Year": 1691485.0,
+        "Debtors Due After One Year": null,
+        "Cash at Bank and In Hand": null,
+        "Total Current Assets": 4956200.0,
+        "Creditors: Amounts Falling Due Within One Year": -18585488.0,
+        "Net Current Assets": -13629288.0,
+        "Total Assets Less Current Liabilities": 3352688.0,
+        "Creditors: Amounts Falling Due After One Year": null,
+        "Provisions for Liabilities": null,
+        "Net Assets": 3352688.0,
+        "Called Up Share Capital": 3000101.0,
+        "Share Premium Account": null,
+        "Revaluation Reserve": -444779.0,
+        "Other Reserves": null,
+        "Profit and Loss Account": 797366.0,
+        "Total Shareholders Funds": 3352688.0
+      }
+    }
+  }
+}

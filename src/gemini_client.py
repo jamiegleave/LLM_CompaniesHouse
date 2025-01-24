@@ -249,6 +249,8 @@ CRITICAL RULES:
                         scale_factor = 0.001  # Convert thousands to millions
                     elif json_obj["metadata"].get("scale") == "billions":
                         scale_factor = 1000  # Convert billions to millions
+                    elif json_obj["metadata"].get("scale") == "units":
+                        scale_factor = 0.000001  # Convert units (GBP) to millions
 
                 for statement_type in ["profit_and_loss", "balance_sheet"]:
                     if statement_type in json_obj.get("statements", {}):
