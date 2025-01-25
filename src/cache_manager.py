@@ -23,34 +23,32 @@ class RedisCache:
             hours=int(os.getenv('REDIS_EXPIRE_HOURS', 24*30))
         ).total_seconds())
 
-    def get_company_data(self, company_number: str):
-        """Retrieve company data from cache"""
+    def get_company_data(self, company_number: str) -> dict:
+        """Retrieve company statements from cache"""
         try:
             data = self.redis_client.get(f"company:{company_number}")
-            return json.loads(data) if data else None
+            if data:
+                return json.loads(data)
+            return None
         except Exception as e:
             logger.error(f"Redis get error: {str(e)}")
             return None
 
-    def set_company_data(self, company_number: str, company_details: dict, statements: dict):
-        """Store company data in cache"""
+    def set_company_data(self, company_number: str, statements: dict) -> bool:
+        """Store company statements in cache"""
         try:
-            data = {
-                "company_details": company_details,
-                "statements": statements
-            }
             self.redis_client.setex(
                 f"company:{company_number}",
                 self.expire_seconds,
-                json.dumps(data)
+                json.dumps(statements)
             )
-            logger.info(f"Cached data for company {company_number}")
+            logger.info(f"Cached statements for company {company_number}")
             return True
         except Exception as e:
             logger.error(f"Redis set error: {str(e)}")
             return False
 
-    def is_healthy(self):
+    def is_healthy(self) -> bool:
         """Check if Redis connection is working"""
         try:
             return self.redis_client.ping()
@@ -59,15 +57,15 @@ class RedisCache:
             return False
 
     def delete_company_data(self, company_number: str) -> bool:
-        """Delete company data from cache"""
+        """Delete company statements from cache"""
         try:
             key = f"company:{company_number}"
             result = self.redis_client.delete(key)
             if result:
-                logger.info(f"Successfully deleted data for company {company_number}")
+                logger.info(f"Successfully deleted statements for company {company_number}")
                 return True
             else:
-                logger.info(f"No data found for company {company_number}")
+                logger.info(f"No statements found for company {company_number}")
                 return False
         except Exception as e:
             logger.error(f"Redis delete error: {str(e)}")

@@ -2,16 +2,14 @@ import streamlit as st
 import pandas as pd
 import plotly.figure_factory as ff
 import plotly.graph_objects as go
-from src.gemini_client import GeminiClient
-from src.download_accounts import CompaniesHouseDownloader
 from src.cache_manager import RedisCache
-import asyncio
 import logging
 from pathlib import Path
 import json
 import os
 from datetime import datetime
 from io import BytesIO
+from src.companies_house_db import CompaniesHouseDB
 
 logger = logging.getLogger(__name__)
 
@@ -72,39 +70,25 @@ def calculate_metrics(statements, year):
         return None
 
 def load_company_data(company_number: str, api_key: str):
-    """Load company data from cache or fetch new"""
+    """Load company data from cache and database"""
     try:
-        # Check cache first
+        # Get company details from database
+        db = CompaniesHouseDB()
+        company_details = db.get_company_details(company_number)
+        
+        if not company_details:
+            logger.error(f"Company details not found for {company_number}")
+            return None, None
+            
+        # Get statements from cache
         cached_data = redis_cache.get_company_data(company_number)
         if cached_data:
             logger.info(f"Cache hit for company {company_number}")
-            return cached_data["company_details"], cached_data["statements"]
-            
-        # Fetch new data if not cached
-        logger.info(f"Cache miss for company {company_number}, fetching from Companies House")
-        downloader = CompaniesHouseDownloader(company_number)
-        company_details = asyncio.run(downloader.get_company_details())
-        downloaded_files = asyncio.run(downloader.download_all_accounts())
+            statements = cached_data if 'statements' not in cached_data else cached_data['statements']
+            return company_details, statements
         
-        if not downloaded_files:
-            return None, None
-            
-        # Process files with Gemini
-        gemini_client = GeminiClient(api_key)
-        for filename, content in downloaded_files:
-            file_obj = BytesIO(content)
-            file_obj.name = filename
-            result = gemini_client.analyze_document(file_obj, "application/pdf")
-            
-        consolidated_result = gemini_client.consolidate_statements()
-        if consolidated_result.success:
-            # Cache the results using Redis
-            redis_cache.set_company_data(
-                company_number=company_number,
-                company_details=company_details,
-                statements=consolidated_result.extracted_data
-            )
-            return company_details, consolidated_result.extracted_data
+        logger.info(f"No cached data found for company {company_number}")
+        return None, None
             
     except Exception as e:
         logger.error(f"Error loading company {company_number}: {str(e)}")
@@ -218,17 +202,19 @@ def get_cached_companies():
     """Get list of all cached companies with their details"""
     try:
         companies = []
+        db = CompaniesHouseDB()
+        
         # Get all keys from Redis that start with 'company:'
         for key in redis_cache.redis_client.keys('company:*'):
-            company_data = redis_cache.get_company_data(key.replace('company:', ''))
-            if company_data and 'company_details' in company_data:
-                details = company_data['company_details']
-                # Only add if we have both name and number
-                if details.get('name') and details.get('number'):
-                    companies.append({
-                        'name': details['name'],
-                        'number': details['number']
-                    })
+            company_number = key.replace('company:', '')
+            # Get company details from database
+            company_details = db.get_company_details(company_number)
+            if company_details:
+                companies.append({
+                    'name': company_details['name'],
+                    'number': company_number
+                })
+        
         return sorted(companies, key=lambda x: x['name'])
     except Exception as e:
         logger.error(f"Error fetching cached companies: {str(e)}")
@@ -310,13 +296,15 @@ def sectoral_analysis():
                 
                 company_names[company_number] = company_details.get("name", company_number)
                 metric_data[company_number] = {}
-                
+
+                logger.info(f"statements: {statements}")
+
                 # Calculate metrics for each year in range
                 for year in range(year_range[0], year_range[1] + 1):
-                    metrics = calculate_metrics(statements.get("statements", {}), str(year))
+                    metrics = calculate_metrics(statements, str(year))
                     if metrics and metrics.get(selected_metric) is not None:
                         metric_data[company_number][str(year)] = metrics[selected_metric]
-            
+
             if metric_data:
                 # Create DataFrame
                 df = pd.DataFrame(metric_data).T

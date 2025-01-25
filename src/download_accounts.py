@@ -166,16 +166,3 @@ class CompaniesHouseDownloader:
         
         # Return successful downloads even if some failed
         return downloaded_files if downloaded_files else None
-    
-    async def get_company_details(self):
-        """Extract company name and number from the filing history page"""
-        html = await self.get_filing_history_page()
-        soup = BeautifulSoup(html, 'html.parser')
-        
-        company_name = soup.select_one(".company-header > h1").text.strip()
-        company_number = soup.select_one("#company-number > strong").text.strip()
-        
-        return {
-            'name': company_name,
-            'number': company_number
-        }

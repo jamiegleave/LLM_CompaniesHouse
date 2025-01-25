@@ -12,7 +12,6 @@ import hashlib
 import asyncio
 from src.download_accounts import CompaniesHouseDownloader
 from cache_manager import RedisCache
-from src.companies_house_db import CompaniesHouseDB
 
 # Configure logging to output to both file and console
 logging.basicConfig(
@@ -30,16 +29,14 @@ logger = logging.getLogger(__name__)
 # Initialize Redis cache
 redis_cache = RedisCache()
 
-# Initialize Companies House DB
-db = CompaniesHouseDB()
-
-def save_to_cache(data: dict, file_names: list = None, company_number: str = None) -> bool:
+def save_to_cache(data: dict, file_names: list = None, company_number: str = None, company_details: dict = None) -> bool:
     """Save processed results to Redis cache using either company number or MD5 of filenames"""
     try:
         if company_number:
             # Companies House path - use company number directly
             return redis_cache.set_company_data(
                 company_number=company_number,
+                company_details=company_details,
                 statements=data
             )
         elif file_names:
@@ -48,6 +45,7 @@ def save_to_cache(data: dict, file_names: list = None, company_number: str = Non
             cache_key = hashlib.md5('_'.join(sorted_names).encode()).hexdigest()
             return redis_cache.set_company_data(
                 company_number=cache_key,  # Using MD5 hash as the key
+                company_details={"source": "file_upload", "files": sorted_names},
                 statements=data
             )
         else:
@@ -58,7 +56,7 @@ def save_to_cache(data: dict, file_names: list = None, company_number: str = Non
         logger.error(f"Error saving to cache: {str(e)}")
         return False
 
-def load_from_cache(file_names: list = None, company_number: str = None) -> dict:
+def load_from_cache(file_names: list = None, company_number: str = None) -> tuple[dict, dict]:
     """Load processed results from Redis cache using either company number or MD5 of filenames"""
     try:
         if company_number:
@@ -70,19 +68,19 @@ def load_from_cache(file_names: list = None, company_number: str = None) -> dict
             cache_key = hashlib.md5('_'.join(sorted_names).encode()).hexdigest()
         else:
             logger.error("Neither company number nor file names provided for cache lookup")
-            return None
+            return None, None
             
         cached_data = redis_cache.get_company_data(cache_key)
         if cached_data:
             logger.info(f"Cache hit for key: {cache_key}")
-            return cached_data
+            return cached_data["statements"], cached_data["company_details"]
         else:
             logger.info(f"Cache miss for key: {cache_key}")
-            return None
+            return None, None
             
     except Exception as e:
         logger.error(f"Error loading from cache: {str(e)}")
-        return None
+        return None, None
 
 async def process_uploaded_file(uploaded_file, gemini_client):
     """Process a single file with caching"""
@@ -163,16 +161,19 @@ def main():
                 st.sidebar.error("Please enter a company number")
             else:
                 # Try to load from cache first
-                cached_results = load_from_cache(company_number=company_number)
+                cached_results, cached_company_details = load_from_cache(company_number=company_number)
                 if cached_results:
                     st.session_state.processed_results = cached_results
-                    st.session_state.company_details = db.get_company_details(company_number)
+                    st.session_state.company_details = cached_company_details
                 else:
                     with st.spinner("Downloading accounts from Companies House..."):
                         try:
                             downloader = CompaniesHouseDownloader(company_number)
                             # Run async methods using our helper
+                            company_details = run_async(downloader.get_company_details())
                             downloaded_files = run_async(downloader.download_all_accounts())
+                            
+                            st.session_state.company_details = company_details
                             
                             uploaded_files = []
                             for filename, content in downloaded_files:
@@ -208,10 +209,11 @@ def main():
         files_to_check = st.session_state.last_processed_files
 
     if files_to_check and st.session_state.processed_results is None:
-        cached_results = load_from_cache(file_names=files_to_check)
+        cached_results, cached_company_details = load_from_cache(file_names=files_to_check)
         if cached_results:
             logger.info("Restored results from cache")
             st.session_state.processed_results = cached_results
+            st.session_state.company_details = cached_company_details
 
     try:
         # Process files
@@ -243,6 +245,7 @@ def main():
                     consolidated_result.extracted_data, 
                     file_names=parsable_files,
                     company_number=company_number if use_companies_house else None,
+                    company_details=st.session_state.company_details
                 )
                 
     except Exception as e:
@@ -251,11 +254,6 @@ def main():
 
     # Display results if available (either from cache or new processing)
     if st.session_state.processed_results:
-        if use_companies_house:
-            st.session_state.company_details = db.get_company_details(company_number)
-        else:
-            st.session_state.company_details = None
-
         # Create tabs for tables and visualization
         tab_tables, tab_viz, tab_json = st.tabs(["Financial Statements", "Visualization", "Raw JSON"])
         
@@ -469,7 +467,7 @@ def display_visualizations(data: dict):
                 if year not in selected_years:  # Skip years outside selected range
                     continue
                     
-                operating_profit = statements["profit_and_loss"][year].get("Operating Profit")
+                operating_profit = statements["profit_and_loss"][year].get("Operating Profit", 0)
                 capital_employed = statements["balance_sheet"][year].get("Total Assets Less Current Liabilities")
                 
                 # If not available, calculate it alternatively
@@ -479,9 +477,6 @@ def display_visualizations(data: dict):
                     current_liabilities = statements["balance_sheet"][year].get("Creditors: Amounts Falling Due Within One Year", 0)
                     capital_employed = total_assets + current_liabilities  # current_liabilities is typically negative
                 
-                if operating_profit is None:
-                    continue
-
                 if capital_employed:  # Avoid division by zero
                     roce_data[year] = (operating_profit / capital_employed) * 100
             
@@ -530,9 +525,6 @@ def display_visualizations(data: dict):
                 )
                 
                 st.plotly_chart(fig_roce, use_container_width=True)
-
-            else:
-                st.warning("ROCE data cannot be calculated - insufficient or invalid data")
 
         # First section: Profit & Loss Metrics
         if "profit_and_loss" in statements:
@@ -654,24 +646,8 @@ def display_company_details():
     if st.session_state.company_details:
         st.header("Company Details")
         details = st.session_state.company_details
-        
         st.write("**Name:**", details.get("name", "N/A"))
         st.write("**Number:**", details.get("number", "N/A"))
-        st.write("**Status:**", details.get("status", "N/A"))
-        st.write("**Type:**", details.get("type", "N/A"))
-        st.write("**Incorporated:**", details.get("incorporated", "N/A"))
-        st.write("**Address:**", details.get("address", "N/A"))
-        
-        if details.get("sic_codes"):
-            st.write("**SIC Codes:**")
-            for code in details["sic_codes"]:
-                st.write(f"- {code}")
-            
-        if details.get("accounts"):
-            st.write("**Accounts:**")
-            st.write(f"- Category: {details['accounts'].get('category', 'N/A')}")
-            st.write(f"- Next due: {details['accounts'].get('next_due', 'N/A')}")
-            st.write(f"- Last made up: {details['accounts'].get('last_made_up', 'N/A')}")
 
 if __name__ == "__main__":
     main() 
